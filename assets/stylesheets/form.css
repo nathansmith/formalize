@@ -1,15 +1,8 @@
-/*
-	Form Elements
-	-- Styled to look like native Safari on OS X.
-	-- Drop-down <select> menus are unaffected.
-	-- Buttons are unaffected. Native OS style.
-*/
-
 /* `UI Consistency
 ----------------------------------------------------------------------------------------------------*/
 
 ::-webkit-input-placeholder {
-	color: #ccc;
+	color: #777;
 }
 
 /*
@@ -17,7 +10,7 @@
 	Cannot stack with WebKit's.
 */
 .placeholder_text {
-	color: #ccc !important;
+	color: #777;
 }
 
 input[type=search] {
@@ -50,7 +43,7 @@ input[type=button] {
 
 .ie_text,
 textarea,
-select[multiple],
+select,
 input[type=date],
 input[type=datetime],
 input[type=datetime-local],
@@ -64,7 +57,7 @@ input[type=text],
 input[type=time],
 input[type=url],
 input[type=week] {
-	background: #fff url(../images/input_shadow.png) repeat-x;
+	background: #fff;
 	border: 1px solid;
 	border-color: #848484 #c1c1c1 #e1e1e1;
 	color: #000;
@@ -76,7 +69,7 @@ input[type=week] {
 }
 
 textarea[disabled],
-select[multiple][disabled],
+select[disabled],
 input[type=date][disabled],
 input[type=datetime][disabled],
 input[type=datetime-local][disabled],
@@ -90,7 +83,8 @@ input[type=text][disabled],
 input[type=time][disabled],
 input[type=url][disabled],
 input[type=week][disabled] {
-	background: #eee url(../images/input_shadow_disabled.png) repeat-x;
+	background: #eee;
+	color: #777;
 }
 
 /*
@@ -98,7 +92,7 @@ input[type=week][disabled] {
 */
 @-moz-document url-prefix() {
 	input[type=range] {
-		background: #fff url(../images/input_shadow.png) repeat-x;
+		background: #fff;
 		border: 1px solid;
 		border-color: #848484 #c1c1c1 #e1e1e1;
 		color: #000;
@@ -110,12 +104,12 @@ input[type=week][disabled] {
 	}
 
 	input[type=range][disabled] {
-		background: #eee url(../images/input_shadow_disabled.png) repeat-x;
+		background: #eee;
 	}
 }
 
-.ie_multiple,
-select[multiple] {
+select,
+.ie_multiple {
 	padding: 0;
 }
 

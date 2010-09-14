@@ -4,6 +4,8 @@
 <meta charset="utf-8" />
 <title>Formalize CSS</title>
 <link rel="stylesheet" href="assets/stylesheets/master.css" />
+<script src="assets/javascripts/jquery.js"></script>
+<script src="assets/javascripts/formalize.js"></script>
 </head>
 <body>
 <div id="wrapper">
@@ -12,37 +14,37 @@
 	</h1>
 	<form action="" enctype="multipart/form-data" onsubmit="return false;">
 		<p>
-			<input type="checkbox" id="test_checkbox_1" name="test_checkbox_1" />
+			<input class="error" type="checkbox" id="test_checkbox_1" name="test_checkbox_1" />
 			<label class="error" for="test_checkbox_1">
 				Test checkbox 1
 			</label>
 			&nbsp;
 			&nbsp;
-			<input type="checkbox" id="test_checkbox_2" name="test_checkbox_2" />
+			<input class="error" type="checkbox" id="test_checkbox_2" name="test_checkbox_2" />
 			<label class="error" for="test_checkbox_2">
 				Test checkbox 2
 			</label>
 			&nbsp;
 			&nbsp;
-			<input type="checkbox" id="test_checkbox_3" name="test_checkbox_3" />
+			<input class="error" type="checkbox" id="test_checkbox_3" name="test_checkbox_3" />
 			<label class="error" for="test_checkbox_3">
 				Test checkbox 3
 			</label>
 		</p>
 		<p>
-			<input type="radio" id="test_radio_1" name="test_radio_group" />
+			<input class="error" type="radio" id="test_radio_1" name="test_radio_group" />
 			<label class="error" for="test_radio_1">
 				Test radio 1
 			</label>
 			&nbsp;
 			&nbsp;
-			<input type="radio" id="test_radio_2" name="test_radio_group" />
+			<input class="error" type="radio" id="test_radio_2" name="test_radio_group" />
 			<label class="error" for="test_radio_2">
 				Test radio 2
 			</label>
 			&nbsp;
 			&nbsp;
-			<input type="radio" id="test_radio_3" name="test_radio_group" />
+			<input class="error" type="radio" id="test_radio_3" name="test_radio_group" />
 			<label class="error" for="test_radio_3">
 				Test radio 3
 			</label>
@@ -52,7 +54,7 @@
 				Select drop-down
 			</label>
 			<br />
-			<select id="select_dd" name="select_dd">
+			<select class="error" id="select_dd" name="select_dd">
 				<optgroup label="Group 1">
 					<option value="1">Some text goes here</option>
 					<option value="2">Another choice could be here</option>
@@ -75,7 +77,7 @@
 				Select multiple
 			</label>
 			<br />
-			<select id="select_multi" name="select_multi" multiple="multiple" size="10">
+			<select class="error" id="select_multi" name="select_multi" multiple="multiple" size="10">
 				<optgroup label="Group 1">
 					<option value="1">Some text goes here</option>
 					<option value="2">Another choice could be here</option>
@@ -98,7 +100,7 @@
 				Textarea
 			</label>
 			<br />
-			<textarea id="textarea" name="textarea" rows="5" placeholder="This is an example of HTML5 placeholder text."></textarea>
+			<textarea class="error" id="textarea" name="textarea" rows="5" placeholder="This is an example of HTML5 placeholder text."></textarea>
 		</p>
 		<table class="horiz">
 			<tr>
@@ -107,21 +109,21 @@
 						URL
 					</label>
 					<br />
-					<input type="url" id="url" name="url" />
+					<input class="error" type="url" id="url" name="url" />
 				</td>
 				<td>
 					<label class="error" for="email">
 						Email
 					</label>
 					<br />
-					<input type="email" id="email" name="email" />
+					<input class="error" type="email" id="email" name="email" />
 				</td>
 				<td>
 					<label class="error" for="text">
 						Text
 					</label>
 					<br />
-					<input type="text" id="text" name="text" />
+					<input class="error" type="text" id="text" name="text" />
 				</td>
 			</tr>
 			<tr>
@@ -130,21 +132,21 @@
 						Range
 					</label>
 					<br />
-					<input type="range" id="range" name="range" />
+					<input class="error" type="range" id="range" name="range" />
 				</td>
 				<td>
 					<label class="error" for="number">
 						Number
 					</label>
 					<br />
-					<input type="number" id="number" name="number" />
+					<input class="error" type="number" id="number" name="number" />
 				</td>
 				<td>
 					<label class="error" for="tel">
 						Tel (phone)
 					</label>
 					<br />
-					<input type="tel" id="tel" name="tel" />
+					<input class="error" type="tel" id="tel" name="tel" />
 				</td>
 			</tr>
 			<tr>
@@ -153,21 +155,21 @@
 						Datetime
 					</label>
 					<br />
-					<input type="datetime" id="datetime" name="datetime" />
+					<input class="error" type="datetime" id="datetime" name="datetime" />
 				</td>
 				<td>
 					<label class="error" for="date">
 						Date
 					</label>
 					<br />
-					<input type="date" id="date" name="date" />
+					<input class="error" type="date" id="date" name="date" />
 				</td>
 				<td>
 					<label class="error" for="month">
 						Month
 					</label>
 					<br />
-					<input type="month" id="month" name="email" />
+					<input class="error" type="month" id="month" name="email" />
 				</td>
 			</tr>
 			<tr>
@@ -176,21 +178,21 @@
 						Datetime local
 					</label>
 					<br />
-					<input type="datetime-local" id="datetime-local" name="datetime-local" />
+					<input class="error" type="datetime-local" id="datetime-local" name="datetime-local" />
 				</td>
 				<td>
 					<label class="error" for="search">
 						Search
 					</label>
 					<br />
-					<input type="search" id="search" name="search" />
+					<input class="error" type="search" id="search" name="search" />
 				</td>
 				<td>
 					<label class="error" for="file">
 						File upload
 					</label>
 					<br />
-					<input type="file" id="file" name="file" />
+					<input class="error" type="file" id="file" name="file" />
 				</td>
 			</tr>
 		</table>
@@ -207,7 +209,5 @@
 		</p>
 	</form>
 </div>
-<script src="assets/javascripts/jquery.js"></script>
-<script src="assets/javascripts/formalize.js"></script>
 </body>
 </html>

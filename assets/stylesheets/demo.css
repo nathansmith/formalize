@@ -23,6 +23,12 @@ label.error {
 	color: #c00;
 }
 
+input.error,
+select.error,
+textarea.error {
+	background-color: #fee;
+}
+
 /* `Table Layout
 ----------------------------------------------------------------------------------------------------*/
 
