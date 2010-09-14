@@ -1,0 +1,167 @@
+/*
+	Form Elements
+	-- Styled to look like native Safari on OS X.
+	-- Drop-down <select> menus are unaffected.
+	-- Buttons are unaffected. Native OS style.
+*/
+
+/* `UI Consistency
+----------------------------------------------------------------------------------------------------*/
+
+::-webkit-input-placeholder {
+	color: #ccc;
+}
+
+/*
+	Separate rule for Firefox.
+	Cannot stack with WebKit's.
+*/
+.placeholder_text {
+	color: #ccc !important;
+}
+
+input[type=search] {
+	-webkit-appearance: none;
+	-webkit-box-sizing: content-box;
+}
+
+input[type=search]::-webkit-search-decoration {
+	display: none;
+}
+
+input,
+button,
+select,
+textarea {
+	margin: 0;
+	outline: 0;
+}
+
+.ie_button,
+button,
+input[type=reset],
+input[type=submit],
+input[type=button] {
+	display: inline-block;
+	font-size: 11px;
+	overflow: visible;
+	width: auto;
+}
+
+.ie_text,
+textarea,
+select[multiple],
+input[type=date],
+input[type=datetime],
+input[type=datetime-local],
+input[type=email],
+input[type=month],
+input[type=number],
+input[type=password],
+input[type=search],
+input[type=tel],
+input[type=text],
+input[type=time],
+input[type=url],
+input[type=week] {
+	background: #fff url(../images/input_shadow.png) repeat-x;
+	border: 1px solid;
+	border-color: #848484 #c1c1c1 #e1e1e1;
+	color: #000;
+	padding-top: 2px;
+	padding-left: 3px;
+	padding-right: 3px;
+	font: 13px Arial, sans-serif;
+	vertical-align: top;
+}
+
+textarea[disabled],
+select[multiple][disabled],
+input[type=date][disabled],
+input[type=datetime][disabled],
+input[type=datetime-local][disabled],
+input[type=email][disabled],
+input[type=month][disabled],
+input[type=number][disabled],
+input[type=password][disabled],
+input[type=search][disabled],
+input[type=tel][disabled],
+input[type=text][disabled],
+input[type=time][disabled],
+input[type=url][disabled],
+input[type=week][disabled] {
+	background: #eee url(../images/input_shadow_disabled.png) repeat-x;
+}
+
+/*
+	For Firefox only. To avoid serving to Opera.
+*/
+@-moz-document url-prefix() {
+	input[type=range] {
+		background: #fff url(../images/input_shadow.png) repeat-x;
+		border: 1px solid;
+		border-color: #848484 #c1c1c1 #e1e1e1;
+		color: #000;
+		padding-top: 2px;
+		padding-left: 3px;
+		padding-right: 3px;
+		font: 13px Arial, sans-serif;
+		vertical-align: top;
+	}
+
+	input[type=range][disabled] {
+		background: #eee url(../images/input_shadow_disabled.png) repeat-x;
+	}
+}
+
+.ie_multiple,
+select[multiple] {
+	padding: 0;
+}
+
+textarea {
+	max-width: 100%;
+	min-width: 100%;
+	width: 100%;
+}
+
+optgroup {
+	color: #000;
+	font-style: normal;
+	font-weight: normal;
+}
+
+/* `Widths
+----------------------------------------------------------------------------------------------------*/
+
+.input_tiny {
+	width: 50px;
+}
+
+.input_small {
+	width: 100px;
+}
+
+.input_medium {
+	width: 150px;
+}
+
+.input_large {
+	width: 200px;
+}
+
+.input_xlarge {
+	width: 250px;
+}
+
+.input_full {
+	width: 100%;
+}
+
+/*
+	Added via JS to <textarea> and class="input_full"
+*/
+.input_full_wrap {
+	display: block;
+	padding-right: 8px;
+}
