@@ -42,14 +42,21 @@ var FRM = (function($, window, undefined) {
 				$(':input').each(function() {
 					var el = $(this);
 
-					if (this.tagName.toLowerCase() === 'select' && this.multiple) {
-						el.addClass('ie_multiple');
-					}
-					else if (this.type === 'button' || this.type === 'submit' || this.type === 'reset') {
+					if (this.type === 'button' || this.type === 'submit' || this.type === 'reset') {
 						el.addClass('ie_button');
+
+						/* Is it disabled? */
+						if (this.disabled) {
+							el.addClass('ie_button_disabled');
+						}
 					}
 					else if (this.type.match(type_regex)) {
-						el.addClass('ie_text');
+						el.addClass('ie_input');
+
+						/* Is it disabled? */
+						if (this.disabled) {
+							el.addClass('ie_input_disabled');
+						}
 					}
 				});
 			},

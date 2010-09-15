@@ -1,16 +1,20 @@
 /* `UI Consistency
 ----------------------------------------------------------------------------------------------------*/
 
-::-webkit-input-placeholder {
-	color: #777;
-}
-
 /*
 	Separate rule for Firefox.
 	Cannot stack with WebKit's.
 */
 .placeholder_text {
 	color: #777;
+}
+
+::-webkit-input-placeholder {
+	color: #777;
+}
+
+::-moz-focus-inner {
+	border: 0;
 }
 
 input[type=search] {
@@ -35,13 +39,44 @@ button,
 input[type=reset],
 input[type=submit],
 input[type=button] {
-	display: inline-block;
-	font-size: 11px;
+	-moz-border-radius: 15px;
+	-webkit-border-radius: 15px;
+	border-radius: 15px;
+	background: #ddd url(../images/button.png) repeat-x;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fff), color-stop(1, #ddd));
+	background: -moz-linear-gradient(top center, #fff 0%, #ddd 100%);
+	border: 1px solid;
+	border-color: #ddd #bbb #999;
+	cursor: pointer;
+	color: #333;
+	font: bold 12px/1.2 Arial, sans-serif;
+	padding: 5px 15px 6px;
 	overflow: visible;
+	text-shadow: #fff 0 1px 1px;
 	width: auto;
+
+	/* IE7 */
+	*padding-bottom: 4px;
+
+	/* IE6 */
+	_padding-bottom: 4px;
+
+	/* IE6 + IE7 */
+	filter:  progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='#ffffff', endColorstr='#dddddd');
+
+	/* IE8 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#ffffff', endColorstr='#dddddd')";
 }
 
-.ie_text,
+.ie_button_disabled,
+button[disabled],
+input[type=reset][disabled],
+input[type=submit][disabled],
+input[type=button][disabled] {
+	color: #777;
+}
+
+.ie_input,
 textarea,
 select,
 input[type=date],
@@ -68,6 +103,7 @@ input[type=week] {
 	vertical-align: top;
 }
 
+.ie_input_disabled,
 textarea[disabled],
 select[disabled],
 input[type=date][disabled],
@@ -77,6 +113,7 @@ input[type=email][disabled],
 input[type=month][disabled],
 input[type=number][disabled],
 input[type=password][disabled],
+input[type=range][disabled],
 input[type=search][disabled],
 input[type=tel][disabled],
 input[type=text][disabled],
@@ -108,8 +145,7 @@ input[type=week][disabled] {
 	}
 }
 
-select,
-.ie_multiple {
+select {
 	padding: 0;
 }
 
