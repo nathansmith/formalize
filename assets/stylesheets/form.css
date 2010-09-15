@@ -60,12 +60,6 @@ input[type=button] {
 
 	/* IE6 */
 	_padding-bottom: 4px;
-
-	/* IE6 + IE7 */
-	filter:  progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='#ffffff', endColorstr='#dddddd');
-
-	/* IE8 */
-	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#ffffff', endColorstr='#dddddd')";
 }
 
 .ie_button_disabled,
