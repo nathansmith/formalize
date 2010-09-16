@@ -118,8 +118,25 @@ input[type=week][disabled] {
 	color: #777;
 }
 
+button:focus,
+select:focus,
+textarea:focus,
+input:focus,
+button:active,
+select:active,
+textarea:active,
+input:active {
+	-moz-box-shadow: #06f 0 0 7px;
+	-webkit-box-shadow: #06f 0 0 7px;
+	box-shadow: #06f 0 0 7px;
+
+	/* for Opera */
+	z-index: 1;
+}
+
 /*
-	For Firefox only. To avoid serving to Opera.
+	For Firefox only.
+	Other browsers render as drag-handle.
 */
 @-moz-document url-prefix() {
 	input[type=range] {
@@ -132,6 +149,11 @@ input[type=week][disabled] {
 		padding-right: 3px;
 		font: 13px Arial, sans-serif;
 		vertical-align: top;
+	}
+
+	input[type=range]:focus {
+		-moz-box-shadow: #06f 0 0 7px;
+		box-shadow: #06f 0 0 7px;
 	}
 
 	input[type=range][disabled] {
