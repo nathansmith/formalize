@@ -14,6 +14,17 @@ var FRM = (function($, window, undefined) {
 	var PLACEHOLDER_SUPPORTED = 'placeholder' in document.createElement('input');
 	var AUTOFOCUS_SUPPORTED = 'autofocus' in document.createElement('input');
 
+	var IE_VERSION = (function(){
+    	var undef;
+		var v = 3;
+		var div = document.createElement('div');
+		var all = div.getElementsByTagName('i');
+
+    	while (div.innerHTML = '<!--[if gt IE ' + (++v) + ']><i></i><![endif]-->' && all[0]);
+
+	    return v > 4 ? v : undef;
+	}());
+
 	// Expose contents of FRM.
 	return {
 		go: function() {
@@ -23,7 +34,7 @@ var FRM = (function($, window, undefined) {
 		},
 		init: {
 			full_input_size: function() {
-				if (!$('textarea, input.input_full').length) {
+				if (IE_VERSION !== 6 || IE_VERSION !== 7 || !$('textarea, input.input_full').length) {
 					return;
 				}
 
@@ -33,7 +44,7 @@ var FRM = (function($, window, undefined) {
 			},
 			ie_skin_inputs: function() {
 				// Test for Internet Explorer 6.
-				if ((typeof document.addEventListener === 'function' && window.XMLHttpRequest) || !$(':input').length) {
+				if (IE_VERSION !== 6 || !$(':input').length) {
 					return;
 				}
 
