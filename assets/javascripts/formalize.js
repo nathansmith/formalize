@@ -13,17 +13,8 @@ var FRM = (function($, window, undefined) {
 	// Private constants.
 	var PLACEHOLDER_SUPPORTED = 'placeholder' in document.createElement('input');
 	var AUTOFOCUS_SUPPORTED = 'autofocus' in document.createElement('input');
-
-	var IE_VERSION = (function(){
-    	var undef;
-		var v = 3;
-		var div = document.createElement('div');
-		var all = div.getElementsByTagName('i');
-
-    	while (div.innerHTML = '<!--[if gt IE ' + (++v) + ']><i></i><![endif]-->' && all[0]);
-
-	    return v > 4 ? v : undef;
-	}());
+	var IE6 = !!($.browser.msie && $.browser.version.match('6.'));
+	var IE7 = !!($.browser.msie && $.browser.version.match('7.'));
 
 	// Expose contents of FRM.
 	return {
@@ -34,7 +25,7 @@ var FRM = (function($, window, undefined) {
 		},
 		init: {
 			full_input_size: function() {
-				if (IE_VERSION !== 6 || IE_VERSION !== 7 || !$('textarea, input.input_full').length) {
+				if (!(IE6 || IE7) || !$('textarea, input.input_full').length) {
 					return;
 				}
 
@@ -44,16 +35,17 @@ var FRM = (function($, window, undefined) {
 			},
 			ie_skin_inputs: function() {
 				// Test for Internet Explorer 6.
-				if (IE_VERSION !== 6 || !$(':input').length) {
+				if (!IE6 || !$('input').length) {
 					return;
 				}
 
+				var button_regex = /button|submit|reset/;
 				var type_regex = /^(date|datetime|email|month|number|password|range|search|tel|text|time|url|week)/;
 
-				$(':input').each(function() {
+				$('input').each(function() {
 					var el = $(this);
 
-					if (this.type === 'button' || this.type === 'submit' || this.type === 'reset') {
+					if (this.type.match(button_regex)) {
 						el.addClass('ie_button');
 
 						/* Is it disabled? */
