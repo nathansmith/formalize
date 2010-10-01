@@ -110,7 +110,6 @@ input[type=email][disabled],
 input[type=month][disabled],
 input[type=number][disabled],
 input[type=password][disabled],
-input[type=range][disabled],
 input[type=search][disabled],
 input[type=tel][disabled],
 input[type=text][disabled],
@@ -135,33 +134,6 @@ input:active {
 
 	/* for Opera */
 	z-index: 1;
-}
-
-/*
-	For Firefox only.
-	Other browsers render as drag-handle.
-*/
-@-moz-document url-prefix() {
-	input[type=range] {
-		background: #fff;
-		border: 1px solid;
-		border-color: #848484 #c1c1c1 #e1e1e1;
-		color: #000;
-		padding-top: 2px;
-		padding-left: 3px;
-		padding-right: 3px;
-		font: 13px Arial, sans-serif;
-		vertical-align: top;
-	}
-
-	input[type=range]:focus {
-		-moz-box-shadow: #06f 0 0 7px;
-		box-shadow: #06f 0 0 7px;
-	}
-
-	input[type=range][disabled] {
-		background: #eee;
-	}
 }
 
 select {
