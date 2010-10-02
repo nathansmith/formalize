@@ -32,24 +32,11 @@ textarea.error {
 /* `Table Layout
 ----------------------------------------------------------------------------------------------------*/
 
-table.horiz {
+.horiz {
 	margin-top: -20px;
 	margin-left: -20px;
 }
 
-table.horiz td {
+.horiz td {
 	padding: 20px 0 0 20px;
-}
-
-/* `Cancel Link
-----------------------------------------------------------------------------------------------------*/
-
-.cancel {
-	color: #c00;
-	padding: 1px;
-}
-
-.cancel:hover {
-	background: #c00;
-	color: #fff;
 }

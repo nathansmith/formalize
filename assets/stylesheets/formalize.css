@@ -1,3 +1,39 @@
+/* `Widths
+----------------------------------------------------------------------------------------------------*/
+
+.input_tiny {
+	width: 50px;
+}
+
+.input_small {
+	width: 100px;
+}
+
+.input_medium {
+	width: 150px;
+}
+
+.input_large {
+	width: 200px;
+}
+
+.input_xlarge {
+	width: 250px;
+}
+
+.input_full {
+	width: 100%;
+}
+
+/*
+	Added via JS to <textarea> and class="input_full".
+	Applies to IE6, IE7. Other browsers don't need it.
+*/
+.input_full_wrap {
+	display: block;
+	padding-right: 8px;
+}
+
 /* `UI Consistency
 ----------------------------------------------------------------------------------------------------*/
 
@@ -34,7 +70,6 @@ textarea {
 	outline: 0;
 }
 
-.ie_button,
 button,
 input[type=reset],
 input[type=submit],
@@ -57,12 +92,8 @@ input[type=button] {
 
 	/* IE7 */
 	*padding-bottom: 4px;
-
-	/* IE6 */
-	_padding-bottom: 4px;
 }
 
-.ie_button_disabled,
 button[disabled],
 input[type=reset][disabled],
 input[type=submit][disabled],
@@ -70,7 +101,6 @@ input[type=button][disabled] {
 	color: #777;
 }
 
-.ie_input,
 textarea,
 select,
 input[type=date],
@@ -100,7 +130,6 @@ input[type=week] {
 	vertical-align: top;
 }
 
-.ie_input_disabled,
 textarea[disabled],
 select[disabled],
 input[type=date][disabled],
@@ -152,38 +181,63 @@ optgroup {
 	font-weight: normal;
 }
 
-/* `Widths
+/* `IE6
 ----------------------------------------------------------------------------------------------------*/
 
-.input_tiny {
-	width: 50px;
-}
-
-.input_small {
-	width: 100px;
-}
-
-.input_medium {
-	width: 150px;
-}
-
-.input_large {
-	width: 200px;
-}
-
-.input_xlarge {
-	width: 250px;
-}
-
-.input_full {
-	width: 100%;
-}
-
 /*
-	Added via JS to <textarea> and class="input_full".
-	Applies to IE6, IE7. Other browsers don't need it.
+	Everything below this line is for IE6.
+	Delete it if you don't support it! :)
+
+	Classes are added dynamically via JS,
+	because IE6 doesn't support attribute
+	selectors: .ie6_button, .ie6_input, etc.
+
+	Note: These style rules are somewhat
+	duplicated because IE6 bombs out when
+	it sees attribute selectors. Example:
+
+	.ie6_button {
+		This works!
+	}
+
+	.ie6_button,
+	input[type=submit] {
+		This doesn't work.
+	}
 */
-.input_full_wrap {
-	display: block;
-	padding-right: 8px;
+
+.ie6_button,
+* html button {
+	background: #ddd url(../images/button.png) repeat-x;
+	border: 1px solid;
+	border-color: #ddd #bbb #999;
+	cursor: pointer;
+	color: #333;
+	font: bold 12px/1.2 Arial, sans-serif;
+	padding: 5px 15px 4px;
+	overflow: visible;
+	width: auto;
+}
+
+.ie6_input,
+* html textarea,
+* html select {
+	background: #fff;
+	border: 1px solid;
+	border-color: #848484 #c1c1c1 #e1e1e1;
+	color: #000;
+	padding-top: 2px;
+	padding-left: 3px;
+	padding-right: 3px;
+	font: 13px Arial, sans-serif;
+	vertical-align: top;
+}
+
+.ie6_input_disabled,
+.ie6_button_disabled {
+	color: #777;
+}
+
+.ie6_input_disabled {
+	background: #eee;
 }

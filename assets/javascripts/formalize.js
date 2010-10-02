@@ -13,8 +13,8 @@ var FRM = (function($, window, undefined) {
 	// Private constants.
 	var PLACEHOLDER_SUPPORTED = 'placeholder' in document.createElement('input');
 	var AUTOFOCUS_SUPPORTED = 'autofocus' in document.createElement('input');
-	var IE6 = !!($.browser.msie && $.browser.version.match('6.'));
-	var IE7 = !!($.browser.msie && $.browser.version.match('7.'));
+	var IE6 = !!($.browser.msie && parseInt($.browser.version, 10) === 6);
+	var IE7 = !!($.browser.msie && parseInt($.browser.version, 10) === 7);
 
 	// Expose contents of FRM.
 	return {
@@ -33,33 +33,39 @@ var FRM = (function($, window, undefined) {
 				// It ensures that form elements don't go wider than container.
 				$('textarea, input.input_full').wrap('<span class="input_full_wrap"></span>');
 			},
-			ie_skin_inputs: function() {
+			ie6_skin_inputs: function() {
 				// Test for Internet Explorer 6.
-				if (!IE6 || !$('input').length) {
+				if (!IE6 || !$('input, select, textarea').length) {
 					return;
 				}
 
 				var button_regex = /button|submit|reset/;
-				var type_regex = /^(date|datetime|email|month|number|password|range|search|tel|text|time|url|week)/;
+				var type_regex = /date|datetime|datetime-local|email|month|number|password|range|search|tel|text|time|url|week/;
 
 				$('input').each(function() {
 					var el = $(this);
 
 					if (this.type.match(button_regex)) {
-						el.addClass('ie_button');
+						el.addClass('ie6_button');
 
 						/* Is it disabled? */
 						if (this.disabled) {
-							el.addClass('ie_button_disabled');
+							el.addClass('ie6_button_disabled');
 						}
 					}
 					else if (this.type.match(type_regex)) {
-						el.addClass('ie_input');
+						el.addClass('ie6_input');
 
 						/* Is it disabled? */
 						if (this.disabled) {
-							el.addClass('ie_input_disabled');
+							el.addClass('ie6_input_disabled');
 						}
+					}
+				});
+
+				$('textarea, select').each(function() {
+					if (this.disabled) {
+						$(this).addClass('ie6_input_disabled');
 					}
 				});
 			},
