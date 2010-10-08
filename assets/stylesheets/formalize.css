@@ -170,8 +170,7 @@ select {
 }
 
 textarea {
-	max-width: 100%;
-	min-width: 100%;
+	resize: vertical;
 	width: 100%;
 }
 
