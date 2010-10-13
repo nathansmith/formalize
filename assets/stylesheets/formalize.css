@@ -150,13 +150,13 @@ input[type=week][disabled] {
 }
 
 button:focus,
-select:focus,
-textarea:focus,
-input:focus,
 button:active,
+input:focus,
+input:active,
+select:focus,
 select:active,
-textarea:active,
-input:active {
+textarea:focus,
+textarea:active {
 	-moz-box-shadow: #06f 0 0 7px;
 	-webkit-box-shadow: #06f 0 0 7px;
 	box-shadow: #06f 0 0 7px;
