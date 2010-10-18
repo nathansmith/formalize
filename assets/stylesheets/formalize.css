@@ -21,6 +21,10 @@
 	width: 250px;
 }
 
+.input_xxlarge {
+	width: 300px;
+}
+
 .input_full {
 	width: 100%;
 }
@@ -55,7 +59,6 @@
 
 input[type=search] {
 	-webkit-appearance: none;
-	-webkit-box-sizing: content-box;
 }
 
 input[type=search]::-webkit-search-decoration {
@@ -196,7 +199,7 @@ optgroup {
 	it sees attribute selectors. Example:
 
 	.ie6_button {
-		This works!
+		This works in IE6.
 	}
 
 	.ie6_button,
