@@ -130,6 +130,7 @@ input[type=week] {
 	padding: 2px 3px;
 	font: 13px Arial, sans-serif;
 	vertical-align: top;
+	height: 1.8em;
 }
 
 textarea[disabled],
@@ -171,6 +172,11 @@ select {
 	background-image: url(../images/select_arrow.gif);
 	background-repeat: no-repeat;
 	background-position: right center;
+}
+
+textarea,
+select[multiple] {
+	height: auto;
 }
 
 select[multiple] {
