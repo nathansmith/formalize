@@ -91,7 +91,7 @@ input[type=button] {
 	width: auto;
 
 	/* IE7 */
-	*padding-bottom: 4px;
+	*padding-bottom: 3px;
 }
 
 button[disabled],
@@ -128,9 +128,15 @@ input[type=week] {
 	border-color: #848484 #c1c1c1 #e1e1e1;
 	color: #000;
 	padding: 2px 3px;
-	font: 13px Arial, sans-serif;
+	font-size: 13px;
+	font-family: Arial, sans-serif;
 	vertical-align: top;
 	height: 1.8em;
+
+	/* IE7 */
+	*padding-top: 1px;
+	*padding-bottom: 1px;
+	*height: auto;
 }
 
 textarea[disabled],
@@ -228,7 +234,7 @@ optgroup {
 	cursor: pointer;
 	color: #333;
 	font: bold 12px/1.2 Arial, sans-serif;
-	padding: 5px 15px 4px;
+	padding: 5px 15px 3px;
 	overflow: visible;
 	width: auto;
 }
@@ -240,10 +246,9 @@ optgroup {
 	border: 1px solid;
 	border-color: #848484 #c1c1c1 #e1e1e1;
 	color: #000;
-	padding-top: 2px;
-	padding-left: 3px;
-	padding-right: 3px;
-	font: 13px Arial, sans-serif;
+	padding: 1px 3px;
+	font-size: 13px;
+	font-family: Arial, sans-serif;
 	vertical-align: top;
 }
 
