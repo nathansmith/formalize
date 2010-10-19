@@ -174,10 +174,12 @@ textarea:active {
 	z-index: 1;
 }
 
-select {
+.webkit_select {
+	/* Tweaks for Safari + Chrome. */
 	background-image: url(../images/select_arrow.gif);
 	background-repeat: no-repeat;
 	background-position: right center;
+	padding-right: 20px;
 }
 
 textarea,
@@ -186,7 +188,6 @@ select[multiple] {
 }
 
 select[multiple] {
-	background-image: none;
 	padding: 0;
 }
 

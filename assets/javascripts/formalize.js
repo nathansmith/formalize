@@ -15,6 +15,7 @@ var FORMALIZE = (function($, window, undefined) {
 	var AUTOFOCUS_SUPPORTED = 'autofocus' in document.createElement('input');
 	var IE6 = !!($.browser.msie && parseInt($.browser.version, 10) === 6);
 	var IE7 = !!($.browser.msie && parseInt($.browser.version, 10) === 7);
+	var WEBKIT = $.browser.webkit;
 
 	// Expose innards of FORMALIZE.
 	return {
@@ -26,6 +27,18 @@ var FORMALIZE = (function($, window, undefined) {
 		},
 		// FORMALIZE.init
 		init: {
+			webkit_select: function() {
+				if (!WEBKIT || !$('select').length) {
+					return;
+				}
+
+				// Tweaks for Safari + Chrome.
+				$('select').each(function() {
+					if (!this.multiple) {
+						$(this).addClass('webkit_select');
+					}
+				});
+			},
 			// FORMALIZE.init.full_input_size
 			full_input_size: function() {
 				if (!(IE6 || IE7) || !$('textarea, input.input_full').length) {
