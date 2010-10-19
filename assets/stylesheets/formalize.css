@@ -191,6 +191,7 @@ select[multiple] {
 }
 
 textarea {
+	overflow: auto;
 	resize: vertical;
 	width: 100%;
 }
