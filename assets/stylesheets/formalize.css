@@ -174,7 +174,7 @@ textarea:active {
 	z-index: 1;
 }
 
-.webkit_select {
+.is_webkit select {
 	/* Tweaks for Safari + Chrome. */
 	background-image: url(../images/select_arrow.gif);
 	background-repeat: no-repeat;
@@ -187,7 +187,9 @@ select[multiple] {
 	height: auto;
 }
 
-select[multiple] {
+select[multiple],
+.is_webkit select[multiple] {
+	background-image: none;
 	padding: 0;
 }
 

@@ -27,17 +27,13 @@ var FORMALIZE = (function($, window, undefined) {
 		},
 		// FORMALIZE.init
 		init: {
-			webkit_select: function() {
-				if (!WEBKIT || !$('select').length) {
+			detect_webkit: function() {
+				if (!WEBKIT) {
 					return;
 				}
 
 				// Tweaks for Safari + Chrome.
-				$('select').each(function() {
-					if (!this.multiple) {
-						$(this).addClass('webkit_select');
-					}
-				});
+				$('html').addClass('is_webkit');
 			},
 			// FORMALIZE.init.full_input_size
 			full_input_size: function() {
