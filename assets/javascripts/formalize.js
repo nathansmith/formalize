@@ -15,7 +15,7 @@ var FORMALIZE = (function($, window, undefined) {
 	var AUTOFOCUS_SUPPORTED = 'autofocus' in document.createElement('input');
 	var IE6 = !!($.browser.msie && parseInt($.browser.version, 10) === 6);
 	var IE7 = !!($.browser.msie && parseInt($.browser.version, 10) === 7);
-	var WEBKIT = $.browser.webkit;
+	var WEBKIT = 'webkitAppearance' in document.createElement('select').style;
 
 	// Expose innards of FORMALIZE.
 	return {
