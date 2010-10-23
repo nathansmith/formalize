@@ -9,7 +9,7 @@ jQuery(document).ready(function() {
 
 // Module pattern:
 // http://yuiblog.com/blog/2007/06/12/module-pattern/
-var FORMALIZE = (function($, window, undefined) {
+var FORMALIZE = (function($, window, document, undefined) {
 	// Private constants.
 	var PLACEHOLDER_SUPPORTED = 'placeholder' in document.createElement('input');
 	var AUTOFOCUS_SUPPORTED = 'autofocus' in document.createElement('input');
@@ -140,4 +140,4 @@ var FORMALIZE = (function($, window, undefined) {
 		}
 	};
 // Pass in jQuery ref.
-})(jQuery, this);
+})(jQuery, this, this.document);

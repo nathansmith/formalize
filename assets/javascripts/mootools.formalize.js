@@ -3,13 +3,13 @@
 //
 
 // Automatically calls all functions in FORMALIZE.init
-document.addEvent('domready', function() {
+$(document).addEvent('domready', function() {
 	FORMALIZE.go();
 });
 
 // Module pattern:
 // http://yuiblog.com/blog/2007/06/12/module-pattern/
-var FORMALIZE = (function(window, undefined) {
+var FORMALIZE = (function(window, document, undefined) {
 	// Private constants.
 	var PLACEHOLDER_SUPPORTED = 'placeholder' in document.createElement('input');
 	var AUTOFOCUS_SUPPORTED = 'autofocus' in document.createElement('input');
@@ -147,4 +147,4 @@ var FORMALIZE = (function(window, undefined) {
 		}
 	};
 // Pass in window.
-})(this);
+})(this, this.document);
