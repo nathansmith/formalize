@@ -41,18 +41,6 @@
 /* `UI Consistency
 ----------------------------------------------------------------------------------------------------*/
 
-/*
-	Separate rule for Firefox.
-	Cannot stack with WebKit's.
-*/
-.placeholder_text {
-	color: #777;
-}
-
-::-webkit-input-placeholder {
-	color: #777;
-}
-
 ::-moz-focus-inner {
 	border: 0;
 }
@@ -99,7 +87,7 @@ button[disabled],
 input[type=reset][disabled],
 input[type=submit][disabled],
 input[type=button][disabled] {
-	color: #777;
+	color: #888;
 }
 
 textarea,
@@ -140,6 +128,19 @@ input[type=week] {
 	*height: auto;
 }
 
+/*
+	Separate rule for Firefox.
+	Cannot stack with WebKit's.
+*/
+input.placeholder_text,
+textarea.placeholder_text {
+	color: #888;
+}
+
+::-webkit-input-placeholder {
+	color: #888;
+}
+
 textarea[disabled],
 select[disabled],
 input[type=date][disabled],
@@ -156,7 +157,7 @@ input[type=time][disabled],
 input[type=url][disabled],
 input[type=week][disabled] {
 	background-color: #eee;
-	color: #777;
+	color: #888;
 }
 
 button:focus,
@@ -257,9 +258,10 @@ optgroup {
 	vertical-align: top;
 }
 
+.placeholder_text,
 .ie6_input_disabled,
 .ie6_button_disabled {
-	color: #777;
+	color: #888;
 }
 
 .ie6_input_disabled {
