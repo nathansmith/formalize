@@ -1,14 +1,14 @@
 //
-// Automatically calls all functions in FORMALIZE.init
+// Note: This file depends on the Mootools library.
 //
+
+// Automatically calls all functions in FORMALIZE.init
 jQuery(document).ready(function() {
 	FORMALIZE.go();
 });
 
-//
 // Module pattern:
 // http://yuiblog.com/blog/2007/06/12/module-pattern/
-//
 var FORMALIZE = (function($, window, undefined) {
 	// Private constants.
 	var PLACEHOLDER_SUPPORTED = 'placeholder' in document.createElement('input');
