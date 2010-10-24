@@ -4,8 +4,8 @@
 <meta charset="utf-8" />
 <title>Formalize CSS</title>
 <link rel="stylesheet" href="assets/stylesheets/master.css" />
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
-<script src="assets/javascripts/jquery.formalize.js"></script>
+<script src="http://yui.yahooapis.com/3.2.0/build/simpleyui/simpleyui-min.js"></script>
+<script src="assets/javascripts/yui.formalize.js"></script>
 </head>
 <body>
 <div id="wrapper">
@@ -14,37 +14,37 @@
 	</h1>
 	<form action="" enctype="multipart/form-data" onsubmit="return false;">
 		<p>
-			<input type="checkbox" id="test_checkbox_1" name="test_checkbox_1" />
+			<input disabled="disabled" type="checkbox" id="test_checkbox_1" name="test_checkbox_1" />
 			<label for="test_checkbox_1">
 				Test checkbox 1
 			</label>
 			&nbsp;
 			&nbsp;
-			<input type="checkbox" id="test_checkbox_2" name="test_checkbox_2" />
+			<input disabled="disabled" type="checkbox" id="test_checkbox_2" name="test_checkbox_2" />
 			<label for="test_checkbox_2">
 				Test checkbox 2
 			</label>
 			&nbsp;
 			&nbsp;
-			<input type="checkbox" id="test_checkbox_3" name="test_checkbox_3" />
+			<input disabled="disabled" type="checkbox" id="test_checkbox_3" name="test_checkbox_3" />
 			<label for="test_checkbox_3">
 				Test checkbox 3
 			</label>
 		</p>
 		<p>
-			<input type="radio" id="test_radio_1" name="test_radio_group" />
+			<input disabled="disabled" type="radio" id="test_radio_1" name="test_radio_group" />
 			<label for="test_radio_1">
 				Test radio 1
 			</label>
 			&nbsp;
 			&nbsp;
-			<input type="radio" id="test_radio_2" name="test_radio_group" />
+			<input disabled="disabled" type="radio" id="test_radio_2" name="test_radio_group" />
 			<label for="test_radio_2">
 				Test radio 2
 			</label>
 			&nbsp;
 			&nbsp;
-			<input type="radio" id="test_radio_3" name="test_radio_group" />
+			<input disabled="disabled" type="radio" id="test_radio_3" name="test_radio_group" />
 			<label for="test_radio_3">
 				Test radio 3
 			</label>
@@ -54,7 +54,7 @@
 				Select drop-down
 			</label>
 			<br />
-			<select id="select_dd" name="select_dd">
+			<select disabled="disabled" id="select_dd" name="select_dd">
 				<optgroup label="Group 1">
 					<option value="1">Some text goes here</option>
 					<option value="2">Another choice could be here</option>
@@ -77,7 +77,7 @@
 				Select multiple
 			</label>
 			<br />
-			<select id="select_multi" name="select_multi" multiple="multiple" size="10">
+			<select disabled="disabled" id="select_multi" name="select_multi" multiple="multiple" size="10">
 				<optgroup label="Group 1">
 					<option value="1">Some text goes here</option>
 					<option value="2">Another choice could be here</option>
@@ -100,7 +100,7 @@
 				Textarea
 			</label>
 			<br />
-			<textarea id="textarea" name="textarea" rows="5" placeholder="This is an example of HTML5 placeholder text."></textarea>
+			<textarea disabled="disabled" id="textarea" name="textarea" rows="5" placeholder="This is an example of HTML5 placeholder text."></textarea>
 		</p>
 		<table class="horiz">
 			<tr>
@@ -109,21 +109,21 @@
 						URL + Autofocus
 					</label>
 					<br />
-					<input type="url" id="url" name="url" value="http://" autofocus="autofocus" />
+					<input disabled="disabled" type="url" id="url" name="url" value="http://" autofocus="autofocus" />
 				</td>
 				<td>
 					<label for="email">
 						Email
 					</label>
 					<br />
-					<input type="email" id="email" name="email" placeholder="name@example.com" />
+					<input disabled="disabled" type="email" id="email" name="email" placeholder="name@example.com" />
 				</td>
 				<td>
 					<label for="text">
 						Text
 					</label>
 					<br />
-					<input type="text" id="text" name="text" />
+					<input disabled="disabled" type="text" id="text" name="text" />
 				</td>
 			</tr>
 			<tr>
@@ -132,21 +132,21 @@
 						Datetime local
 					</label>
 					<br />
-					<input type="datetime-local" id="datetime-local" name="datetime-local" />
+					<input disabled="disabled" type="datetime-local" id="datetime-local" name="datetime-local" />
 				</td>
 				<td>
 					<label for="number">
 						Number
 					</label>
 					<br />
-					<input type="number" id="number" name="number" />
+					<input disabled="disabled" type="number" id="number" name="number" />
 				</td>
 				<td>
 					<label for="tel">
 						Tel (phone)
 					</label>
 					<br />
-					<input type="tel" id="tel" name="tel" />
+					<input disabled="disabled" type="tel" id="tel" name="tel" />
 				</td>
 			</tr>
 			<tr>
@@ -155,21 +155,21 @@
 						Datetime
 					</label>
 					<br />
-					<input type="datetime" id="datetime" name="datetime" />
+					<input disabled="disabled" type="datetime" id="datetime" name="datetime" />
 				</td>
 				<td>
 					<label for="date">
 						Date
 					</label>
 					<br />
-					<input type="date" id="date" name="date" />
+					<input disabled="disabled" type="date" id="date" name="date" />
 				</td>
 				<td>
 					<label for="month">
 						Month
 					</label>
 					<br />
-					<input type="month" id="month" name="email" />
+					<input disabled="disabled" type="month" id="month" name="email" />
 				</td>
 			</tr>
 			<tr>
@@ -178,32 +178,32 @@
 						Search
 					</label>
 					<br />
-					<input type="search" id="search" name="search" />
+					<input disabled="disabled" type="search" id="search" name="search" />
 				</td>
 				<td>
 					<label for="range">
 						Range
 					</label>
 					<br />
-					<input type="range" id="range" name="range" />
+					<input disabled="disabled" type="range" id="range" name="range" />
 				</td>
 				<td>
 					<label for="file">
 						File upload
 					</label>
 					<br />
-					<input type="file" id="file" name="file" />
+					<input disabled="disabled" type="file" id="file" name="file" />
 				</td>
 			</tr>
 		</table>
 		<p>
-			<input type="submit" value="Input - Submit" />
+			<input disabled="disabled" type="submit" value="Input - Submit" />
 			&nbsp;
-			<input type="button" value="Input - Button" />
+			<input disabled="disabled" type="button" value="Input - Button" />
 			&nbsp;
-			<input type="reset" value="Input - Reset" />
+			<input disabled="disabled" type="reset" value="Input - Reset" />
 			&nbsp;
-			<button>Button tag</button>
+			<button disabled="disabled">Button tag</button>
 		</p>
 	</form>
 </div>

@@ -115,9 +115,7 @@ var FORMALIZE = (function($, window, document, undefined) {
 							el.val('').removeClass('placeholder_text');;
 						}
 					}).blur(function() {
-						if (!el.val()) {
-							el.val(text).addClass('placeholder_text');;
-						}
+						add_placeholder();
 					});
 
 					el.closest('form').submit(function() {

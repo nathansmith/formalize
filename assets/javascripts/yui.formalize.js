@@ -1,9 +1,9 @@
 //
-// Note: This file depends on the Mootools library.
+// Note: This file depends on the YUI library.
 //
 
 // Automatically calls all functions in FORMALIZE.init
-$(document).addEvent('domready', function() {
+Y.on('domready', function() {
 	FORMALIZE.go();
 });
 
@@ -13,8 +13,8 @@ var FORMALIZE = (function(window, document, undefined) {
 	// Private constants.
 	var PLACEHOLDER_SUPPORTED = 'placeholder' in document.createElement('input');
 	var AUTOFOCUS_SUPPORTED = 'autofocus' in document.createElement('input');
-	var IE6 = Browser.ie6;
-	var IE7 = Browser.ie7;
+	var IE6 = parseInt(Y.UA.ie, 10) === 6;
+	var IE7 = parseInt(Y.UA.ie, 10) === 7;
 	var WEBKIT = 'webkitAppearance' in document.createElement('select').style;
 
 	// Expose innards of FORMALIZE.
@@ -33,25 +33,26 @@ var FORMALIZE = (function(window, document, undefined) {
 				}
 
 				// Tweaks for Safari + Chrome.
-				$$('html')[0].addClass('is_webkit');
+				Y.one('html').addClass('is_webkit');
 			},
 			// FORMALIZE.init.full_input_size
 			full_input_size: function() {
-				if (!(IE6 || IE7) || !$$('textarea, input.input_full').length) {
+				if (!(IE6 || IE7) || !Y.all('textarea, input.input_full').length) {
 					return;
 				}
 
 				// This fixes width: 100% on <textarea> and class="input_full".
 				// It ensures that form elements don't go wider than container.
-				$$('textarea, input.input_full').each(function(el){
-					new Element('span.input_full_wrap').wraps(el);
-				});
+				var wrapper = Y.Node.create('<span class="input_full_wrap"></span>');
 
+				Y.all('textarea, input.input_full').each(function(el) {
+					wrapper.append(el.replace(wrapper));
+				});
 			},
 			// FORMALIZE.init.ie6_skin_inputs
 			ie6_skin_inputs: function() {
 				// Test for Internet Explorer 6.
-				if (!IE6 || !$$('input, select, textarea').length) {
+				if (!IE6 || !Y.all('input, select, textarea').length) {
 					// Exit if the browser is not IE6,
 					// or if no form elements exist.
 					return;
@@ -63,7 +64,7 @@ var FORMALIZE = (function(window, document, undefined) {
 				// For <input type="text" />, etc.
 				var type_regex = /date|datetime|datetime-local|email|month|number|password|range|search|tel|text|time|url|week/;
 
-				$$('input').each(function(el) {
+				Y.all('input').each(function(el) {
 					// Is it a button?
 					if (el.type.match(button_regex)) {
 						el.addClass('ie6_button');
@@ -84,7 +85,7 @@ var FORMALIZE = (function(window, document, undefined) {
 					}
 				});
 
-				$$('textarea, select').each(function(el) {
+				Y.all('textarea, select').each(function(el) {
 					/* Is it disabled? */
 					if (el.disabled) {
 						el.addClass('ie6_input_disabled');
@@ -93,56 +94,54 @@ var FORMALIZE = (function(window, document, undefined) {
 			},
 			// FORMALIZE.init.placeholder
 			placeholder: function() {
-				if (PLACEHOLDER_SUPPORTED || !$$('[placeholder]').length) {
-
+				if (PLACEHOLDER_SUPPORTED || !Y.one('[placeholder]')) {
 					// Exit if placeholder is supported natively,
 					// or if page does not have any placeholder.
 					return;
 				}
 
-				$$('[placeholder]').each(function(el) {
-					var text = el.get('placeholder');
+				Y.all('[placeholder]').each(function(el) {
+					var text = el.getAttribute('placeholder');
+					var form = el.ancestor('form');
 
 					function add_placeholder() {
-						if (!el.value || el.value === text) {
+						if (!el.get('value') || el.get('value') === text) {
 							el.set('value', text).addClass('placeholder_text');
 						}
 					}
 
 					add_placeholder();
 
-					el.addEvents({
-						focus: function() {
-							if (el.value === text) {
-								el.set('value', '').removeClass('placeholder_text');;
-							}
-						},
-						blur: function() {
-							add_placeholder();
+					el.on('focus', function() {
+						if (el.get('value') === text) {
+							el.set('value', '').removeClass('placeholder_text');
 						}
 					});
 
-					el.getParent('form').addEvents({
-						'submit': function() {
-							if (el.value === text) {
-								el.set('value', '');
-							}
-						},
-						'reset': function() {
-							setTimeout(add_placeholder, 50);
+					el.on('blur', function() {
+						add_placeholder();
+					});
+
+					form.on('submit', function() {
+						if (el.get('value') === text) {
+							el.set('value', '');
 						}
+					});
+
+					form.on('reset', function() {
+						setTimeout(add_placeholder, 50);
 					});
 				});
 			},
 			// FORMALIZE.init.autofocus
 			autofocus: function() {
-				if (AUTOFOCUS_SUPPORTED || !$$('[autofocus]').length) {
+				if (AUTOFOCUS_SUPPORTED || !Y.one('[autofocus]')) {
 					return;
 				}
 
-				$$('[autofocus]')[0].select();
+				Y.one('[autofocus]').focus();
 			}
 		}
 	};
-// Pass in window.
+// Pass in jQuery ref.
 })(this, this.document);
