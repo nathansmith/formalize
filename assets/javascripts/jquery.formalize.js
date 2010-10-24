@@ -1,5 +1,5 @@
 //
-// Note: This file depends on the Mootools library.
+// Note: This file depends on the jQuery library.
 //
 
 // Automatically calls all functions in FORMALIZE.init
