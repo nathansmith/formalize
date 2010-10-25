@@ -1,9 +1,9 @@
 //
-// Note: This file depends on the Mootools library.
+// Note: This file depends on the Dojo library.
 //
 
 // Automatically calls all functions in FORMALIZE.init
-$(document).addEvent('domready', function() {
+dojo.addOnLoad(function() {
 	FORMALIZE.go();
 });
 
@@ -13,8 +13,8 @@ var FORMALIZE = (function(window, document, undefined) {
 	// Private constants.
 	var PLACEHOLDER_SUPPORTED = 'placeholder' in document.createElement('input');
 	var AUTOFOCUS_SUPPORTED = 'autofocus' in document.createElement('input');
-	var IE6 = Browser.ie6;
-	var IE7 = Browser.ie7;
+	var IE6 = parseInt(dojo.isIE, 10) === 6;
+	var IE7 = parseInt(dojo.isIE, 10) === 7;
 	var WEBKIT = 'webkitAppearance' in document.createElement('select').style;
 
 	// Expose innards of FORMALIZE.
@@ -33,25 +33,22 @@ var FORMALIZE = (function(window, document, undefined) {
 				}
 
 				// Tweaks for Safari + Chrome.
-				$$('html')[0].addClass('is_webkit');
+				dojo.query('html').addClass('is_webkit');
 			},
 			// FORMALIZE.init.full_input_size
 			full_input_size: function() {
-				if (!(IE6 || IE7) || !$$('textarea, input.input_full').length) {
+				if (!(IE6 || IE7) || !dojo.query('textarea, input.input_full').length) {
 					return;
 				}
 
 				// This fixes width: 100% on <textarea> and class="input_full".
 				// It ensures that form elements don't go wider than container.
-				$$('textarea, input.input_full').each(function(el){
-					new Element('span.input_full_wrap').wraps(el);
-				});
-
+				dojo.query('textarea, input.input_full').wrap('<span class="input_full_wrap"></span>');
 			},
 			// FORMALIZE.init.ie6_skin_inputs
 			ie6_skin_inputs: function() {
 				// Test for Internet Explorer 6.
-				if (!IE6 || !$$('input, select, textarea').length) {
+				if (!IE6 || !dojo.query('input, select, textarea').length) {
 					// Exit if the browser is not IE6,
 					// or if no form elements exist.
 					return;
@@ -63,7 +60,7 @@ var FORMALIZE = (function(window, document, undefined) {
 				// For <input type="text" />, etc.
 				var type_regex = /date|datetime|datetime-local|email|month|number|password|range|search|tel|text|time|url|week/;
 
-				$$('input').each(function(el) {
+				dojo.query('input').forEach(function(el) {
 					// Is it a button?
 					if (el.type.match(button_regex)) {
 						el.addClass('ie6_button');
@@ -84,7 +81,7 @@ var FORMALIZE = (function(window, document, undefined) {
 					}
 				});
 
-				$$('textarea, select').each(function(el) {
+				dojo.query('textarea, select').forEach(function(el) {
 					/* Is it disabled? */
 					if (el.disabled) {
 						el.addClass('ie6_input_disabled');
@@ -93,58 +90,69 @@ var FORMALIZE = (function(window, document, undefined) {
 			},
 			// FORMALIZE.init.placeholder
 			placeholder: function() {
-				if (PLACEHOLDER_SUPPORTED || !$$('[placeholder]').length) {
-
+				if (PLACEHOLDER_SUPPORTED || !dojo.query('[placeholder]').length) {
 					// Exit if placeholder is supported natively,
 					// or if page does not have any placeholder.
 					return;
 				}
 
-				$$('[placeholder]').each(function(el) {
-					var text = el.get('placeholder');
+				function add_placeholder(el) {
+					var text = el.getAttribute('placeholder');
 
-					function add_placeholder() {
-						if (!el.value || el.value === text) {
-							el.set('value', text).addClass('placeholder_text');
-						}
+					if (!el.value || el.value === text) {
+						el.value = text;
+						dojo.addClass(el, 'placeholder_text');
 					}
+				}
 
-					add_placeholder();
+				dojo.query('[placeholder]').forEach(function(el) {
+					add_placeholder(el);
 
-					el.addEvents({
-						focus: function() {
-							if (el.value === text) {
-								el.set('value', '').removeClass('placeholder_text');;
-							}
-						},
-						blur: function() {
-							add_placeholder();
+					dojo.connect(el, 'onfocus', function() {
+						var text = el.getAttribute('placeholder');
+
+						if (el.value === text) {
+							el.value = '';
+							dojo.removeClass(el, 'placeholder_text');
 						}
 					});
 
-					// Prevent <form> from accidentally
-					// submitting the placeholder text.
-					el.getParent('form').addEvents({
-						'submit': function() {
+					dojo.connect(el, 'onblur', function() {
+						add_placeholder(el);
+					});
+				});
+
+				// Prevent <form> from accidentally
+				// submitting the placeholder text.
+				dojo.query('form').forEach(function(form) {
+					dojo.connect(form, 'onsubmit', function() {
+						dojo.query('[placeholder]', form).forEach(function(el) {
+							var text = el.getAttribute('placeholder');
+
 							if (el.value === text) {
-								el.set('value', '');
+								el.value = '';
 							}
-						},
-						'reset': function() {
-							setTimeout(add_placeholder, 50);
-						}
+						});
+					});
+
+					dojo.connect(form, 'onreset', function() {
+						dojo.query('[placeholder]', form).forEach(function(el) {
+							setTimeout(function() {
+								add_placeholder(el);
+							}, 50);
+						});
 					});
 				});
 			},
 			// FORMALIZE.init.autofocus
 			autofocus: function() {
-				if (AUTOFOCUS_SUPPORTED || !$$('[autofocus]').length) {
+				if (AUTOFOCUS_SUPPORTED || !dojo.query('[autofocus]').length) {
 					return;
 				}
 
-				$$('[autofocus]')[0].select();
+				dojo.query('[autofocus]')[0].focus();
 			}
 		}
 	};
-// Pass in window.
+// Pass in jQuery ref.
 })(this, this.document);

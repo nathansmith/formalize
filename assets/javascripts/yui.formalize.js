@@ -37,7 +37,7 @@ var FORMALIZE = (function(window, document, undefined) {
 			},
 			// FORMALIZE.init.full_input_size
 			full_input_size: function() {
-				if (!(IE6 || IE7) || !Y.all('textarea, input.input_full').length) {
+				if (!(IE6 || IE7) || !Y.all('textarea, input.input_full')) {
 					return;
 				}
 
@@ -52,7 +52,7 @@ var FORMALIZE = (function(window, document, undefined) {
 			// FORMALIZE.init.ie6_skin_inputs
 			ie6_skin_inputs: function() {
 				// Test for Internet Explorer 6.
-				if (!IE6 || !Y.all('input, select, textarea').length) {
+				if (!IE6 || !Y.all('input, select, textarea')) {
 					// Exit if the browser is not IE6,
 					// or if no form elements exist.
 					return;
@@ -122,6 +122,8 @@ var FORMALIZE = (function(window, document, undefined) {
 						add_placeholder();
 					});
 
+					// Prevent <form> from accidentally
+					// submitting the placeholder text.
 					form.on('submit', function() {
 						if (el.get('value') === text) {
 							el.set('value', '');

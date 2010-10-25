@@ -118,6 +118,8 @@ var FORMALIZE = (function($, window, document, undefined) {
 						add_placeholder();
 					});
 
+					// Prevent <form> from accidentally
+					// submitting the placeholder text.
 					el.closest('form').submit(function() {
 						if (el.val() === text) {
 							el.val('');
