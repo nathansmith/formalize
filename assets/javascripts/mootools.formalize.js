@@ -146,5 +146,5 @@ var FORMALIZE = (function(window, document, undefined) {
 			}
 		}
 	};
-// Pass in window.
+// Alias window, document.
 })(this, this.document);

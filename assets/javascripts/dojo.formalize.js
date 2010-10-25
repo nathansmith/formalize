@@ -154,5 +154,5 @@ var FORMALIZE = (function(window, document, undefined) {
 			}
 		}
 	};
-// Pass in jQuery ref.
+// Alias window, document.
 })(this, this.document);

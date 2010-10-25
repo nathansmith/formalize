@@ -139,5 +139,5 @@ var FORMALIZE = (function($, window, document, undefined) {
 			}
 		}
 	};
-// Pass in jQuery ref.
+// Alias jQuery, window, document.
 })(jQuery, this, this.document);
