@@ -64,7 +64,7 @@ var FORMALIZE = (function($, window, document, undefined) {
 					var el = $(this);
 
 					// Is it a button?
-					if (this.type.match(button_regex)) {
+					if (this.getAttribute('type').match(button_regex)) {
 						el.addClass('ie6_button');
 
 						/* Is it disabled? */
@@ -73,7 +73,7 @@ var FORMALIZE = (function($, window, document, undefined) {
 						}
 					}
 					// Or is it a textual input?
-					else if (this.type.match(type_regex)) {
+					else if (this.getAttribute('type').match(type_regex)) {
 						el.addClass('ie6_input');
 
 						/* Is it disabled? */

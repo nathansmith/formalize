@@ -62,7 +62,7 @@ var FORMALIZE = (function(window, document, undefined) {
 
 				dojo.query('input').forEach(function(el) {
 					// Is it a button?
-					if (el.type.match(button_regex)) {
+					if (el.getAttribute('type').match(button_regex)) {
 						el.addClass('ie6_button');
 
 						/* Is it disabled? */
@@ -71,7 +71,7 @@ var FORMALIZE = (function(window, document, undefined) {
 						}
 					}
 					// Or is it a textual input?
-					else if (el.type.match(type_regex)) {
+					else if (el.getAttribute('type').match(type_regex)) {
 						el.addClass('ie6_input');
 
 						/* Is it disabled? */

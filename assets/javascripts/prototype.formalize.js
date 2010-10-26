@@ -17,12 +17,12 @@ var FORMALIZE = (function(window, document, undefined) {
 
 	var IE6 = (function(x) {
 		x.innerHTML = '<!--[if IE 6]><br><![endif]-->';
-		return x.getElementsByTagName('br').length ? true : false;
+		return !!x.getElementsByTagName('br').length;
 	})(document.createElement('b'));
 
 	var IE7 = (function(x) {
 		x.innerHTML = '<!--[if IE 7]><br><![endif]-->';
-		return x.getElementsByTagName('br').length ? true : false;
+		return !!x.getElementsByTagName('br').length;
 	})(document.createElement('b'));
 
 	// Expose innards of FORMALIZE.
@@ -72,7 +72,7 @@ var FORMALIZE = (function(window, document, undefined) {
 
 				$$('input').each(function(el) {
 					// Is it a button?
-					if (el.type.match(button_regex)) {
+					if (el.getAttribute('type').match(button_regex)) {
 						el.addClassName('ie6_button');
 
 						/* Is it disabled? */
@@ -81,7 +81,7 @@ var FORMALIZE = (function(window, document, undefined) {
 						}
 					}
 					// Or is it a textual input?
-					else if (el.type.match(type_regex)) {
+					else if (el.getAttribute('type').match(type_regex)) {
 						el.addClassName('ie6_input');
 
 						/* Is it disabled? */
