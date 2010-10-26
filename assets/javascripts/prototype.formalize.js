@@ -1,9 +1,9 @@
 //
-// Note: This file depends on the Mootools library.
+// Note: This file depends on the Prototype library.
 //
 
 // Automatically calls all functions in FORMALIZE.init
-$(document).addEvent('domready', function() {
+$(document).observe('dom:loaded', function() {
 	FORMALIZE.go();
 });
 
@@ -13,9 +13,17 @@ var FORMALIZE = (function(window, document, undefined) {
 	// Private constants.
 	var PLACEHOLDER_SUPPORTED = 'placeholder' in document.createElement('input');
 	var AUTOFOCUS_SUPPORTED = 'autofocus' in document.createElement('input');
-	var IE6 = Browser.ie6;
-	var IE7 = Browser.ie7;
 	var WEBKIT = 'webkitAppearance' in document.createElement('select').style;
+
+	var IE6 = (function(x) {
+		x.innerHTML = '<!--[if IE 6]><br><![endif]-->';
+		return x.getElementsByTagName('br').length ? true : false;
+	})(document.createElement('b'));
+
+	var IE7 = (function(x) {
+		x.innerHTML = '<!--[if IE 7]><br><![endif]-->';
+		return x.getElementsByTagName('br').length ? true : false;
+	})(document.createElement('b'));
 
 	// Expose innards of FORMALIZE.
 	return {
@@ -33,7 +41,7 @@ var FORMALIZE = (function(window, document, undefined) {
 				}
 
 				// Tweaks for Safari + Chrome.
-				$$('html')[0].addClass('is_webkit');
+				$$('html')[0].addClassName('is_webkit');
 			},
 			// FORMALIZE.init.full_input_size
 			full_input_size: function() {
@@ -44,9 +52,8 @@ var FORMALIZE = (function(window, document, undefined) {
 				// This fixes width: 100% on <textarea> and class="input_full".
 				// It ensures that form elements don't go wider than container.
 				$$('textarea, input.input_full').each(function(el) {
-					new Element('span.input_full_wrap').wraps(el);
+					// el.wrap('span', {'class': 'input_full_wrap'});
 				});
-
 			},
 			// FORMALIZE.init.ie6_skin_inputs
 			ie6_skin_inputs: function() {
@@ -66,20 +73,20 @@ var FORMALIZE = (function(window, document, undefined) {
 				$$('input').each(function(el) {
 					// Is it a button?
 					if (el.type.match(button_regex)) {
-						el.addClass('ie6_button');
+						el.addClassName('ie6_button');
 
 						/* Is it disabled? */
 						if (el.disabled) {
-							el.addClass('ie6_button_disabled');
+							el.addClassName('ie6_button_disabled');
 						}
 					}
 					// Or is it a textual input?
 					else if (el.type.match(type_regex)) {
-						el.addClass('ie6_input');
+						el.addClassName('ie6_input');
 
 						/* Is it disabled? */
 						if (el.disabled) {
-							el.addClass('ie6_input_disabled');
+							el.addClassName('ie6_input_disabled');
 						}
 					}
 				});
@@ -87,7 +94,7 @@ var FORMALIZE = (function(window, document, undefined) {
 				$$('textarea, select').each(function(el) {
 					/* Is it disabled? */
 					if (el.disabled) {
-						el.addClass('ie6_input_disabled');
+						el.addClassName('ie6_input_disabled');
 					}
 				});
 			},
@@ -100,38 +107,39 @@ var FORMALIZE = (function(window, document, undefined) {
 				}
 
 				$$('[placeholder]').each(function(el) {
-					var text = el.get('placeholder');
+					var text = el.getAttribute('placeholder');
+					var form = el.up('form');
 
 					function add_placeholder() {
 						if (!el.value || el.value === text) {
-							el.set('value', text).addClass('placeholder_text');
+							el.value = text;
+							el.addClassName('placeholder_text');
 						}
 					}
 
 					add_placeholder();
 
-					el.addEvents({
-						focus: function() {
-							if (el.value === text) {
-								el.set('value', '').removeClass('placeholder_text');;
-							}
-						},
-						blur: function() {
-							add_placeholder();
+					el.observe('focus', function() {
+						if (el.value === text) {
+							el.value = '';
+							el.removeClassName('placeholder_text');;
 						}
+					});
+
+					el.observe('blur', function() {
+						add_placeholder();
 					});
 
 					// Prevent <form> from accidentally
 					// submitting the placeholder text.
-					el.getParent('form').addEvents({
-						'submit': function() {
-							if (el.value === text) {
-								el.set('value', '');
-							}
-						},
-						'reset': function() {
-							setTimeout(add_placeholder, 50);
+					form.observe('submit', function() {
+						if (el.value === text) {
+							el.value = '';
 						}
+					});
+
+					form.observe('reset', function() {
+						setTimeout(add_placeholder, 50);
 					});
 				});
 			},

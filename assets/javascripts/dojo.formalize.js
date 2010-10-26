@@ -43,7 +43,7 @@ var FORMALIZE = (function(window, document, undefined) {
 
 				// This fixes width: 100% on <textarea> and class="input_full".
 				// It ensures that form elements don't go wider than container.
-				dojo.query('textarea, input.input_full').wrap('<span class="input_full_wrap"></span>');
+				// dojo.query('textarea, input.input_full').wrap('<span class="input_full_wrap"></span>');
 			},
 			// FORMALIZE.init.ie6_skin_inputs
 			ie6_skin_inputs: function() {
