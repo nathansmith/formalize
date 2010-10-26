@@ -51,9 +51,9 @@ var FORMALIZE = (function(window, document, undefined) {
 
 				// This fixes width: 100% on <textarea> and class="input_full".
 				// It ensures that form elements don't go wider than container.
-				$$('textarea, input.input_full').each(function(el) {
+				// $$('textarea, input.input_full').each(function(el) {
 					// el.wrap('span', {'class': 'input_full_wrap'});
-				});
+				// });
 			},
 			// FORMALIZE.init.ie6_skin_inputs
 			ie6_skin_inputs: function() {
