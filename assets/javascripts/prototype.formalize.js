@@ -14,16 +14,15 @@ var FORMALIZE = (function(window, document, undefined) {
 	var PLACEHOLDER_SUPPORTED = 'placeholder' in document.createElement('input');
 	var AUTOFOCUS_SUPPORTED = 'autofocus' in document.createElement('input');
 	var WEBKIT = 'webkitAppearance' in document.createElement('select').style;
+	var IE6 = IE(6);
+	var IE7 = IE(7);
 
-	var IE6 = (function(x) {
-		x.innerHTML = '<!--[if IE 6]><br><![endif]-->';
-		return !!x.getElementsByTagName('br').length;
-	})(document.createElement('b'));
-
-	var IE7 = (function(x) {
-		x.innerHTML = '<!--[if IE 7]><br><![endif]-->';
-		return !!x.getElementsByTagName('br').length;
-	})(document.createElement('b'));
+	// Internet Explorer detection.
+	function IE(version) {
+		var b = document.createElement('b');
+		b.innerHTML = '<!--[if IE ' + version + ']><br><![endif]-->';
+		return !!b.getElementsByTagName('br').length;
+	}
 
 	// Expose innards of FORMALIZE.
 	return {
@@ -51,9 +50,9 @@ var FORMALIZE = (function(window, document, undefined) {
 
 				// This fixes width: 100% on <textarea> and class="input_full".
 				// It ensures that form elements don't go wider than container.
-				// $$('textarea, input.input_full').each(function(el) {
-					// el.wrap('span', {'class': 'input_full_wrap'});
-				// });
+				$$('textarea, input.input_full').each(function(el) {
+					Element.wrap(el, 'span', {'class': 'input_full_wrap'});
+				});
 			},
 			// FORMALIZE.init.ie6_skin_inputs
 			ie6_skin_inputs: function() {
