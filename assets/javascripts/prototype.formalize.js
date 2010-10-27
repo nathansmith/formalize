@@ -44,7 +44,7 @@ var FORMALIZE = (function(window, document, undefined) {
 			},
 			// FORMALIZE.init.full_input_size
 			full_input_size: function() {
-				if (!(IE6 || IE7) || !$$('textarea, input.input_full').length) {
+				if (!IE7 || !$$('textarea, input.input_full').length) {
 					return;
 				}
 

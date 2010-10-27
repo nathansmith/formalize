@@ -13,9 +13,9 @@ var FORMALIZE = (function(window, document, undefined) {
 	// Private constants.
 	var PLACEHOLDER_SUPPORTED = 'placeholder' in document.createElement('input');
 	var AUTOFOCUS_SUPPORTED = 'autofocus' in document.createElement('input');
+	var WEBKIT = 'webkitAppearance' in document.createElement('select').style;
 	var IE6 = parseInt(dojo.isIE, 10) === 6;
 	var IE7 = parseInt(dojo.isIE, 10) === 7;
-	var WEBKIT = 'webkitAppearance' in document.createElement('select').style;
 
 	// Expose innards of FORMALIZE.
 	return {
@@ -37,13 +37,20 @@ var FORMALIZE = (function(window, document, undefined) {
 			},
 			// FORMALIZE.init.full_input_size
 			full_input_size: function() {
-				if (!(IE6 || IE7) || !dojo.query('textarea, input.input_full').length) {
+				if (!IE7 || !dojo.query('textarea, input.input_full').length) {
 					return;
 				}
 
 				// This fixes width: 100% on <textarea> and class="input_full".
 				// It ensures that form elements don't go wider than container.
-				// dojo.query('textarea, input.input_full').wrap('<span class="input_full_wrap"></span>');
+				dojo.query('textarea, input.input_full').forEach(function(el) {
+					var new_el = el.cloneNode(false);
+					var span = document.createElement('span');
+
+					span.className = 'input_full_wrap';
+					span.appendChild(new_el);
+					el.parentNode.replaceChild(span, el);
+				});
 			},
 			// FORMALIZE.init.ie6_skin_inputs
 			ie6_skin_inputs: function() {
@@ -63,20 +70,20 @@ var FORMALIZE = (function(window, document, undefined) {
 				dojo.query('input').forEach(function(el) {
 					// Is it a button?
 					if (el.getAttribute('type').match(button_regex)) {
-						el.addClass('ie6_button');
+						dojo.addClass(el, 'ie6_button');
 
 						/* Is it disabled? */
 						if (el.disabled) {
-							el.addClass('ie6_button_disabled');
+							dojo.addClass(el, 'ie6_button_disabled');
 						}
 					}
 					// Or is it a textual input?
 					else if (el.getAttribute('type').match(type_regex)) {
-						el.addClass('ie6_input');
+						dojo.addClass(el, 'ie6_input');
 
 						/* Is it disabled? */
 						if (el.disabled) {
-							el.addClass('ie6_input_disabled');
+							dojo.addClass(el, 'ie6_input_disabled');
 						}
 					}
 				});
@@ -84,7 +91,7 @@ var FORMALIZE = (function(window, document, undefined) {
 				dojo.query('textarea, select').forEach(function(el) {
 					/* Is it disabled? */
 					if (el.disabled) {
-						el.addClass('ie6_input_disabled');
+						dojo.addClass(el, 'ie6_input_disabled');
 					}
 				});
 			},
