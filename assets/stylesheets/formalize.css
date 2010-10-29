@@ -62,9 +62,9 @@ input[type=reset],
 input[type=submit],
 input[type=button] {
 	-webkit-appearance: none;
-	-moz-border-radius: 15px;
-	-webkit-border-radius: 15px;
-	border-radius: 15px;
+	-moz-border-radius: 11px;
+	-webkit-border-radius: 11px;
+	border-radius: 11px;
 	background: #ddd url(../images/button.png) repeat-x;
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fff), color-stop(1, #ddd));
 	background: -moz-linear-gradient(top center, #fff 0%, #ddd 100%);
@@ -75,12 +75,13 @@ input[type=button] {
 	font: bold 12px/1.2 Arial, sans-serif;
 	outline: 0;
 	overflow: visible;
-	padding: 5px 15px 6px;
+	padding: 4px 10px 3px;
 	text-shadow: #fff 0 1px 1px;
 	width: auto;
 
 	/* IE7 */
-	*padding-bottom: 3px;
+	*padding-top: 2px;
+	*padding-bottom: 0px;
 }
 
 button[disabled],
@@ -123,7 +124,7 @@ input[type=week] {
 	height: 1.8em;
 
 	/* IE7 */
-	*padding-top: 1px;
+	*padding-top: 2px;
 	*padding-bottom: 1px;
 	*height: auto;
 }
@@ -240,9 +241,14 @@ optgroup {
 	cursor: pointer;
 	color: #333;
 	font: bold 12px/1.2 Arial, sans-serif;
-	padding: 5px 15px 3px;
+	padding: 2px 10px 0px;
 	overflow: visible;
 	width: auto;
+}
+
+* html button {
+	padding-top: 1px;
+	padding-bottom: 1px;
 }
 
 .ie6_input,
@@ -252,10 +258,14 @@ optgroup {
 	border: 1px solid;
 	border-color: #848484 #c1c1c1 #e1e1e1;
 	color: #000;
-	padding: 1px 3px;
+	padding: 2px 3px 1px;
 	font-size: 13px;
 	font-family: Arial, sans-serif;
 	vertical-align: top;
+}
+
+* html select {
+	margin-top: 1px;
 }
 
 .placeholder_text,
