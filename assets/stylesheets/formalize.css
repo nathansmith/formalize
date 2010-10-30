@@ -84,6 +84,12 @@ input[type=button] {
 	*padding-bottom: 0px;
 }
 
+button {
+	/* IE7 */
+	*padding-top: 1px;
+	*padding-bottom: 1px;
+}
+
 button[disabled],
 input[type=reset][disabled],
 input[type=submit][disabled],
