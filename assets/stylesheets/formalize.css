@@ -45,7 +45,7 @@
 	border: 0;
 }
 
-input[type=search]::-webkit-search-decoration {
+input[type="search"]::-webkit-search-decoration {
 	display: none;
 }
 
@@ -58,9 +58,9 @@ textarea {
 }
 
 button,
-input[type=reset],
-input[type=submit],
-input[type=button] {
+input[type="reset"],
+input[type="submit"],
+input[type="button"] {
 	-webkit-appearance: none;
 	-moz-border-radius: 11px;
 	-webkit-border-radius: 11px;
@@ -91,27 +91,27 @@ button {
 }
 
 button[disabled],
-input[type=reset][disabled],
-input[type=submit][disabled],
-input[type=button][disabled] {
+input[type="reset"][disabled],
+input[type="submit"][disabled],
+input[type="button"][disabled] {
 	color: #888;
 }
 
 textarea,
 select,
-input[type=date],
-input[type=datetime],
-input[type=datetime-local],
-input[type=email],
-input[type=month],
-input[type=number],
-input[type=password],
-input[type=search],
-input[type=tel],
-input[type=text],
-input[type=time],
-input[type=url],
-input[type=week] {
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="email"],
+input[type="month"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="text"],
+input[type="time"],
+input[type="url"],
+input[type="week"] {
 	-webkit-appearance: none;
 	-moz-border-radius: 0;
 	-webkit-border-radius: 0;
@@ -150,19 +150,19 @@ textarea.placeholder_text {
 
 textarea[disabled],
 select[disabled],
-input[type=date][disabled],
-input[type=datetime][disabled],
-input[type=datetime-local][disabled],
-input[type=email][disabled],
-input[type=month][disabled],
-input[type=number][disabled],
-input[type=password][disabled],
-input[type=search][disabled],
-input[type=tel][disabled],
-input[type=text][disabled],
-input[type=time][disabled],
-input[type=url][disabled],
-input[type=week][disabled] {
+input[type="date"][disabled],
+input[type="datetime"][disabled],
+input[type="datetime-local"][disabled],
+input[type="email"][disabled],
+input[type="month"][disabled],
+input[type="number"][disabled],
+input[type="password"][disabled],
+input[type="search"][disabled],
+input[type="tel"][disabled],
+input[type="text"][disabled],
+input[type="time"][disabled],
+input[type="url"][disabled],
+input[type="week"][disabled] {
 	background-color: #eee;
 	color: #888;
 }
