@@ -21,6 +21,7 @@ body {
 label.error {
 	background: #ffc;
 	color: #c00;
+	font-style: italic;
 }
 
 input.error,
