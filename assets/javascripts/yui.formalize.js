@@ -2,11 +2,6 @@
 // Note: This file depends on the YUI library.
 //
 
-// Automatically calls all functions in FORMALIZE.init
-Y.on('domready', function() {
-	FORMALIZE.go();
-});
-
 // Module pattern:
 // http://yuiblog.com/blog/2007/06/12/module-pattern/
 var FORMALIZE = (function(window, document, undefined) {
@@ -147,3 +142,8 @@ var FORMALIZE = (function(window, document, undefined) {
 	};
 // Alias window, document.
 })(this, this.document);
+
+// Automatically calls all functions in FORMALIZE.init
+Y.on('domready', function() {
+	FORMALIZE.go();
+});
