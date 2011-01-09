@@ -136,7 +136,7 @@ var FORMALIZE = (function(window, document, undefined) {
 					return;
 				}
 
-				$$('[autofocus]')[0].select();
+				$$('[autofocus]')[0].focus();
 			}
 		}
 	};

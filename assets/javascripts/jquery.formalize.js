@@ -130,7 +130,7 @@ var FORMALIZE = (function($, window, document, undefined) {
 					return;
 				}
 
-				$(':input[autofocus]:visible:first').select();
+				$(':input[autofocus]:visible:first').focus();
 			}
 		}
 	};
