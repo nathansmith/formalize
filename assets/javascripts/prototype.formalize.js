@@ -116,7 +116,7 @@ var FORMALIZE = (function(window, document, undefined) {
 					el.observe('focus', function() {
 						if (el.value === text) {
 							el.value = '';
-							el.removeClassName('placeholder_text');;
+							el.removeClassName('placeholder_text');
 						}
 					});
 
@@ -129,6 +129,7 @@ var FORMALIZE = (function(window, document, undefined) {
 					form.observe('submit', function() {
 						if (el.value === text) {
 							el.value = '';
+							el.removeClassName('placeholder_text');
 						}
 					});
 

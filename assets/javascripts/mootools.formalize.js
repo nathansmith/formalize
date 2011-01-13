@@ -108,7 +108,7 @@ var FORMALIZE = (function(window, document, undefined) {
 					el.addEvents({
 						focus: function() {
 							if (el.value === text) {
-								el.set('value', '').removeClass('placeholder_text');;
+								el.set('value', '').removeClass('placeholder_text');
 							}
 						},
 						blur: function() {
@@ -121,7 +121,7 @@ var FORMALIZE = (function(window, document, undefined) {
 					el.getParent('form').addEvents({
 						'submit': function() {
 							if (el.value === text) {
-								el.set('value', '');
+								el.set('value', '').removeClass('placeholder_text');
 							}
 						},
 						'reset': function() {

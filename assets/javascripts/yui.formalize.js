@@ -121,7 +121,7 @@ var FORMALIZE = (function(window, document, undefined) {
 					// submitting the placeholder text.
 					form.on('submit', function() {
 						if (el.get('value') === text) {
-							el.set('value', '');
+							el.set('value', '').removeClass('placeholder_text');
 						}
 					});
 

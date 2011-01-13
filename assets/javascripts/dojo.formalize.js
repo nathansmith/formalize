@@ -133,6 +133,7 @@ var FORMALIZE = (function(window, document, undefined) {
 
 							if (el.value === text) {
 								el.value = '';
+								dojo.removeClass(el, 'placeholder_text');
 							}
 						});
 					});

@@ -22,7 +22,7 @@ var FORMALIZE = (function($, window, document, undefined) {
 		},
 		// FORMALIZE.init
 		init: {
-			detect_webkit: function() {			
+			detect_webkit: function() {
 				if (!WEBKIT) {
 					return;
 				}
@@ -107,7 +107,7 @@ var FORMALIZE = (function($, window, document, undefined) {
 
 					el.focus(function() {
 						if (el.val() === text) {
-							el.val('').removeClass('placeholder_text');;
+							el.val('').removeClass('placeholder_text');
 						}
 					}).blur(function() {
 						add_placeholder();
@@ -117,7 +117,7 @@ var FORMALIZE = (function($, window, document, undefined) {
 					// submitting the placeholder text.
 					el.closest('form').submit(function() {
 						if (el.val() === text) {
-							el.val('');
+							el.val('').removeClass('placeholder_text');
 						}
 					}).bind('reset', function() {
 						setTimeout(add_placeholder, 50);
