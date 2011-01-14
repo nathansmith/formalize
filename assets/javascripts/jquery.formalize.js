@@ -138,6 +138,6 @@ var FORMALIZE = (function($, window, document, undefined) {
 })(jQuery, this, this.document);
 
 // Automatically calls all functions in FORMALIZE.init
-jQuery(document).ready(function() {
+jQuery(function() {
 	FORMALIZE.go();
 });
