@@ -6,11 +6,11 @@
 // http://yuiblog.com/blog/2007/06/12/module-pattern/
 var FORMALIZE = (function($, window, document, undefined) {
 	// Private constants.
-	var PLACEHOLDER_SUPPORTED = 'placeholder' in document.createElement('input');
-	var AUTOFOCUS_SUPPORTED = 'autofocus' in document.createElement('input');
-	var WEBKIT = 'webkitAppearance' in document.createElement('select').style;
-	var IE6 = !!($.browser.msie && parseInt($.browser.version, 10) === 6);
-	var IE7 = !!($.browser.msie && parseInt($.browser.version, 10) === 7);
+	var PLACEHOLDER_SUPPORTED = 'placeholder' in document.createElement('input'),
+		AUTOFOCUS_SUPPORTED = 'autofocus' in document.createElement('input'),
+		WEBKIT = 'webkitAppearance' in document.createElement('select').style,
+		IE6 = !!($.browser.msie && parseInt($.browser.version, 10) === 6),
+		IE7 = !!($.browser.msie && parseInt($.browser.version, 10) === 7);
 
 	// Expose innards of FORMALIZE.
 	return {
@@ -50,10 +50,10 @@ var FORMALIZE = (function($, window, document, undefined) {
 				}
 
 				// For <input type="submit" />, etc.
-				var button_regex = /button|submit|reset/;
+				var button_regex = /button|submit|reset/,
 
 				// For <input type="text" />, etc.
-				var type_regex = /date|datetime|datetime-local|email|month|number|password|range|search|tel|text|time|url|week/;
+					type_regex = /date|datetime|datetime-local|email|month|number|password|range|search|tel|text|time|url|week/;
 
 				$('input').each(function() {
 					var el = $(this);
@@ -94,8 +94,8 @@ var FORMALIZE = (function($, window, document, undefined) {
 				}
 
 				$(':input[placeholder]').each(function() {
-					var el = $(this);
-					var text = el.attr('placeholder');
+					var el = $(this),
+						text = el.attr('placeholder');
 
 					function add_placeholder() {
 						if (!el.val() || el.val() === text) {
