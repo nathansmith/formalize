@@ -22,6 +22,7 @@ var FORMALIZE = (function(window, document, undefined) {
 		},
 		// FORMALIZE.init
 		init: {
+			// FORMALIZE.init.detect_webkit
 			detect_webkit: function() {
 				if (!WEBKIT) {
 					return;
@@ -90,6 +91,14 @@ var FORMALIZE = (function(window, document, undefined) {
 					}
 				});
 			},
+			// FORMALIZE.init.autofocus
+			autofocus: function() {
+				if (AUTOFOCUS_SUPPORTED || !dojo.query('[autofocus]').length) {
+					return;
+				}
+
+				dojo.query('[autofocus]')[0].focus();
+			},
 			// FORMALIZE.init.placeholder
 			placeholder: function() {
 				if (PLACEHOLDER_SUPPORTED || !dojo.query('[placeholder]').length) {
@@ -98,18 +107,9 @@ var FORMALIZE = (function(window, document, undefined) {
 					return;
 				}
 
-				function add_placeholder(el) {
-					var text = el.getAttribute('placeholder');
-
-					if (!el.value || el.value === text) {
-						el.value = text;
-						dojo.addClass(el, 'placeholder_text');
-					}
-				}
+				FORMALIZE.misc.add_placeholder();
 
 				dojo.query('[placeholder]').forEach(function(el) {
-					add_placeholder(el);
-
 					dojo.connect(el, 'onfocus', function() {
 						var text = el.getAttribute('placeholder');
 
@@ -120,7 +120,7 @@ var FORMALIZE = (function(window, document, undefined) {
 					});
 
 					dojo.connect(el, 'onblur', function() {
-						add_placeholder(el);
+						FORMALIZE.misc.add_placeholder();
 					});
 				});
 
@@ -139,21 +139,29 @@ var FORMALIZE = (function(window, document, undefined) {
 					});
 
 					dojo.connect(form, 'onreset', function() {
-						dojo.query('[placeholder]', form).forEach(function(el) {
-							setTimeout(function() {
-								add_placeholder(el);
-							}, 50);
-						});
+						setTimeout(FORMALIZE.misc.add_placeholder, 50);
 					});
 				});
-			},
-			// FORMALIZE.init.autofocus
-			autofocus: function() {
-				if (AUTOFOCUS_SUPPORTED || !dojo.query('[autofocus]').length) {
+			}
+		},
+		// FORMALIZE.misc
+		misc: {
+			// FORMALIZE.misc.add_placeholder
+			add_placeholder: function() {
+				if (PLACEHOLDER_SUPPORTED || !dojo.query('[placeholder]').length) {
+					// Exit if placeholder is supported natively,
+					// or if page does not have any placeholder.
 					return;
 				}
 
-				dojo.query('[autofocus]')[0].focus();
+				dojo.query('[placeholder]').forEach(function(el) {
+					var text = el.getAttribute('placeholder');
+
+					if (!el.value || el.value === text) {
+						el.value = text;
+						dojo.addClass(el, 'placeholder_text');
+					}
+				});
 			}
 		}
 	};

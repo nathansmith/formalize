@@ -29,6 +29,7 @@ var FORMALIZE = (function(window, document, undefined) {
 		},
 		// FORMALIZE.init
 		init: {
+			// FORMALIZE.init.detect_webkit
 			detect_webkit: function() {
 				if (!WEBKIT) {
 					return;
@@ -92,6 +93,14 @@ var FORMALIZE = (function(window, document, undefined) {
 					}
 				});
 			},
+			// FORMALIZE.init.autofocus
+			autofocus: function() {
+				if (AUTOFOCUS_SUPPORTED || !$$('[autofocus]').length) {
+					return;
+				}
+
+				$$('[autofocus]')[0].focus();
+			},
 			// FORMALIZE.init.placeholder
 			placeholder: function() {
 				if (PLACEHOLDER_SUPPORTED || !$$('[placeholder]').length) {
@@ -100,18 +109,11 @@ var FORMALIZE = (function(window, document, undefined) {
 					return;
 				}
 
+				FORMALIZE.misc.add_placeholder();
+
 				$$('[placeholder]').each(function(el) {
 					var text = el.getAttribute('placeholder');
 					var form = el.up('form');
-
-					function add_placeholder() {
-						if (!el.value || el.value === text) {
-							el.value = text;
-							el.addClassName('placeholder_text');
-						}
-					}
-
-					add_placeholder();
 
 					el.observe('focus', function() {
 						if (el.value === text) {
@@ -121,7 +123,7 @@ var FORMALIZE = (function(window, document, undefined) {
 					});
 
 					el.observe('blur', function() {
-						add_placeholder();
+						FORMALIZE.misc.add_placeholder();
 					});
 
 					// Prevent <form> from accidentally
@@ -134,17 +136,27 @@ var FORMALIZE = (function(window, document, undefined) {
 					});
 
 					form.observe('reset', function() {
-						setTimeout(add_placeholder, 50);
+						setTimeout(FORMALIZE.misc.add_placeholder, 50);
 					});
 				});
-			},
-			// FORMALIZE.init.autofocus
-			autofocus: function() {
-				if (AUTOFOCUS_SUPPORTED || !$$('[autofocus]').length) {
+			}
+		},
+		// FORMALIZE.misc
+		misc: {
+			// FORMALIZE.misc.add_placeholder
+			add_placeholder: function() {
+				if (PLACEHOLDER_SUPPORTED || !$$('[placeholder]').length) {
+					// Exit if placeholder is supported natively,
+					// or if page does not have any placeholder.
 					return;
 				}
 
-				$$('[autofocus]')[0].focus();
+				$$('[placeholder]').each(function(el) {
+					if (!el.value || el.value === text) {
+						el.value = text;
+						el.addClassName('placeholder_text');
+					}
+				});
 			}
 		}
 	};

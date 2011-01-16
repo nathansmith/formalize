@@ -102,11 +102,11 @@ var FORMALIZE = (function($, window, document, undefined) {
 					return;
 				}
 
+				FORMALIZE.misc.add_placeholder();
+
 				$(':input[placeholder]').each(function() {
 					var el = $(this);
 					var text = el.attr('placeholder');
-
-					FORMALIZE.misc.add_placeholder();
 
 					el.focus(function() {
 						if (el.val() === text) {
@@ -132,6 +132,12 @@ var FORMALIZE = (function($, window, document, undefined) {
 		misc: {
 			// FORMALIZE.misc.add_placeholder
 			add_placeholder: function() {
+				if (PLACEHOLDER_SUPPORTED || !$(':input[placeholder]').length) {
+					// Exit if placeholder is supported natively,
+					// or if page does not have any placeholder.
+					return;
+				}
+
 				$(':input[placeholder]').each(function() {
 					var el = $(this);
 					var text = el.attr('placeholder');

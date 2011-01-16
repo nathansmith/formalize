@@ -22,6 +22,7 @@ var FORMALIZE = (function(window, document, undefined) {
 		},
 		// FORMALIZE.init
 		init: {
+			// FORMALIZE.init.detect_webkit
 			detect_webkit: function() {
 				if (!WEBKIT) {
 					return;
@@ -87,6 +88,14 @@ var FORMALIZE = (function(window, document, undefined) {
 					}
 				});
 			},
+			// FORMALIZE.init.autofocus
+			autofocus: function() {
+				if (AUTOFOCUS_SUPPORTED || !Y.one('[autofocus]')) {
+					return;
+				}
+
+				Y.one('[autofocus]').focus();
+			},
 			// FORMALIZE.init.placeholder
 			placeholder: function() {
 				if (PLACEHOLDER_SUPPORTED || !Y.one('[placeholder]')) {
@@ -94,6 +103,8 @@ var FORMALIZE = (function(window, document, undefined) {
 					// or if page does not have any placeholder.
 					return;
 				}
+
+				FORMALIZE.misc.add_placeholder();
 
 				Y.all('[placeholder]').each(function(el) {
 					var text = el.getAttribute('placeholder');
@@ -105,8 +116,6 @@ var FORMALIZE = (function(window, document, undefined) {
 						}
 					}
 
-					add_placeholder();
-
 					el.on('focus', function() {
 						if (el.get('value') === text) {
 							el.set('value', '').removeClass('placeholder_text');
@@ -114,7 +123,7 @@ var FORMALIZE = (function(window, document, undefined) {
 					});
 
 					el.on('blur', function() {
-						add_placeholder();
+						FORMALIZE.misc.add_placeholder();
 					});
 
 					// Prevent <form> from accidentally
@@ -126,17 +135,26 @@ var FORMALIZE = (function(window, document, undefined) {
 					});
 
 					form.on('reset', function() {
-						setTimeout(add_placeholder, 50);
+						setTimeout(FORMALIZE.misc.add_placeholder, 50);
 					});
 				});
-			},
-			// FORMALIZE.init.autofocus
-			autofocus: function() {
-				if (AUTOFOCUS_SUPPORTED || !Y.one('[autofocus]')) {
+			}
+		},
+		// FORMALIZE.misc
+		misc: {
+			// FORMALIZE.misc.add_placeholder
+			add_placeholder: function() {
+				if (PLACEHOLDER_SUPPORTED || !Y.one('[placeholder]')) {
+					// Exit if placeholder is supported natively,
+					// or if page does not have any placeholder.
 					return;
 				}
 
-				Y.one('[autofocus]').focus();
+				Y.all('[placeholder]').each(function(el) {
+					if (!el.get('value') || el.get('value') === text) {
+						el.set('value', text).addClass('placeholder_text');
+					}
+				});
 			}
 		}
 	};

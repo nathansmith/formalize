@@ -22,6 +22,7 @@ var FORMALIZE = (function(window, document, undefined) {
 		},
 		// FORMALIZE.init
 		init: {
+			// FORMALIZE.init.detect_webkit
 			detect_webkit: function() {
 				if (!WEBKIT) {
 					return;
@@ -86,6 +87,14 @@ var FORMALIZE = (function(window, document, undefined) {
 					}
 				});
 			},
+			// FORMALIZE.init.autofocus
+			autofocus: function() {
+				if (AUTOFOCUS_SUPPORTED || !$$('[autofocus]').length) {
+					return;
+				}
+
+				$$('[autofocus]')[0].focus();
+			},
 			// FORMALIZE.init.placeholder
 			placeholder: function() {
 				if (PLACEHOLDER_SUPPORTED || !$$('[placeholder]').length) {
@@ -94,16 +103,10 @@ var FORMALIZE = (function(window, document, undefined) {
 					return;
 				}
 
+				FORMALIZE.misc.add_placeholder();
+
 				$$('[placeholder]').each(function(el) {
 					var text = el.get('placeholder');
-
-					function add_placeholder() {
-						if (!el.value || el.value === text) {
-							el.set('value', text).addClass('placeholder_text');
-						}
-					}
-
-					add_placeholder();
 
 					el.addEvents({
 						focus: function() {
@@ -112,7 +115,7 @@ var FORMALIZE = (function(window, document, undefined) {
 							}
 						},
 						blur: function() {
-							add_placeholder();
+							FORMALIZE.misc.add_placeholder();
 						}
 					});
 
@@ -125,18 +128,29 @@ var FORMALIZE = (function(window, document, undefined) {
 							}
 						},
 						'reset': function() {
-							setTimeout(add_placeholder, 50);
+							setTimeout(FORMALIZE.misc.add_placeholder, 50);
 						}
 					});
 				});
-			},
-			// FORMALIZE.init.autofocus
-			autofocus: function() {
-				if (AUTOFOCUS_SUPPORTED || !$$('[autofocus]').length) {
+			}
+		},
+		// FORMALIZE.misc
+		misc: {
+			// FORMALIZE.misc.add_placeholder
+			add_placeholder: function() {
+				if (PLACEHOLDER_SUPPORTED || !$$('[placeholder]').length) {
+					// Exit if placeholder is supported natively,
+					// or if page does not have any placeholder.
 					return;
 				}
 
-				$$('[autofocus]')[0].focus();
+				$$('[placeholder]').each(function(el) {
+					var text = el.get('placeholder');
+
+					if (!el.value || el.value === text) {
+						el.set('value', text).addClass('placeholder_text');
+					}
+				});
 			}
 		}
 	};
