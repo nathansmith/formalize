@@ -22,6 +22,7 @@ var FORMALIZE = (function($, window, document, undefined) {
 		},
 		// FORMALIZE.init
 		init: {
+			// FORMALIZE.init.detect_webkit
 			detect_webkit: function() {
 				if (!WEBKIT) {
 					return;
@@ -85,6 +86,14 @@ var FORMALIZE = (function($, window, document, undefined) {
 					}
 				});
 			},
+			// FORMALIZE.init.autofocus
+			autofocus: function() {
+				if (AUTOFOCUS_SUPPORTED || !$(':input[autofocus]').length) {
+					return;
+				}
+
+				$(':input[autofocus]:visible:first').focus();
+			},
 			// FORMALIZE.init.placeholder
 			placeholder: function() {
 				if (PLACEHOLDER_SUPPORTED || !$(':input[placeholder]').length) {
@@ -97,20 +106,14 @@ var FORMALIZE = (function($, window, document, undefined) {
 					var el = $(this);
 					var text = el.attr('placeholder');
 
-					function add_placeholder() {
-						if (!el.val() || el.val() === text) {
-							el.val(text).addClass('placeholder_text');
-						}
-					}
-
-					add_placeholder();
+					FORMALIZE.misc.add_placeholder();
 
 					el.focus(function() {
 						if (el.val() === text) {
 							el.val('').removeClass('placeholder_text');
 						}
 					}).blur(function() {
-						add_placeholder();
+						FORMALIZE.misc.add_placeholder();
 					});
 
 					// Prevent <form> from accidentally
@@ -120,17 +123,23 @@ var FORMALIZE = (function($, window, document, undefined) {
 							el.val('').removeClass('placeholder_text');
 						}
 					}).bind('reset', function() {
-						setTimeout(add_placeholder, 50);
+						setTimeout(FORMALIZE.misc.add_placeholder, 50);
 					});
 				});
-			},
-			// FORMALIZE.init.autofocus
-			autofocus: function() {
-				if (AUTOFOCUS_SUPPORTED || !$(':input[autofocus]').length) {
-					return;
-				}
+			}
+		},
+		// FORMALIZE.misc
+		misc: {
+			// FORMALIZE.misc.add_placeholder
+			add_placeholder: function() {
+				$(':input[placeholder]').each(function() {
+					var el = $(this);
+					var text = el.attr('placeholder');
 
-				$(':input[autofocus]:visible:first').focus();
+					if (!el.val() || el.val() === text) {
+						el.val(text).addClass('placeholder_text');
+					}
+				});
 			}
 		}
 	};
