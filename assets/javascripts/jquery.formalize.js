@@ -19,6 +19,23 @@ var FORMALIZE = (function($, window, document, undefined) {
 			for (var i in FORMALIZE.init) {
 				FORMALIZE.init[i]();
 			}
+
+			if (!PLACEHOLDER_SUPPORTED && $(':input[placeholder]').length) {
+				$('form')
+					.submit(function() {
+						$(this).find(':input[placeholder]').each(function() {
+							var el = $(this),
+								text = el.attr('placeholder');
+
+							if (el.val() === text) {
+								el.val('').removeClass('placeholder_text');
+							}
+						});
+					})
+					.bind('reset', function() {
+						setTimeout(FORMALIZE.init.placeholder, 50);
+					});
+			}
 		},
 		// FORMALIZE.init
 		init: {
@@ -111,16 +128,6 @@ var FORMALIZE = (function($, window, document, undefined) {
 						}
 					}).blur(function() {
 						add_placeholder();
-					});
-
-					// Prevent <form> from accidentally
-					// submitting the placeholder text.
-					el.closest('form').submit(function() {
-						if (el.val() === text) {
-							el.val('').removeClass('placeholder_text');
-						}
-					}).bind('reset', function() {
-						setTimeout(add_placeholder, 50);
 					});
 				});
 			},
