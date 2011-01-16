@@ -11,7 +11,6 @@ var FORMALIZE = (function($, window, document, undefined) {
 	var WEBKIT = 'webkitAppearance' in document.createElement('select').style;
 	var IE6 = !!($.browser.msie && parseInt($.browser.version, 10) === 6);
 	var IE7 = !!($.browser.msie && parseInt($.browser.version, 10) === 7);
-	var PLACEHOLDER_INITIALIZED_CLASSNAME = 'formalize_placeholder_init';
 
 	// Expose innards of FORMALIZE.
 	return {
@@ -116,13 +115,13 @@ var FORMALIZE = (function($, window, document, undefined) {
 
 					// Prevent <form> from accidentally
 					// submitting the placeholder text.
-					el.closest('form').filter(':not(.'+ PLACEHOLDER_INITIALIZED_CLASSNAME +')').submit(function() {
-						$(this).addClass(PLACEHOLDER_INITIALIZED_CLASSNAME);
+					el.closest('form').filter(':not(.formalized_placeholder)').submit(function() {
+						$(this).addClass('formalized_placeholder');
 						if (el.val() === text) {
 							el.val('').removeClass('placeholder_text');
 						}
 					}).bind('reset', function() {
-						$(this).addClass(PLACEHOLDER_INITIALIZED_CLASSNAME);
+						$(this).addClass('formalized_placeholder');
 						setTimeout(add_placeholder, 50);
 					});
 				});
