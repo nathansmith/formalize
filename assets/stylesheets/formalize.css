@@ -31,7 +31,7 @@
 
 /*
 	Added via JS to <textarea> and class="input_full".
-	Applies to IE6, IE7. Other browsers don't need it.
+	Applies only to IE7. Other browsers don't need it.
 */
 .input_full_wrap {
 	display: block;
@@ -53,6 +53,9 @@ input,
 button,
 select,
 textarea {
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding;
+  background-clip: padding-box;
 	margin: 0;
 	vertical-align: middle;
 }
@@ -203,6 +206,7 @@ select[multiple],
 }
 
 textarea {
+  min-height: 40px;
 	overflow: auto;
 	resize: vertical;
 	width: 100%;
