@@ -12,10 +12,7 @@ var FORMALIZE = (function($, window, document, undefined) {
 		IE6 = !!($.browser.msie && parseInt($.browser.version, 10) === 6),
 		IE7 = !!($.browser.msie && parseInt($.browser.version, 10) === 7),
 		
-		// Private variables.
-		isInitialized = false,
-		
-		// Private functions.
+		// Public functions (exposed via the return statement)
 		detect_webkit,
 		full_input_size,
 		ie6_skin_inputs,
@@ -24,7 +21,7 @@ var FORMALIZE = (function($, window, document, undefined) {
 		placeholder,
 		init;
 	
-	detect_webkit = function(){
+	detect_webkit = function () {
 		if (!WEBKIT) {
 			return;
 		}
@@ -33,7 +30,7 @@ var FORMALIZE = (function($, window, document, undefined) {
 		$('html').addClass('is_webkit');		
 	};
 	
-	full_input_size = function(){
+	full_input_size = function () {
 		if (!IE7 || !$('textarea, input.input_full').length) {
 			return;
 		}
@@ -43,7 +40,9 @@ var FORMALIZE = (function($, window, document, undefined) {
 		$('textarea, input.input_full').wrap('<span class="input_full_wrap"></span>');	
 	};
 	
-	ie6_skin_inputs = function(){
+	ie6_skin_inputs = function () {
+		var button_regex, type_regex;
+	
 		// Test for Internet Explorer 6.
 		if (!IE6 || !$('input, select, textarea').length) {
 			// Exit if the browser is not IE6,
@@ -52,12 +51,12 @@ var FORMALIZE = (function($, window, document, undefined) {
 		}
 	
 		// For <input type="submit" />, etc.
-		var button_regex = /button|submit|reset/;
+		button_regex = /button|submit|reset/;
 	
 		// For <input type="text" />, etc.
-		var type_regex = /date|datetime|datetime-local|email|month|number|password|range|search|tel|text|time|url|week/;
+		type_regex = /date|datetime|datetime-local|email|month|number|password|range|search|tel|text|time|url|week/;
 	
-		$('input').each(function() {
+		$('input').each(function () {
 			var el = $(this);
 	
 			// Is it a button?
@@ -68,9 +67,8 @@ var FORMALIZE = (function($, window, document, undefined) {
 				if (this.disabled) {
 					el.addClass('ie6_button_disabled');
 				}
-			}
 			// Or is it a textual input?
-			else if (this.getAttribute('type').match(type_regex)) {
+			} else if (this.getAttribute('type').match(type_regex)) {
 				el.addClass('ie6_input');
 	
 				/* Is it disabled? */
@@ -80,7 +78,7 @@ var FORMALIZE = (function($, window, document, undefined) {
 			}
 		});
 	
-		$('textarea, select').each(function() {
+		$('textarea, select').each(function () {
 			/* Is it disabled? */
 			if (this.disabled) {
 				$(this).addClass('ie6_input_disabled');
@@ -88,7 +86,7 @@ var FORMALIZE = (function($, window, document, undefined) {
 		});	
 	};
 	
-	autofocus = function(){
+	autofocus = function () {
 		if (AUTOFOCUS_SUPPORTED || !$(':input[autofocus]').length) {
 			return;
 		}
@@ -96,16 +94,16 @@ var FORMALIZE = (function($, window, document, undefined) {
 		$(':input[autofocus]:visible:first').focus();	
 	};
 	
-	add_placeholder = function() {
+	add_placeholder = function () {
 		if (PLACEHOLDER_SUPPORTED || !$(':input[placeholder]').length) {
 			// Exit if placeholder is supported natively,
 			// or if page does not have any placeholder.
 			return;
 		}
 	
-		$(':input[placeholder]').each(function() {
-			var el = $(this);
-			var text = el.attr('placeholder');
+		$(':input[placeholder]').each(function () {
+			var el = $(this),
+				text = el.attr('placeholder');
 	
 			if (!el.val() || el.val() === text) {
 				el.val(text).addClass('placeholder_text');
@@ -113,7 +111,7 @@ var FORMALIZE = (function($, window, document, undefined) {
 		});
 	};	
 	
-	placeholder = function() {
+	placeholder = function () {
 		if (PLACEHOLDER_SUPPORTED || !$(':input[placeholder]').length) {
 			// Exit if placeholder is supported natively,
 			// or if page does not have any placeholder.
@@ -122,54 +120,52 @@ var FORMALIZE = (function($, window, document, undefined) {
 
 		add_placeholder();
 
-		$(':input[placeholder]').each(function() {
-			var el = $(this);
-			var text = el.attr('placeholder');
+		$(':input[placeholder]').each(function () {
+			var el = $(this),
+				text = el.attr('placeholder');
 
-			el.focus(function() {
+			el.focus(function () {
 				if (el.val() === text) {
 					el.val('').removeClass('placeholder_text');
 				}
-			}).blur(function() {
+			}).blur(function () {
 				add_placeholder();
 			});
 
 			// Prevent <form> from accidentally
 			// submitting the placeholder text.
-			el.closest('form').submit(function() {
+			el.closest('form').submit(function () {
 				if (el.val() === text) {
 					el.val('').removeClass('placeholder_text');
 				}
-			}).bind('reset', function() {
-				setTimeout(add_placeholder, 50);
+			}).bind('reset', function () {
+				window.setTimeout(add_placeholder, 50);
 			});
 		});	
 	};
 	
-	init = function(){
-		// abort if we've already called formalize
-		if (isInitialized) {
-			return
-		}
-	
+	init = function () {	
 		detect_webkit();
 		full_input_size();
 		ie6_skin_inputs();
 		autofocus();
 		placeholder();
-		
-		isInitialized = true;
 	};
 
 	// Expose innards of FORMALIZE.
-	return {
-		// FORMALIZE.go
-		go: init
+	return {		
+		go: init, // FORMALIZE.go
+		detect_webkit: detect_webkit, // FORMALIZE.detect_webkit
+		full_input_size: full_input_size, // FORMALIZE.full_input_size
+		ie6_skin_inputs: ie6_skin_inputs, // FORMALIZE.ie6_skin_inputs
+		autofocus: autofocus, // FORMALIZE.autofocus
+		placeholder: placeholder, // FORMALIZE.placeholder
+		add_placeholder: add_placeholder // FORMALIZE.add_placeholder
 	};
 // Alias jQuery, window, document.
-})(jQuery, this, this.document);
+}(jQuery, this, this.document));
 
 // Automatically calls all functions in FORMALIZE.init
-jQuery(document).ready(function() {
+jQuery(document).ready(function () {
 	FORMALIZE.go();
 });
