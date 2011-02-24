@@ -139,7 +139,7 @@ var FORMALIZE = (function($, window, document, undefined) {
 					el.val('').removeClass('placeholder_text');
 				}
 			}).bind('reset', function () {
-				window.setTimeout(add_placeholder, 50);
+				setTimeout(add_placeholder, 50);
 			});
 		});	
 	};
