@@ -1,5 +1,5 @@
 //
-// Note: This file depends on the Mootools library.
+// Note: This file depends on the MooTools library.
 //
 
 // Module pattern:

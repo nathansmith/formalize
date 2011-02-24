@@ -1,4 +1,4 @@
-/* `XHTML / HTML4 / HTML5 Reset
+/* `XHTML, HTML4, HTML5 Reset
 ----------------------------------------------------------------------------------------------------*/
 
 a,
@@ -90,48 +90,81 @@ ul,
 var,
 video,
 xmp {
-	border: 0;
-	margin: 0;
-	padding: 0;
-	font-size: 100%;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
 }
 
 html,
 body {
-	height: 100%;
+  height: 100%;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+/*
+  Override the default (display: inline) for
+  browsers that do not recognize HTML5 tags.
+
+  IE8 (and lower) requires a shiv:
+  http://ejohn.org/blog/html5-shiv
+*/
+  display: block;
 }
 
 b,
 strong {
 /*
-	Makes browsers agree.
-	IE + Opera = font-weight: bold.
-	Gecko + WebKit = font-weight: bolder.
+  Makes browsers agree.
+  IE + Opera = font-weight: bold.
+  Gecko + WebKit = font-weight: bolder.
 */
-	font-weight: bold;
+  font-weight: bold;
 }
 
 img {
-	font-size: 0;
-	vertical-align: middle;
+  font-size: 0;
+  vertical-align: middle;
+/*
+  For IE.
+  http://css-tricks.com/ie-fix-bicubic-scaling-for-images
+*/
+  -ms-interpolation-mode: bicubic;
 }
 
 li {
 /*
-	For IE6 + IE7.
+  For IE6 + IE7.
 */
-	display: list-item;
+  display: list-item;
 }
 
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 th,
 td,
 caption {
-	font-weight: normal;
-	vertical-align: top;
-	text-align: left;
+  font-weight: normal;
+  vertical-align: top;
+  text-align: left;
+}
+
+svg {
+/*
+  For IE9 beta.
+*/
+  overflow: hidden;
 }
