@@ -5,43 +5,44 @@
 // Module pattern:
 // http://yuiblog.com/blog/2007/06/12/module-pattern/
 var FORMALIZE = (function($, window, document, undefined) {
-		// Private constants.
-	var PLACEHOLDER_SUPPORTED = 'placeholder' in document.createElement('input'),
-		AUTOFOCUS_SUPPORTED = 'autofocus' in document.createElement('input'),
-		WEBKIT = 'webkitAppearance' in document.createElement('select').style,
-		IE6 = !!($.browser.msie && parseInt($.browser.version, 10) === 6),
-		IE7 = !!($.browser.msie && parseInt($.browser.version, 10) === 7),
+	// Private constants.
+	var PLACEHOLDER_SUPPORTED = 'placeholder' in document.createElement('input');
+	var	AUTOFOCUS_SUPPORTED = 'autofocus' in document.createElement('input');
+	var	WEBKIT = 'webkitAppearance' in document.createElement('select').style;
+	var	IE6 = !!($.browser.msie && parseInt($.browser.version, 10) === 6);
+	var	IE7 = !!($.browser.msie && parseInt($.browser.version, 10) === 7);
 		
-		// Public functions (exposed via the return statement)
-		detect_webkit,
-		full_input_size,
-		ie6_skin_inputs,
-		autofocus,
-		add_placeholder,
-		placeholder,
-		init;
+	// Public functions (exposed via the return statement)
+	var	detect_webkit;
+	var	full_input_size;
+	var	ie6_skin_inputs;
+	var	autofocus;
+	var	add_placeholder;
+	var	placeholder;
+	var	init;
 	
-	detect_webkit = function () {
+	detect_webkit = function() {
 		if (!WEBKIT) {
 			return;
 		}
 	
 		// Tweaks for Safari + Chrome.
-		$('html').addClass('is_webkit');		
+		$('html').addClass('is_webkit');
 	};
 	
-	full_input_size = function () {
+	full_input_size = function() {
 		if (!IE7 || !$('textarea, input.input_full').length) {
 			return;
 		}
 
 		// This fixes width: 100% on <textarea> and class="input_full".
 		// It ensures that form elements don't go wider than container.
-		$('textarea, input.input_full').wrap('<span class="input_full_wrap"></span>');	
+		$('textarea, input.input_full').wrap('<span class="input_full_wrap"></span>');
 	};
 	
-	ie6_skin_inputs = function () {
-		var button_regex, type_regex;
+	ie6_skin_inputs = function() {
+		var button_regex;
+		var type_regex;
 	
 		// Test for Internet Explorer 6.
 		if (!IE6 || !$('input, select, textarea').length) {
@@ -56,7 +57,7 @@ var FORMALIZE = (function($, window, document, undefined) {
 		// For <input type="text" />, etc.
 		type_regex = /date|datetime|datetime-local|email|month|number|password|range|search|tel|text|time|url|week/;
 	
-		$('input').each(function () {
+		$('input').each(function() {
 			var el = $(this);
 	
 			// Is it a button?
@@ -78,40 +79,40 @@ var FORMALIZE = (function($, window, document, undefined) {
 			}
 		});
 	
-		$('textarea, select').each(function () {
+		$('textarea, select').each(function() {
 			/* Is it disabled? */
 			if (this.disabled) {
 				$(this).addClass('ie6_input_disabled');
 			}
-		});	
+		});
 	};
 	
-	autofocus = function () {
+	autofocus = function() {
 		if (AUTOFOCUS_SUPPORTED || !$(':input[autofocus]').length) {
 			return;
 		}
 
-		$(':input[autofocus]:visible:first').focus();	
+		$(':input[autofocus]:visible:first').focus();
 	};
 	
-	add_placeholder = function () {
+	add_placeholder = function() {
 		if (PLACEHOLDER_SUPPORTED || !$(':input[placeholder]').length) {
 			// Exit if placeholder is supported natively,
 			// or if page does not have any placeholder.
 			return;
 		}
 	
-		$(':input[placeholder]').each(function () {
-			var el = $(this),
-				text = el.attr('placeholder');
+		$(':input[placeholder]').each(function() {
+			var el = $(this);
+			var text = el.attr('placeholder');
 	
 			if (!el.val() || el.val() === text) {
 				el.val(text).addClass('placeholder_text');
 			}
 		});
-	};	
+	};
 	
-	placeholder = function () {
+	placeholder = function() {
 		if (PLACEHOLDER_SUPPORTED || !$(':input[placeholder]').length) {
 			// Exit if placeholder is supported natively,
 			// or if page does not have any placeholder.
@@ -120,11 +121,11 @@ var FORMALIZE = (function($, window, document, undefined) {
 
 		add_placeholder();
 
-		$(':input[placeholder]').each(function () {
-			var el = $(this),
-				text = el.attr('placeholder');
+		$(':input[placeholder]').each(function() {
+			var el = $(this);
+			var text = el.attr('placeholder');
 
-			el.focus(function () {
+			el.focus(function() {
 				if (el.val() === text) {
 					el.val('').removeClass('placeholder_text');
 				}
@@ -134,17 +135,17 @@ var FORMALIZE = (function($, window, document, undefined) {
 
 			// Prevent <form> from accidentally
 			// submitting the placeholder text.
-			el.closest('form').submit(function () {
+			el.closest('form').submit(function() {
 				if (el.val() === text) {
 					el.val('').removeClass('placeholder_text');
 				}
-			}).bind('reset', function () {
+			}).bind('reset', function() {
 				setTimeout(add_placeholder, 50);
 			});
-		});	
+		});
 	};
 	
-	init = function () {	
+	init = function() {
 		detect_webkit();
 		full_input_size();
 		ie6_skin_inputs();
@@ -153,7 +154,7 @@ var FORMALIZE = (function($, window, document, undefined) {
 	};
 
 	// Expose innards of FORMALIZE.
-	return {		
+	return {
 		go: init, // FORMALIZE.go
 		detect_webkit: detect_webkit, // FORMALIZE.detect_webkit
 		full_input_size: full_input_size, // FORMALIZE.full_input_size
@@ -166,6 +167,6 @@ var FORMALIZE = (function($, window, document, undefined) {
 }(jQuery, this, this.document));
 
 // Automatically calls all functions in FORMALIZE.init
-jQuery(document).ready(function () {
+jQuery(document).ready(function() {
 	FORMALIZE.go();
 });
