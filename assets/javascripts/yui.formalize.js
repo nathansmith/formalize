@@ -39,9 +39,8 @@ var FORMALIZE = (function(window, document, undefined) {
 
 				// This fixes width: 100% on <textarea> and class="input_full".
 				// It ensures that form elements don't go wider than container.
-				var wrapper = Y.Node.create('<span class="input_full_wrap"></span>');
-
 				Y.all('textarea, input.input_full').each(function(el) {
+          var wrapper = Y.Node.create('<span class="input_full_wrap"></span>');
 					wrapper.append(el.replace(wrapper));
 				});
 			},
@@ -151,6 +150,8 @@ var FORMALIZE = (function(window, document, undefined) {
 				}
 
 				Y.all('[placeholder]').each(function(el) {
+				  var text = el.getAttribute('placeholder');
+
 					if (!el.get('value') || el.get('value') === text) {
 						el.set('value', text).addClass('placeholder_text');
 					}

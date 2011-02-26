@@ -152,6 +152,8 @@ var FORMALIZE = (function(window, document, undefined) {
 				}
 
 				$$('[placeholder]').each(function(el) {
+				  var text = el.getAttribute('placeholder');
+
 					if (!el.value || el.value === text) {
 						el.value = text;
 						el.addClassName('placeholder_text');

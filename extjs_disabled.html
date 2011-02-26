@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Formalize CSS</title>
+<link rel="stylesheet" href="assets/stylesheets/demo.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/ext-core/3.1.0/ext-core.js"></script>
+<script src="assets/javascripts/extjs.formalize.js"></script>
+</head>
+<body>
+<div id="wrapper">
+	<h1>
+		Example of all form elements
+	</h1>
+	<form action="" enctype="multipart/form-data" onsubmit="return false;">
+		<p>
+			<input disabled="disabled" type="checkbox" id="test_checkbox_1" name="test_checkbox_1" />
+			<label for="test_checkbox_1">
+				Test checkbox 1
+			</label>
+			&nbsp;
+			&nbsp;
+			<input disabled="disabled" type="checkbox" id="test_checkbox_2" name="test_checkbox_2" />
+			<label for="test_checkbox_2">
+				Test checkbox 2
+			</label>
+			&nbsp;
+			&nbsp;
+			<input disabled="disabled" type="checkbox" id="test_checkbox_3" name="test_checkbox_3" />
+			<label for="test_checkbox_3">
+				Test checkbox 3
+			</label>
+		</p>
+		<p>
+			<input disabled="disabled" type="radio" id="test_radio_1" name="test_radio_group" />
+			<label for="test_radio_1">
+				Test radio 1
+			</label>
+			&nbsp;
+			&nbsp;
+			<input disabled="disabled" type="radio" id="test_radio_2" name="test_radio_group" />
+			<label for="test_radio_2">
+				Test radio 2
+			</label>
+			&nbsp;
+			&nbsp;
+			<input disabled="disabled" type="radio" id="test_radio_3" name="test_radio_group" />
+			<label for="test_radio_3">
+				Test radio 3
+			</label>
+		</p>
+		<p>
+			<label for="select_dd">
+				Select drop-down
+			</label>
+			<br />
+			<select disabled="disabled" id="select_dd" name="select_dd">
+				<optgroup label="Group 1">
+					<option value="1">Some text goes here</option>
+					<option value="2">Another choice could be here</option>
+					<option value="3">Yet another item to be chosen</option>
+				</optgroup>
+				<optgroup label="Group 2">
+					<option value="4">Some text goes here</option>
+					<option value="5">Another choice could be here</option>
+					<option value="6">Yet another item to be chosen</option>
+				</optgroup>
+				<optgroup label="Group 3">
+					<option value="7">Some text goes here</option>
+					<option value="8">Another choice could be here</option>
+					<option value="9">Yet another item to be chosen</option>
+				</optgroup>
+			</select>
+			<input disabled="disabled" type="text" id="text_inline" name="text_inline" />
+			<input disabled="disabled" type="button" value="Hello" />
+		</p>
+		<p>
+			<label for="select_multi">
+				Select multiple
+			</label>
+			<br />
+			<select disabled="disabled" id="select_multi" name="select_multi" multiple="multiple" size="10">
+				<optgroup label="Group 1">
+					<option value="1">Some text goes here</option>
+					<option value="2">Another choice could be here</option>
+					<option value="3">Yet another item to be chosen</option>
+				</optgroup>
+				<optgroup label="Group 2">
+					<option value="4">Some text goes here</option>
+					<option value="5">Another choice could be here</option>
+					<option value="6">Yet another item to be chosen</option>
+				</optgroup>
+				<optgroup label="Group 3">
+					<option value="7">Some text goes here</option>
+					<option value="8">Another choice could be here</option>
+					<option value="9">Yet another item to be chosen</option>
+				</optgroup>
+			</select>
+		</p>
+		<p>
+			<label for="textarea">
+				Textarea
+			</label>
+			<br />
+			<textarea disabled="disabled" id="textarea" name="textarea" rows="5" placeholder="This is an example of HTML5 placeholder text."></textarea>
+		</p>
+		<table class="horiz">
+			<tr>
+				<td>
+					<label for="url">
+						URL + Autofocus
+					</label>
+					<br />
+					<input disabled="disabled" type="url" id="url" name="url" value="http://" autofocus="autofocus" />
+				</td>
+				<td>
+					<label for="email">
+						Email
+					</label>
+					<br />
+					<input disabled="disabled" type="email" id="email" name="email" placeholder="name@example.com" />
+				</td>
+				<td>
+					<label for="text">
+						Text
+					</label>
+					<br />
+					<input disabled="disabled" type="text" id="text" name="text" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label for="datetime-local">
+						Datetime local
+					</label>
+					<br />
+					<input disabled="disabled" type="datetime-local" id="datetime-local" name="datetime-local" />
+				</td>
+				<td>
+					<label for="number">
+						Number
+					</label>
+					<br />
+					<input disabled="disabled" type="number" id="number" name="number" />
+				</td>
+				<td>
+					<label for="tel">
+						Tel (phone)
+					</label>
+					<br />
+					<input disabled="disabled" type="tel" id="tel" name="tel" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label for="datetime">
+						Datetime
+					</label>
+					<br />
+					<input disabled="disabled" type="datetime" id="datetime" name="datetime" />
+				</td>
+				<td>
+					<label for="date">
+						Date
+					</label>
+					<br />
+					<input disabled="disabled" type="date" id="date" name="date" />
+				</td>
+				<td>
+					<label for="month">
+						Month
+					</label>
+					<br />
+					<input disabled="disabled" type="month" id="month" name="month" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label for="search">
+						Search
+					</label>
+					<br />
+					<input disabled="disabled" type="search" id="search" name="search" />
+				</td>
+				<td>
+					<label for="range">
+						Range
+					</label>
+					<br />
+					<input disabled="disabled" type="range" id="range" name="range" />
+				</td>
+				<td>
+					<label for="file">
+						File upload
+					</label>
+					<br />
+					<input disabled="disabled" type="file" id="file" name="file" />
+				</td>
+			</tr>
+		</table>
+		<p>
+			<input disabled="disabled" type="submit" value="Input - Submit" />
+			&nbsp;
+			<input disabled="disabled" type="button" value="Input - Button" />
+			&nbsp;
+			<input disabled="disabled" type="reset" value="Input - Reset" />
+			&nbsp;
+			<button disabled="disabled">Button tag</button>
+		</p>
+	</form>
+</div>
+</body>
+</html>
