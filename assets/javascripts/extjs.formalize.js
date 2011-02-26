@@ -19,6 +19,15 @@ var FORMALIZE = (function(window, document, undefined) {
 		},
 		// FORMALIZE.init
 		init: {
+			// FORMALIZE.init.detect_webkit
+			detect_webkit: function() {
+				if (!WEBKIT) {
+					return;
+				}
+
+				// Tweaks for Safari + Chrome.
+				Ext.getBody().addClass('is_webkit');
+			},
 			// FORMALIZE.init.full_input_size
 			full_input_size: function() {
 				if (!IE7 || !Ext.DomQuery.select('textarea, input.input_full')) {
