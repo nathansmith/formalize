@@ -1,6 +1,9 @@
 CREDITS
 
-Mootools port by Ryan Florence:
+ExtJS port by Mike Wille:
+https://github.com/digerata
+
+MooTools port by Ryan Florence:
 http://github.com/rpflorence
 
 Helpful bug reports filed by:
