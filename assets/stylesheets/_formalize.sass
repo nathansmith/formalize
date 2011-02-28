@@ -155,10 +155,20 @@ select:focus,
 select:active,
 textarea:focus,
 textarea:active
-  +box-shadow(#06f, 0, 0, 7px)
+  -moz-box-shadow: #06f 0 0 7px
+  -webkit-box-shadow: #06f 0 0 7px
+  box-shadow: #06f 0 0 7px
 
   // for Opera
   z-index: 1
+
+input[type="radio"]:focus,
+input[type="radio"]:active,
+input[type="checkbox"]:focus,
+input[type="checkbox"]:active
+  -moz-box-shadow: none
+  -webkit-box-shadow: none
+  box-shadow: none
 
 .is_webkit select
   // Tweaks for Safari + Chrome.
