@@ -83,14 +83,12 @@ input[type="button"] {
 	width: auto;
 
 	/* IE7 */
-	*padding-top: 2px;
-	*padding-bottom: 0px;
+	*padding: 2px 10px 0;
 }
 
 button {
 	/* IE7 */
-	*padding-top: 1px;
-	*padding-bottom: 1px;
+	*padding: 1px 10px 1px;
 }
 
 button[disabled],
@@ -133,8 +131,7 @@ input[type="week"] {
 	height: 1.8em;
 
 	/* IE7 */
-	*padding-top: 2px;
-	*padding-bottom: 1px;
+	*padding: 2px 3px 1px;
 	*height: auto;
 }
 
