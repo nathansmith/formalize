@@ -1,7 +1,7 @@
 CREDITS
 
 ExtJS port by Mike Wille:
-https://github.com/digerata
+http://github.com/digerata
 
 MooTools port by Ryan Florence:
 http://github.com/rpflorence
