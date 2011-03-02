@@ -186,6 +186,8 @@ textarea:active {
 	z-index: 1;
 }
 
+input[type="file"]:focus,
+input[type="file"]:active,
 input[type="radio"]:focus,
 input[type="radio"]:active,
 input[type="checkbox"]:focus,
