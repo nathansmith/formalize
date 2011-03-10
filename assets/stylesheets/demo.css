@@ -6,42 +6,42 @@
 ----------------------------------------------------------------------------------------------------*/
 
 body {
-	background: #fff;
-	color: #000;
+  background: #fff;
+  color: #000;
 }
 
 /* `Wrapper
 ----------------------------------------------------------------------------------------------------*/
 
 #wrapper {
-	margin: 0 auto;
-	padding: 20px;
-	width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  width: 800px;
 }
 
 /* `Errors
 ----------------------------------------------------------------------------------------------------*/
 
 label.error {
-	background: #ffc;
-	color: #c00;
-	font-style: italic;
+  background: #ffc;
+  color: #c00;
+  font-style: italic;
 }
 
 input.error,
 select.error,
 textarea.error {
-	background-color: #fee;
+  background-color: #fee;
 }
 
 /* `Table Layout
 ----------------------------------------------------------------------------------------------------*/
 
 .horiz {
-	margin-top: -20px;
-	margin-left: -20px;
+  margin-top: -20px;
+  margin-left: -20px;
 }
 
 .horiz td {
-	padding: 20px 0 0 20px;
+  padding: 20px 0 0 20px;
 }

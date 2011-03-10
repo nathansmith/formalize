@@ -2,51 +2,51 @@
 ----------------------------------------------------------------------------------------------------*/
 
 .input_tiny {
-	width: 50px;
+  width: 50px;
 }
 
 .input_small {
-	width: 100px;
+  width: 100px;
 }
 
 .input_medium {
-	width: 150px;
+  width: 150px;
 }
 
 .input_large {
-	width: 200px;
+  width: 200px;
 }
 
 .input_xlarge {
-	width: 250px;
+  width: 250px;
 }
 
 .input_xxlarge {
-	width: 300px;
+  width: 300px;
 }
 
 .input_full {
-	width: 100%;
+  width: 100%;
 }
 
 /*
-	Added via JS to <textarea> and class="input_full".
-	Applies only to IE7. Other browsers don't need it.
+  Added via JS to <textarea> and class="input_full".
+  Applies only to IE7. Other browsers don't need it.
 */
 .input_full_wrap {
-	display: block;
-	padding-right: 8px;
+  display: block;
+  padding-right: 8px;
 }
 
 /* `UI Consistency
 ----------------------------------------------------------------------------------------------------*/
 
 ::-moz-focus-inner {
-	border: 0;
+  border: 0;
 }
 
 input[type="search"]::-webkit-search-decoration {
-	display: none;
+  display: none;
 }
 
 input,
@@ -56,48 +56,48 @@ textarea {
   -moz-background-clip: padding;
   -webkit-background-clip: padding;
   background-clip: padding-box;
-	margin: 0;
-	vertical-align: middle;
+  margin: 0;
+  vertical-align: middle;
 }
 
 button,
 input[type="reset"],
 input[type="submit"],
 input[type="button"] {
-	-webkit-appearance: none;
-	-moz-border-radius: 11px;
-	-webkit-border-radius: 11px;
-	border-radius: 11px;
-	background: #ddd url(../images/button.png) repeat-x;
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fff), color-stop(1, #ddd));
-	background: -moz-linear-gradient(top center, #fff 0%, #ddd 100%);
-	border: 1px solid;
-	border-color: #ddd #bbb #999;
-	cursor: pointer;
-	color: #333;
-	font: bold 12px/1.2 Arial, sans-serif;
-	outline: 0;
-	overflow: visible;
-	padding: 3px 10px 4px;
-	text-shadow: #fff 0 1px 1px;
-	width: auto;
+  -webkit-appearance: none;
+  -moz-border-radius: 11px;
+  -webkit-border-radius: 11px;
+  border-radius: 11px;
+  background: #ddd url(../images/button.png) repeat-x;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fff), color-stop(1, #ddd));
+  background: -moz-linear-gradient(top center, #fff 0%, #ddd 100%);
+  border: 1px solid;
+  border-color: #ddd #bbb #999;
+  cursor: pointer;
+  color: #333;
+  font: bold 12px/1.2 Arial, sans-serif;
+  outline: 0;
+  overflow: visible;
+  padding: 3px 10px 4px;
+  text-shadow: #fff 0 1px 1px;
+  width: auto;
 
-	/* IE7 */
-	*padding-top: 2px;
-	*padding-bottom: 0px;
+  /* IE7 */
+  *padding-top: 2px;
+  *padding-bottom: 0px;
 }
 
 button {
-	/* IE7 */
-	*padding-top: 1px;
-	*padding-bottom: 1px;
+  /* IE7 */
+  *padding-top: 1px;
+  *padding-bottom: 1px;
 }
 
 button[disabled],
 input[type="reset"][disabled],
 input[type="submit"][disabled],
 input[type="button"][disabled] {
-	color: #888;
+  color: #888;
 }
 
 textarea,
@@ -115,40 +115,40 @@ input[type="text"],
 input[type="time"],
 input[type="url"],
 input[type="week"] {
-	-webkit-appearance: none;
-	-moz-border-radius: 0;
-	-webkit-border-radius: 0;
-	border-radius: 0;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-	background-color: #fff;
-	border: 1px solid;
-	border-color: #848484 #c1c1c1 #e1e1e1;
-	color: #000;
-	outline: 0;
-	padding: 2px 3px;
-	font-size: 13px;
-	font-family: Arial, sans-serif;
-	height: 1.8em;
+  -webkit-appearance: none;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background-color: #fff;
+  border: 1px solid;
+  border-color: #848484 #c1c1c1 #e1e1e1;
+  color: #000;
+  outline: 0;
+  padding: 2px 3px;
+  font-size: 13px;
+  font-family: Arial, sans-serif;
+  height: 1.8em;
 
-	/* IE7 */
-	*padding-top: 2px;
-	*padding-bottom: 1px;
-	*height: auto;
+  /* IE7 */
+  *padding-top: 2px;
+  *padding-bottom: 1px;
+  *height: auto;
 }
 
 /*
-	Separate rule for Firefox.
-	Cannot stack with WebKit's.
+  Separate rule for Firefox.
+  Cannot stack with WebKit's.
 */
 input.placeholder_text,
 textarea.placeholder_text {
-	color: #888;
+  color: #888;
 }
 
 ::-webkit-input-placeholder {
-	color: #888;
+  color: #888;
 }
 
 textarea[disabled],
@@ -166,8 +166,8 @@ input[type="text"][disabled],
 input[type="time"][disabled],
 input[type="url"][disabled],
 input[type="week"][disabled] {
-	background-color: #eee;
-	color: #888;
+  background-color: #eee;
+  color: #888;
 }
 
 button:focus,
@@ -178,12 +178,12 @@ select:focus,
 select:active,
 textarea:focus,
 textarea:active {
-	-moz-box-shadow: #06f 0 0 7px;
-	-webkit-box-shadow: #06f 0 0 7px;
-	box-shadow: #06f 0 0 7px;
+  -moz-box-shadow: #06f 0 0 7px;
+  -webkit-box-shadow: #06f 0 0 7px;
+  box-shadow: #06f 0 0 7px;
 
-	/* for Opera */
-	z-index: 1;
+  /* for Opera */
+  z-index: 1;
 }
 
 input[type="file"]:focus,
@@ -198,103 +198,103 @@ input[type="checkbox"]:active {
 }
 
 .is_webkit select {
-	/* Tweaks for Safari + Chrome. */
-	background-image: url(../images/select_arrow.gif);
-	background-repeat: no-repeat;
-	background-position: right center;
-	padding-right: 20px;
+  /* Tweaks for Safari + Chrome. */
+  background-image: url(../images/select_arrow.gif);
+  background-repeat: no-repeat;
+  background-position: right center;
+  padding-right: 20px;
 }
 
 textarea,
 select[multiple] {
-	height: auto;
+  height: auto;
 }
 
 select[multiple],
 .is_webkit select[multiple] {
-	background-image: none;
-	padding: 0;
+  background-image: none;
+  padding: 0;
 }
 
 textarea {
   min-height: 40px;
-	overflow: auto;
-	resize: vertical;
-	width: 100%;
+  overflow: auto;
+  resize: vertical;
+  width: 100%;
 }
 
 optgroup {
-	color: #000;
-	font-style: normal;
-	font-weight: normal;
+  color: #000;
+  font-style: normal;
+  font-weight: normal;
 }
 
 /* `IE6
 ----------------------------------------------------------------------------------------------------*/
 
 /*
-	Everything below this line is for IE6.
-	Delete it if you don't support it! :)
+  Everything below this line is for IE6.
+  Delete it if you don't support it! :)
 
-	Classes are added dynamically via JS,
-	because IE6 doesn't support attribute
-	selectors: .ie6_button, .ie6_input, etc.
+  Classes are added dynamically via JS,
+  because IE6 doesn't support attribute
+  selectors: .ie6_button, .ie6_input, etc.
 
-	Note: These style rules are somewhat
-	duplicated because IE6 bombs out when
-	it sees attribute selectors. Example:
+  Note: These style rules are somewhat
+  duplicated because IE6 bombs out when
+  it sees attribute selectors. Example:
 
-	.ie6_button {
-		This works in IE6.
-	}
+  .ie6_button {
+    This works in IE6.
+  }
 
-	.ie6_button,
-	input[type=submit] {
-		This doesn't work.
-	}
+  .ie6_button,
+  input[type=submit] {
+    This doesn't work.
+  }
 */
 
 .ie6_button,
 * html button {
-	background: #ddd url(../images/button.png) repeat-x;
-	border: 1px solid;
-	border-color: #ddd #bbb #999;
-	cursor: pointer;
-	color: #333;
-	font: bold 12px/1.2 Arial, sans-serif;
-	padding: 2px 10px 0px;
-	overflow: visible;
-	width: auto;
+  background: #ddd url(../images/button.png) repeat-x;
+  border: 1px solid;
+  border-color: #ddd #bbb #999;
+  cursor: pointer;
+  color: #333;
+  font: bold 12px/1.2 Arial, sans-serif;
+  padding: 2px 10px 0px;
+  overflow: visible;
+  width: auto;
 }
 
 * html button {
-	padding-top: 1px;
-	padding-bottom: 1px;
+  padding-top: 1px;
+  padding-bottom: 1px;
 }
 
 .ie6_input,
 * html textarea,
 * html select {
-	background: #fff;
-	border: 1px solid;
-	border-color: #848484 #c1c1c1 #e1e1e1;
-	color: #000;
-	padding: 2px 3px 1px;
-	font-size: 13px;
-	font-family: Arial, sans-serif;
-	vertical-align: top;
+  background: #fff;
+  border: 1px solid;
+  border-color: #848484 #c1c1c1 #e1e1e1;
+  color: #000;
+  padding: 2px 3px 1px;
+  font-size: 13px;
+  font-family: Arial, sans-serif;
+  vertical-align: top;
 }
 
 * html select {
-	margin-top: 1px;
+  margin-top: 1px;
 }
 
 .placeholder_text,
 .ie6_input_disabled,
 .ie6_button_disabled {
-	color: #888;
+  color: #888;
 }
 
 .ie6_input_disabled {
-	background: #eee;
+  background: #eee;
 }
