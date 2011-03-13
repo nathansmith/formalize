@@ -17,7 +17,7 @@ var FORMALIZE = (function($, window, document, undefined) {
     // FORMALIZE.go
     go: function() {
       for (var i in FORMALIZE.init) {
-        FORMALIZE.init[i](
+        FORMALIZE.init[i]();
       }
     },
     // FORMALIZE.init
