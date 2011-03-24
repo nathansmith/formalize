@@ -143,7 +143,9 @@ input[type="week"] {
   Cannot stack with WebKit's.
 */
 input.placeholder_text,
-textarea.placeholder_text {
+textarea.placeholder_text,
+input:-moz-placeholder,
+textarea:-moz-placeholder {
   color: #888;
 }
 
