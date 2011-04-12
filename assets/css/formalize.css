@@ -194,6 +194,8 @@ input[type="week"][disabled] {
 button[disabled],
 input[disabled],
 select[disabled],
+select[disabled] option,
+select[disabled] optgroup,
 textarea[disabled] {
   -moz-box-shadow: none;
   -webkit-box-shadow: none;
