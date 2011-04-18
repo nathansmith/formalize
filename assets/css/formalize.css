@@ -43,6 +43,7 @@
 
 ::-moz-focus-inner {
   border: 0;
+  padding: 0;
 }
 
 input[type="search"]::-webkit-search-decoration {

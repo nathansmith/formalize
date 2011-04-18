@@ -6,13 +6,14 @@ http://github.com/digerata
 MooTools port by Ryan Florence:
 http://github.com/rpflorence
 
------
+=====
 
 Helpful bug reports filed by:
 http://github.com/wadewinningham
 http://github.com/tingletech
+http://stuartcharlton.com
 
------
+=====
 
 Licensed under MIT/GPL.
 
