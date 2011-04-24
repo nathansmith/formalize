@@ -46,9 +46,7 @@ input,
 button,
 select,
 textarea
-  -moz-background-clip: padding
-  -webkit-background-clip: padding
-  background-clip: padding-box
+  +box-sizing(border-box)
   margin: 0
   vertical-align: middle
 
@@ -58,6 +56,7 @@ input[type="submit"],
 input[type="button"]
   -webkit-appearance: none
   +border-radius(11px)
+  +background-clip(padding-box)
   background: #ddd url(../images/button.png) repeat-x
   +linear-gradient(color-stops(#fff, #ddd))
   border: 1px solid
@@ -97,7 +96,7 @@ input[type="url"],
 input[type="week"]
   -webkit-appearance: none
   +border-radius(0)
-  +box-sizing(border-box)
+  +background-clip(padding-box)
   background-color: #fff
   border: 1px solid
   border-color: #848484 #c1c1c1 #e1e1e1
