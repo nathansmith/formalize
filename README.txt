@@ -12,6 +12,7 @@ Helpful bug reports filed by:
 http://github.com/wadewinningham
 http://github.com/tingletech
 http://stuartcharlton.com
+http://github.com/garrettdimon
 
 =====
 
