@@ -29,7 +29,8 @@ var FORMALIZE = (function(window, document, undefined) {
         }
 
         // Tweaks for Safari + Chrome.
-        dojo.query('html').addClass('is_webkit');
+        // <html class="is_webkit">
+        dojo.addClass(document.documentElement, 'is_webkit');
       },
       // FORMALIZE.init.full_input_size
       full_input_size: function() {

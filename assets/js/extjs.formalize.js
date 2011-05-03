@@ -26,7 +26,8 @@ var FORMALIZE = (function(window, document, undefined) {
         }
 
         // Tweaks for Safari + Chrome.
-        Ext.get(Ext.query('html')).addClass('is_webkit');
+        // <html class="is_webkit">
+        Ext.get(document.documentElement).addClass('is_webkit');
       },
       // FORMALIZE.init.full_input_size
       full_input_size: function() {

@@ -36,7 +36,8 @@ var FORMALIZE = (function(window, document, undefined) {
         }
 
         // Tweaks for Safari + Chrome.
-        $$('html')[0].addClassName('is_webkit');
+        // <html class="is_webkit">
+        $(document.documentElement).addClassName('is_webkit');
       },
       // FORMALIZE.init.full_input_size
       full_input_size: function() {
