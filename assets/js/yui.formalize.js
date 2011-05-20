@@ -1,9 +1,11 @@
-//
-// Note: This file depends on the YUI library.
-//
+/*
+  Formalize - version 1.0
+
+  Note: This file depends on the YUI library.
+*/
 
 // Module pattern:
-// http://yuiblog.com/blog/2007/06/12/module-pattern/
+// http://yuiblog.com/blog/2007/06/12/module-pattern
 var FORMALIZE = (function(window, document, undefined) {
   // Private constants.
   var PLACEHOLDER_SUPPORTED = 'placeholder' in document.createElement('input');
