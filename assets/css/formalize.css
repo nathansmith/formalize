@@ -137,16 +137,20 @@ input[type="week"] {
 
 /*
   Separate rule for Firefox.
+  Separate rule for IE, too.
   Cannot stack with WebKit's.
 */
-input.placeholder_text,
-textarea.placeholder_text,
+::-webkit-input-placeholder {
+  color: #888;
+}
+
 input:-moz-placeholder,
 textarea:-moz-placeholder {
   color: #888;
 }
 
-::-webkit-input-placeholder {
+input.placeholder_text,
+textarea.placeholder_text {
   color: #888;
 }
 

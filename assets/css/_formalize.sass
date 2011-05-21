@@ -113,15 +113,17 @@ input[type="week"]
   *height: auto
 
 // Separate rule for Firefox.
+// Separate rule for IE, too.
 // Cannot stack with WebKit's.
-
-input.placeholder-text,
-textarea.placeholder-text,
+::-webkit-input-placeholder
+  color: #888
+  
 input:-moz-placeholder,
 textarea:-moz-placeholder
   color: #888
 
-::-webkit-input-placeholder
+input.placeholder-text,
+textarea.placeholder-text
   color: #888
 
 button:focus,
