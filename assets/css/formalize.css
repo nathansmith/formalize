@@ -211,24 +211,26 @@ textarea[disabled] {
   cursor: default;
 }
 
-.is_webkit select {
-  /* Tweaks for Safari + Chrome. */
-  background-image: url(../images/select_arrow.gif);
-  background-repeat: no-repeat;
-  background-position: right center;
-  padding-right: 20px;
-}
-
 textarea,
 select[size],
 select[multiple] {
   height: auto;
 }
 
-.is_webkit select[size],
-.is_webkit select[multiple] {
-  background-image: none;
-  padding: 0;
+/* Tweaks for Safari + Chrome. */
+@media (-webkit-min-device-pixel-ratio: 0) {
+  select {
+    background-image: url(../images/select_arrow.gif);
+    background-repeat: no-repeat;
+    background-position: right center;
+    padding-right: 20px;
+  }
+
+  select[size],
+  select[multiple] {
+    background-image: none;
+    padding: 0;
+  }
 }
 
 textarea {

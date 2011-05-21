@@ -1,5 +1,5 @@
 /*
-  Formalize - version 1.0
+  Formalize - version 1.1
 
   Note: This file depends on the ExtJS 3.x library.
 */
@@ -10,7 +10,6 @@ var FORMALIZE = (function(window, document, undefined) {
   // Private constants.
   var PLACEHOLDER_SUPPORTED = 'placeholder' in document.createElement('input');
   var AUTOFOCUS_SUPPORTED = 'autofocus' in document.createElement('input');
-  var WEBKIT = 'webkitAppearance' in document.createElement('select').style;
   var IE6 = Ext.isIE6;
   var IE7 = Ext.isIE7;
 
@@ -24,16 +23,6 @@ var FORMALIZE = (function(window, document, undefined) {
     },
     // FORMALIZE.init
     init: {
-      // FORMALIZE.init.detect_webkit
-      detect_webkit: function() {
-        if (!WEBKIT) {
-          return;
-        }
-
-        // Tweaks for Safari + Chrome.
-        // <html class="is_webkit">
-        Ext.get(document.documentElement).addClass('is_webkit');
-      },
       // FORMALIZE.init.full_input_size
       full_input_size: function() {
         if (!IE7 || !Ext.query('textarea, input.input_full')) {
