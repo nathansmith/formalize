@@ -199,6 +199,15 @@ input[type="checkbox"]:active {
   box-shadow: none;
 }
 
+input:invalid {
+  -moz-box-shadow: #f66 0 0 7px;
+  -webkit-box-shadow: #f66 0 0 7px;
+  box-shadow: #f66 0 0 7px;
+
+  /* for Opera */
+  z-index: 1;
+}
+
 .is_webkit select {
   /* Tweaks for Safari + Chrome. */
   background-image: url(../images/select_arrow.gif);
