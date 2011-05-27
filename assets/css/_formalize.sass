@@ -54,7 +54,7 @@ input[type="reset"],
 input[type="submit"],
 input[type="button"]
   -webkit-appearance: none
-  +border-radius(11px)
+  +border-radius(4px)
   +background-clip(padding-box)
   background: #ddd url(../images/button.png) repeat-x
   +linear-gradient(color-stops(#fff, #ddd))
@@ -62,13 +62,14 @@ input[type="button"]
   border-color: #ddd #bbb #999
   cursor: pointer
   color: #333
-  font: bold 12px/1.2 Arial, sans-serif
+  // Helvetica Neue present, because it works better
+  // for line-height on buttons than Arial, on OS X.
+  font: bold 12px/1.3 'Helvetica Neue', Arial, 'Liberation Sans', FreeSans, sans-serif
   outline: 0
   overflow: visible
-  padding: 3px 10px 4px
+  padding: 3px 10px
   text-shadow: #fff 0 1px 1px
   width: auto
-
   // IE7
   *padding-top: 2px
   *padding-bottom: 0px
@@ -94,9 +95,15 @@ input[type="time"],
 input[type="url"],
 input[type="week"]
   -webkit-appearance: none
-  +border-radius(0)
-  +box-sizing(border-box)
-  +background-clip(padding-box)
+  -moz-border-radius: 0
+  -webkit-border-radius: 0
+  border-radius: 0
+  -webkit-box-sizing: border-box
+  -moz-box-sizing: border-box
+  box-sizing: border-box
+  -moz-background-clip: padding
+  -webkit-background-clip: padding
+  background-clip: padding-box
   background-color: #fff
   border: 1px solid
   border-color: #848484 #c1c1c1 #e1e1e1
@@ -104,9 +111,10 @@ input[type="week"]
   outline: 0
   padding: 2px 3px
   font-size: 13px
-  font-family: Arial, sans-serif
+  // Leaving out Helvetica Neue, to not throw off size="..."
+  // on inputs. Arial is more reliable, on Windows and OS X.
+  font-family: Arial, 'Liberation Sans', FreeSans, sans-serif
   height: 1.8em
-
   // IE7
   *padding-top: 2px
   *padding-bottom: 1px
@@ -137,7 +145,6 @@ textarea:active
   -moz-box-shadow: #06f 0 0 7px
   -webkit-box-shadow: #06f 0 0 7px
   box-shadow: #06f 0 0 7px
-
   // for Opera
   z-index: 1
 
@@ -188,7 +195,7 @@ select[size],
 select[multiple]
   height: auto
 
-/* Tweaks for Safari + Chrome. */
+// Tweaks for Safari + Chrome.
 @media (-webkit-min-device-pixel-ratio: 0)
   select
     background-image: url(../images/select_arrow.gif)
