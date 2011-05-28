@@ -162,6 +162,17 @@ textarea.placeholder_text {
   color: #888;
 }
 
+:invalid {
+  /*
+    Suppress red glow that Firefox
+    adds to form fields by default,
+    even when user is still typing.
+  */
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
 button:focus,
 button:active,
 input:focus,
@@ -242,6 +253,22 @@ select[multiple] {
   select[multiple] {
     background-image: none;
     padding: 0;
+  }
+
+  ::-webkit-validation-bubble-message {
+    box-shadow: rgba(0, 0, 0, 0.5) 0 0 5px;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #666), color-stop(1, #000));
+    border: 1px solid;
+    border-color: #747474 #5e5e5e #4f4f4f;
+    color: #fff;
+    font: 11px/1 'Lucida Grande', Arial, 'Liberation Sans', FreeSans, sans-serif;
+    padding: 15px 15px 17px;
+    text-shadow: #000 0 0 1px;
+  }
+
+  ::-webkit-validation-bubble-top-outer-arrow,
+  ::-webkit-validation-bubble-top-inner-arrow {
+    display: none;
   }
 }
 
