@@ -60,31 +60,21 @@ textarea {
 
 input[type="radio"],
 input[type="checkbox"] {
-  vertical-align: bottom;
-  margin-bottom: 3px;
-  /* IE7 */
-  *margin-bottom: 0;
-}
-
-input[type="radio"] {
+  position: relative;
+  vertical-align: top;
+  top: 3px;
   /* IE8, IE9, IE10 */
-  margin-bottom: 1px\0;
+  top: 0\0;
   /* IE7 */
-  *margin-top: -3px;
-}
-
-input[type="checkbox"] {
-  /* IE8, IE9, IE10 */
-  margin-bottom: 0\0;
-  /* IE7 */
-  *margin-top: -2px;
+  *top: -3px;
 }
 
 /* iPad */
 @media (-webkit-min-device-pixel-ratio: 1) and (max-device-width: 1024px) {
   input[type="radio"],
   input[type="checkbox"] {
-    margin-bottom: 1px;
+    vertical-align: baseline;
+    top: 2px;
   }
 }
 
@@ -93,7 +83,7 @@ input[type="checkbox"] {
   input[type="radio"],
   input[type="checkbox"] {
     vertical-align: baseline;
-    margin-bottom: 0;
+    top: 0;
   }
 }
 
@@ -102,7 +92,7 @@ input[type="checkbox"] {
   input[type="radio"],
   input[type="checkbox"] {
     vertical-align: baseline;
-    margin-bottom: 0;
+    top: 0;
   }
 }
 
