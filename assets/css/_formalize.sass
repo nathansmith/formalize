@@ -4,7 +4,6 @@
 
 // `Widths
 //----------------------------------------------------------------------------------------------------
-
 .input_tiny
   width: 50px
 
@@ -88,7 +87,7 @@ input[type="button"]
   +border-radius(4px)
   +background-clip(padding-box)
   background: #ddd url(../images/button.png) repeat-x
-  +linear-gradient(color-stops(#fff, #ddd))
+  +background(linear-gradient(color-stops(#fff, #ddd)))
   border: 1px solid
   border-color: #ddd #bbb #999
   cursor: pointer
@@ -165,7 +164,7 @@ input.placeholder-text,
 textarea.placeholder-text
   color: #888
 
-:invalid
+\:invalid
   // Suppress red glow that Firefox
   // adds to form fields by default,
   // even when user is still typing.
