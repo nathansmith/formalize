@@ -304,6 +304,7 @@ select[multiple] {
     text-shadow: #000 0 0 1px;
   }
 
+  ::-webkit-validation-bubble-arrow,
   ::-webkit-validation-bubble-top-outer-arrow,
   ::-webkit-validation-bubble-top-inner-arrow {
     display: none;
