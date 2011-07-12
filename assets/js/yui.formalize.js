@@ -4,26 +4,24 @@
   Note: This file depends on the YUI library.
 */
 
-// Module pattern:
-// http://yuiblog.com/blog/2007/06/12/module-pattern
-var FORMALIZE = (function(window, document, undefined) {
+YUI.add('formalize', function(Y) {
   // Private constants.
   var PLACEHOLDER_SUPPORTED = 'placeholder' in document.createElement('input');
   var AUTOFOCUS_SUPPORTED = 'autofocus' in document.createElement('input');
   var IE6 = parseInt(Y.UA.ie, 10) === 6;
   var IE7 = parseInt(Y.UA.ie, 10) === 7;
 
-  // Expose innards of FORMALIZE.
-  return {
-    // FORMALIZE.go
+  // Expose innards of Formalize.
+  Y.formalize = {
+    // Y.formalize.go
     go: function() {
-      for (var i in FORMALIZE.init) {
-        FORMALIZE.init[i]();
+      for (var i in Y.formalize.init) {
+        Y.formalize.init[i]();
       }
     },
-    // FORMALIZE.init
+    // Y.formalize.init
     init: {
-      // FORMALIZE.init.full_input_size
+      // Y.formalize.init.full_input_size
       full_input_size: function() {
         if (!IE7 || !Y.all('textarea, input.input_full')) {
           return;
@@ -36,7 +34,7 @@ var FORMALIZE = (function(window, document, undefined) {
           wrapper.append(el.replace(wrapper));
         });
       },
-      // FORMALIZE.init.ie6_skin_inputs
+      // Y.formalize.init.ie6_skin_inputs
       ie6_skin_inputs: function() {
         // Test for Internet Explorer 6.
         if (!IE6 || !Y.all('input, select, textarea')) {
@@ -79,7 +77,7 @@ var FORMALIZE = (function(window, document, undefined) {
           }
         });
       },
-      // FORMALIZE.init.autofocus
+      // Y.formalize.init.autofocus
       autofocus: function() {
         if (AUTOFOCUS_SUPPORTED || !Y.one('[autofocus]')) {
           return;
@@ -87,7 +85,7 @@ var FORMALIZE = (function(window, document, undefined) {
 
         Y.one('[autofocus]').focus();
       },
-      // FORMALIZE.init.placeholder
+      // Y.formalize.init.placeholder
       placeholder: function() {
         if (PLACEHOLDER_SUPPORTED || !Y.one('[placeholder]')) {
           // Exit if placeholder is supported natively,
@@ -95,7 +93,7 @@ var FORMALIZE = (function(window, document, undefined) {
           return;
         }
 
-        FORMALIZE.misc.add_placeholder();
+        Y.formalize.misc.add_placeholder();
 
         Y.all('[placeholder]').each(function(el) {
           var text = el.getAttribute('placeholder');
@@ -114,7 +112,7 @@ var FORMALIZE = (function(window, document, undefined) {
           });
 
           el.on('blur', function() {
-            FORMALIZE.misc.add_placeholder();
+            Y.formalize.misc.add_placeholder();
           });
 
           // Prevent <form> from accidentally
@@ -126,14 +124,14 @@ var FORMALIZE = (function(window, document, undefined) {
           });
 
           form.on('reset', function() {
-            setTimeout(FORMALIZE.misc.add_placeholder, 50);
+            setTimeout(Y.formalize.misc.add_placeholder, 50);
           });
         });
       }
     },
-    // FORMALIZE.misc
+    // Y.formalize.misc
     misc: {
-      // FORMALIZE.misc.add_placeholder
+      // Y.formalize.misc.add_placeholder
       add_placeholder: function() {
         if (PLACEHOLDER_SUPPORTED || !Y.one('[placeholder]')) {
           // Exit if placeholder is supported natively,
@@ -151,10 +149,4 @@ var FORMALIZE = (function(window, document, undefined) {
       }
     }
   };
-// Alias window, document.
-})(this, this.document);
-
-// Automatically calls all functions in FORMALIZE.init
-Y.on('domready', function() {
-  FORMALIZE.go();
-});
+}, '1.1', {requires: ['yui', 'dom', 'event']});

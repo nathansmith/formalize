@@ -4,8 +4,16 @@
 <meta charset="utf-8" />
 <title>Formalize CSS</title>
 <link rel="stylesheet" href="assets/css/demo.css" />
-<script src="http://yui.yahooapis.com/3.3.0/build/simpleyui/simpleyui-min.js"></script>
+<script src="http://yui.yahooapis.com/3.3.0/build/yui/yui-min.js"></script>
 <script src="assets/js/yui.formalize.js"></script>
+<script>
+// Fire it off!
+YUI().use('formalize', function(Y) {
+  Y.on('domready', function() {
+    Y.formalize.go();
+  });
+});
+</script>
 </head>
 <body>
 <div id="wrapper">
