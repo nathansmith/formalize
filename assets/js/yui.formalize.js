@@ -149,4 +149,4 @@ YUI.add('formalize', function(Y) {
       }
     }
   };
-}, '1.1', {requires: ['yui', 'dom', 'event']});
+}, '1.1', {requires: ['node', 'event']});
