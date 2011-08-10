@@ -307,7 +307,10 @@ select[multiple] {
   ::-webkit-validation-bubble-arrow,
   ::-webkit-validation-bubble-top-outer-arrow,
   ::-webkit-validation-bubble-top-inner-arrow {
-    display: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    background: #666;
+    border: 0;
   }
 }
 
