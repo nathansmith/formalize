@@ -117,13 +117,13 @@ YUI.add('formalize', function(Y) {
 
           // Prevent <form> from accidentally
           // submitting the placeholder text.
-          form.on('submit', function() {
+          form && form.on('submit', function() {
             if (el.get('value') === text) {
               el.set('value', '').removeClass('placeholder_text');
             }
           });
 
-          form.on('reset', function() {
+          form && form.on('reset', function() {
             setTimeout(Y.formalize.misc.add_placeholder, 50);
           });
         });
