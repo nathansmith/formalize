@@ -2,6 +2,11 @@
 // Sass = http://sass-lang.com
 // Compass = http://compass-style.org
 
+@import compass/css3/background-clip
+@import compass/css3/border-radius
+@import compass/css3/box-sizing
+@import compass/css3/gradient
+
 // `Widths
 //----------------------------------------------------------------------------------------------------
 .input_tiny
@@ -86,7 +91,7 @@ input[type="button"]
   -webkit-appearance: none
   +border-radius(4px)
   +background-clip(padding-box)
-  background: #ddd url(../images/button.png) repeat-x
+  background: #ddd image-url("button.png") repeat-x
   +background(linear-gradient(color-stops(#fff, #ddd)))
   border: 1px solid
   border-color: #ddd #bbb #999
@@ -223,7 +228,7 @@ select[multiple]
 // Tweaks for Safari + Chrome.
 @media (-webkit-min-device-pixel-ratio: 0)
   select
-    background-image: url(../images/select_arrow.gif)
+    background-image: image-url("select_arrow.gif")
     background-repeat: no-repeat
     background-position: right center
     padding-right: 20px
@@ -287,7 +292,7 @@ optgroup
 
 .ie6_button,
 * html button
-  background: #ddd url(../images/button.png) repeat-x
+  background: #ddd image-url("button.png") repeat-x
   border: 1px solid
   border-color: #ddd #bbb #999
   cursor: pointer
