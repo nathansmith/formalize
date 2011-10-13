@@ -102,7 +102,7 @@ input[type="button"]
   width: auto
   // IE7
   *padding-top: 2px
-  *padding-bottom: 0px
+  *padding-bottom: 0
 
 button
   // IE7
@@ -124,16 +124,10 @@ input[type="text"],
 input[type="time"],
 input[type="url"],
 input[type="week"]
+  +box-sizing(border-box)
+  +background-clip(padding-box)
+  +border-radius(0)
   -webkit-appearance: none
-  -moz-border-radius: 0
-  -webkit-border-radius: 0
-  border-radius: 0
-  -webkit-box-sizing: border-box
-  -moz-box-sizing: border-box
-  box-sizing: border-box
-  -moz-background-clip: padding
-  -webkit-background-clip: padding
-  background-clip: padding-box
   background-color: #fff
   border: 1px solid
   border-color: #848484 #c1c1c1 #e1e1e1
@@ -168,9 +162,7 @@ textarea.placeholder-text
   // Suppress red glow that Firefox
   // adds to form fields by default,
   // even when user is still typing.
-  -moz-box-shadow: none
-  -webkit-box-shadow: none
-  box-shadow: none
+  +box-shadow(none)
 
 button:focus,
 button:active,
@@ -180,9 +172,7 @@ select:focus,
 select:active,
 textarea:focus,
 textarea:active
-  -moz-box-shadow: #06f 0 0 7px
-  -webkit-box-shadow: #06f 0 0 7px
-  box-shadow: #06f 0 0 7px
+  +box-shadow(#06f 0 0 7px 0)
   // for Opera
   z-index: 1
 
@@ -192,9 +182,7 @@ input[type="radio"]:focus,
 input[type="radio"]:active,
 input[type="checkbox"]:focus,
 input[type="checkbox"]:active
-  -moz-box-shadow: none
-  -webkit-box-shadow: none
-  box-shadow: none
+  +box-shadow(none)
 
 select[disabled],
 textarea[disabled],
@@ -219,11 +207,10 @@ select[disabled],
 select[disabled] option,
 select[disabled] optgroup,
 textarea[disabled]
-  -moz-box-shadow: none
-  -webkit-box-shadow: none
-  box-shadow: none
+  +box-shadow(none)
+  -moz-user-select: -moz-none
   -webkit-user-select: none
-  -moz-user-select: none
+  -khtml-user-select: none
   user-select: none
   color: #888
   cursor: default
@@ -245,7 +232,8 @@ select[multiple]
     background-image: none
     padding: 0
   ::-webkit-validation-bubble-message
-    box-shadow: rgba(0, 0, 0, 0.5) 0 0 5px
+    -webkit-box-shadow: rgba(#000, 0.5) 0 0 5px 0
+    box-shadow: rgba(#000, 0.5) 0 0 5px 0
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #666), color-stop(1, #000))
     border: 1px solid
     border-color: #747474 #5e5e5e #4f4f4f
