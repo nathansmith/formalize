@@ -4,11 +4,13 @@
 
 @import compass/css3/background-clip
 @import compass/css3/border-radius
+@import compass/css3/box-shadow
 @import compass/css3/box-sizing
 @import compass/css3/gradient
 
 // `Widths
 //----------------------------------------------------------------------------------------------------
+
 .input_tiny
   width: 50px
 
@@ -32,6 +34,7 @@
 
 // Added via JS to <textarea> and class="input-full".
 // Applies only to IE7. Other browsers don't need it.
+
 .input_full_wrap
   display: block
   padding-right: 8px
@@ -92,7 +95,7 @@ input[type="button"]
   +border-radius(4px)
   +background-clip(padding-box)
   background: #ddd image-url("button.png") repeat-x
-  +background(linear-gradient(color-stops(#fff, #ddd)))
+  +background-image(linear-gradient(color-stops(#fff, #ddd)))
   border: 1px solid
   border-color: #ddd #bbb #999
   cursor: pointer
