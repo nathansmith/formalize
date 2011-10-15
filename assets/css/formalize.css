@@ -176,8 +176,8 @@ textarea:-moz-placeholder {
   color: #888888;
 }
 
-input.placeholder-text,
-textarea.placeholder-text {
+input.placeholder_text,
+textarea.placeholder_text {
   color: #888888;
 }
 
