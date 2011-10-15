@@ -49,13 +49,6 @@
 input[type="search"]::-webkit-search-decoration
   display: none
 
-input,
-button,
-select,
-textarea
-  margin: 0
-  vertical-align: middle
-
 input[type="radio"],
 input[type="checkbox"]
   position: relative
@@ -87,6 +80,28 @@ input[type="checkbox"]
     vertical-align: baseline
     top: 0
 
+input,
+button,
+select,
+textarea
+  margin: 0
+  vertical-align: middle
+
+button:focus,
+input:focus,
+select:focus,
+textarea:focus,
+  +box-shadow(#06f 0 0 7px 0)
+  // for Opera
+  z-index: 1
+
+input[type="file"],
+input[type="radio"],
+input[type="checkbox"]
+  &:focus,
+  &:active
+    +box-shadow(none)
+
 button,
 input[type="reset"],
 input[type="submit"],
@@ -108,6 +123,12 @@ input[type="button"]
   padding: 3px 10px
   text-shadow: #fff 0 1px 1px
   width: auto
+  &:hover
+    +background-image(linear-gradient(#fff, #eee 1px, #ccc))
+  &:active
+    +background-image(linear-gradient(#fff, #ddd 1px, #eee))
+    +box-shadow(inset rgba(#000, 0.25) 0 1px 2px 0)
+    border-color: #999 #bbb #ddd
   // IE7
   *padding-top: 2px
   *padding-bottom: 0
@@ -151,6 +172,22 @@ input[type="week"]
   *padding-top: 2px
   *padding-bottom: 1px
   *height: auto
+  &[disabled]
+    background-color: #eee
+
+button[disabled],
+input[disabled],
+select[disabled],
+select[disabled] option,
+select[disabled] optgroup,
+textarea[disabled]
+  +box-shadow(none)
+  -moz-user-select: -moz-none
+  -webkit-user-select: none
+  -khtml-user-select: none
+  user-select: none
+  color: #888
+  cursor: default
 
 // Separate rule for Firefox.
 // Separate rule for IE, too.
@@ -171,57 +208,6 @@ textarea.placeholder_text
   // adds to form fields by default,
   // even when user is still typing.
   +box-shadow(none)
-
-button:focus,
-button:active,
-input:focus,
-input:active,
-select:focus,
-select:active,
-textarea:focus,
-textarea:active
-  +box-shadow(#06f 0 0 7px 0)
-  // for Opera
-  z-index: 1
-
-input[type="file"]:focus,
-input[type="file"]:active,
-input[type="radio"]:focus,
-input[type="radio"]:active,
-input[type="checkbox"]:focus,
-input[type="checkbox"]:active
-  +box-shadow(none)
-
-select[disabled],
-textarea[disabled],
-input[type="date"][disabled],
-input[type="datetime"][disabled],
-input[type="datetime-local"][disabled],
-input[type="email"][disabled],
-input[type="month"][disabled],
-input[type="number"][disabled],
-input[type="password"][disabled],
-input[type="search"][disabled],
-input[type="tel"][disabled],
-input[type="text"][disabled],
-input[type="time"][disabled],
-input[type="url"][disabled],
-input[type="week"][disabled]
-  background-color: #eee
-
-button[disabled],
-input[disabled],
-select[disabled],
-select[disabled] option,
-select[disabled] optgroup,
-textarea[disabled]
-  +box-shadow(none)
-  -moz-user-select: -moz-none
-  -webkit-user-select: none
-  -khtml-user-select: none
-  user-select: none
-  color: #888
-  cursor: default
 
 textarea,
 select[size],

@@ -40,14 +40,6 @@ input[type="search"]::-webkit-search-decoration {
   display: none;
 }
 
-input,
-button,
-select,
-textarea {
-  margin: 0;
-  vertical-align: middle;
-}
-
 input[type="radio"],
 input[type="checkbox"] {
   position: relative;
@@ -78,6 +70,36 @@ input[type="checkbox"] {
     top: 0;
   }
 }
+input,
+button,
+select,
+textarea {
+  margin: 0;
+  vertical-align: middle;
+}
+
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  -moz-box-shadow: #0066ff 0 0 7px 0;
+  -webkit-box-shadow: #0066ff 0 0 7px 0;
+  -o-box-shadow: #0066ff 0 0 7px 0;
+  box-shadow: #0066ff 0 0 7px 0;
+  z-index: 1;
+}
+
+input[type="file"]:focus, input[type="file"]:active,
+input[type="radio"]:focus,
+input[type="radio"]:active,
+input[type="checkbox"]:focus,
+input[type="checkbox"]:active {
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  -o-box-shadow: none;
+  box-shadow: none;
+}
+
 button,
 input[type="reset"],
 input[type="submit"],
@@ -114,6 +136,33 @@ input[type="button"] {
   width: auto;
   *padding-top: 2px;
   *padding-bottom: 0;
+}
+button:hover,
+input[type="reset"]:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover {
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(1px, #eeeeee), color-stop(100%, #cccccc));
+  background-image: -webkit-linear-gradient(#ffffff, #eeeeee 1px, #cccccc);
+  background-image: -moz-linear-gradient(#ffffff, #eeeeee 1px, #cccccc);
+  background-image: -o-linear-gradient(#ffffff, #eeeeee 1px, #cccccc);
+  background-image: -ms-linear-gradient(#ffffff, #eeeeee 1px, #cccccc);
+  background-image: linear-gradient(#ffffff, #eeeeee 1px, #cccccc);
+}
+button:active,
+input[type="reset"]:active,
+input[type="submit"]:active,
+input[type="button"]:active {
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(1px, #dddddd), color-stop(100%, #eeeeee));
+  background-image: -webkit-linear-gradient(#ffffff, #dddddd 1px, #eeeeee);
+  background-image: -moz-linear-gradient(#ffffff, #dddddd 1px, #eeeeee);
+  background-image: -o-linear-gradient(#ffffff, #dddddd 1px, #eeeeee);
+  background-image: -ms-linear-gradient(#ffffff, #dddddd 1px, #eeeeee);
+  background-image: linear-gradient(#ffffff, #dddddd 1px, #eeeeee);
+  -moz-box-shadow: inset rgba(0, 0, 0, 0.25) 0 1px 2px 0;
+  -webkit-box-shadow: inset rgba(0, 0, 0, 0.25) 0 1px 2px 0;
+  -o-box-shadow: inset rgba(0, 0, 0, 0.25) 0 1px 2px 0;
+  box-shadow: inset rgba(0, 0, 0, 0.25) 0 1px 2px 0;
+  border-color: #999999 #bbbbbb #dddddd;
 }
 
 button {
@@ -166,57 +215,8 @@ input[type="week"] {
   *padding-bottom: 1px;
   *height: auto;
 }
-
-::-webkit-input-placeholder {
-  color: #888888;
-}
-
-input:-moz-placeholder,
-textarea:-moz-placeholder {
-  color: #888888;
-}
-
-input.placeholder_text,
-textarea.placeholder_text {
-  color: #888888;
-}
-
-:invalid {
-  -moz-box-shadow: none;
-  -webkit-box-shadow: none;
-  -o-box-shadow: none;
-  box-shadow: none;
-}
-
-button:focus,
-button:active,
-input:focus,
-input:active,
-select:focus,
-select:active,
-textarea:focus,
-textarea:active {
-  -moz-box-shadow: #0066ff 0 0 7px 0;
-  -webkit-box-shadow: #0066ff 0 0 7px 0;
-  -o-box-shadow: #0066ff 0 0 7px 0;
-  box-shadow: #0066ff 0 0 7px 0;
-  z-index: 1;
-}
-
-input[type="file"]:focus,
-input[type="file"]:active,
-input[type="radio"]:focus,
-input[type="radio"]:active,
-input[type="checkbox"]:focus,
-input[type="checkbox"]:active {
-  -moz-box-shadow: none;
-  -webkit-box-shadow: none;
-  -o-box-shadow: none;
-  box-shadow: none;
-}
-
-select[disabled],
 textarea[disabled],
+select[disabled],
 input[type="date"][disabled],
 input[type="datetime"][disabled],
 input[type="datetime-local"][disabled],
@@ -249,6 +249,27 @@ textarea[disabled] {
   user-select: none;
   color: #888888;
   cursor: default;
+}
+
+::-webkit-input-placeholder {
+  color: #888888;
+}
+
+input:-moz-placeholder,
+textarea:-moz-placeholder {
+  color: #888888;
+}
+
+input.placeholder_text,
+textarea.placeholder_text {
+  color: #888888;
+}
+
+:invalid {
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  -o-box-shadow: none;
+  box-shadow: none;
 }
 
 textarea,
