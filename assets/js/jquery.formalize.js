@@ -48,7 +48,7 @@ var FORMALIZE = (function($, window, document, undefined) {
         // For <input type="text" />, etc.
         var type_regex = /date|datetime|datetime-local|email|month|number|password|range|search|tel|text|time|url|week/;
 
-        $('input').each(function() {
+        $('input,button').each(function() {
           var el = $(this);
 
           // Is it a button?
