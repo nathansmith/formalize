@@ -113,24 +113,18 @@ var FORMALIZE = (function(window, document, undefined) {
 
           // Prevent <form> from accidentally
           // submitting the placeholder text.
-          
-          // note that some input elements might not have a parent form
-          // in older browsers addEvents() on a null object with throw an error
-          // check to ensure that the form exists before running addEvents on it
-          
-          var elementForm = el.getParent('form');
-          if(elementForm) {
-            el.getParent('form').addEvents({
-              'submit': function() {
-                if (el.value === text) {
-                  el.set('value', '').removeClass('placeholder_text');
-                }
-              },
-              'reset': function() {
-                setTimeout(FORMALIZE.misc.add_placeholder, 50);
+          var form = el.getParent('form');
+
+          form && form.addEvents({
+            'submit': function() {
+              if (el.value === text) {
+                el.set('value', '').removeClass('placeholder_text');
               }
-            });
-          }
+            },
+            'reset': function() {
+              setTimeout(FORMALIZE.misc.add_placeholder, 50);
+            }
+          });
         });
       }
     },
