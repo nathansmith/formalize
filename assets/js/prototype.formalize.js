@@ -104,6 +104,12 @@ var FORMALIZE = (function(window, document, undefined) {
         FORMALIZE.misc.add_placeholder();
 
         $$('[placeholder]').each(function(el) {
+          // Placeholder obscured in older browsers,
+          // so there's no point adding to password.
+          if (el.type === 'password') {
+            return;
+          }
+
           var text = el.getAttribute('placeholder');
           var form = el.up('form');
 
@@ -144,6 +150,12 @@ var FORMALIZE = (function(window, document, undefined) {
         }
 
         $$('[placeholder]').each(function(el) {
+          // Placeholder obscured in older browsers,
+          // so there's no point adding to password.
+          if (el.type === 'password') {
+            return;
+          }
+
           var text = el.getAttribute('placeholder');
 
           if (!el.value || el.value === text) {

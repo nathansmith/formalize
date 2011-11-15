@@ -97,15 +97,14 @@ var FORMALIZE = (function(window, document, undefined) {
         FORMALIZE.misc.add_placeholder();
 
         Ext.each(Ext.query('[placeholder]'), function(el) {
+          // Placeholder obscured in older browsers,
+          // so there's no point adding to password.
+          if (el.type === 'password') {
+            return;
+          }
+
           var text = el.getAttribute('placeholder');
           var form = Ext.get(el).parent('form');
-
-          function add_placeholder() {
-            if (!el.value || el.value === text) {
-              el.value = text;
-              Ext.get(el).addClass('placeholder_text');
-            }
-          }
 
           Ext.get(el).on('focus', function() {
             if (el.value === text) {
@@ -144,6 +143,12 @@ var FORMALIZE = (function(window, document, undefined) {
         }
 
         Ext.each(Ext.query('[placeholder]'), function(el) {
+          // Placeholder obscured in older browsers,
+          // so there's no point adding to password.
+          if (el.type === 'password') {
+            return;
+          }
+
           var text = el.getAttribute('placeholder');
 
           if (!el.value || el.value === text) {

@@ -102,6 +102,12 @@ var FORMALIZE = (function(window, document, undefined) {
         FORMALIZE.misc.add_placeholder();
 
         dojo.query('[placeholder]').forEach(function(el) {
+          // Placeholder obscured in older browsers,
+          // so there's no point adding to password.
+          if (el.type === 'password') {
+            return;
+          }
+
           dojo.connect(el, 'onfocus', function() {
             var text = el.getAttribute('placeholder');
 
@@ -147,6 +153,12 @@ var FORMALIZE = (function(window, document, undefined) {
         }
 
         dojo.query('[placeholder]').forEach(function(el) {
+          // Placeholder obscured in older browsers,
+          // so there's no point adding to password.
+          if (el.type === 'password') {
+            return;
+          }
+
           var text = el.getAttribute('placeholder');
 
           if (!el.value || el.value === text) {

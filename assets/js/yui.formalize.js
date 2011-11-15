@@ -96,6 +96,12 @@ YUI.add('formalize', function(Y) {
         Y.formalize.misc.add_placeholder();
 
         Y.all('[placeholder]').each(function(el) {
+          // Placeholder obscured in older browsers,
+          // so there's no point adding to password.
+          if (el.type === 'password') {
+            return;
+          }
+
           var text = el.getAttribute('placeholder');
           var form = el.ancestor('form');
 
@@ -140,6 +146,12 @@ YUI.add('formalize', function(Y) {
         }
 
         Y.all('[placeholder]').each(function(el) {
+          // Placeholder obscured in older browsers,
+          // so there's no point adding to password.
+          if (el.type === 'password') {
+            return;
+          }
+
           var text = el.getAttribute('placeholder');
 
           if (!el.get('value') || el.get('value') === text) {
