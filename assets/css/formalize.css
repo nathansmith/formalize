@@ -82,8 +82,8 @@ button:focus,
 input:focus,
 select:focus,
 textarea:focus {
-  -moz-box-shadow: #0066ff 0 0 7px 0;
   -webkit-box-shadow: #0066ff 0 0 7px 0;
+  -moz-box-shadow: #0066ff 0 0 7px 0;
   -o-box-shadow: #0066ff 0 0 7px 0;
   box-shadow: #0066ff 0 0 7px 0;
   z-index: 1;
@@ -94,8 +94,8 @@ input[type="radio"]:focus,
 input[type="radio"]:active,
 input[type="checkbox"]:focus,
 input[type="checkbox"]:active {
-  -moz-box-shadow: none;
   -webkit-box-shadow: none;
+  -moz-box-shadow: none;
   -o-box-shadow: none;
   box-shadow: none;
 }
@@ -105,19 +105,17 @@ input[type="reset"],
 input[type="submit"],
 input[type="button"] {
   -webkit-appearance: none;
-  -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
-  -o-border-radius: 4px;
+  -moz-border-radius: 4px;
   -ms-border-radius: 4px;
-  -khtml-border-radius: 4px;
+  -o-border-radius: 4px;
   border-radius: 4px;
-  -moz-background-clip: padding;
   -webkit-background-clip: padding;
-  -o-background-clip: padding-box;
+  -moz-background-clip: padding;
   -ms-background-clip: padding-box;
-  -khtml-background-clip: padding-box;
+  -o-background-clip: padding-box;
   background-clip: padding-box;
-  background: #dddddd url('../images/button.png') repeat-x;
+  background: #dddddd url('../images/button.png?1298351022') repeat-x;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(100%, #dddddd));
   background-image: -webkit-linear-gradient(#ffffff, #dddddd);
   background-image: -moz-linear-gradient(#ffffff, #dddddd);
@@ -158,8 +156,8 @@ input[type="button"]:active {
   background-image: -o-linear-gradient(#ffffff, #dddddd 1px, #eeeeee);
   background-image: -ms-linear-gradient(#ffffff, #dddddd 1px, #eeeeee);
   background-image: linear-gradient(#ffffff, #dddddd 1px, #eeeeee);
-  -moz-box-shadow: inset rgba(0, 0, 0, 0.25) 0 1px 2px 0;
   -webkit-box-shadow: inset rgba(0, 0, 0, 0.25) 0 1px 2px 0;
+  -moz-box-shadow: inset rgba(0, 0, 0, 0.25) 0 1px 2px 0;
   -o-box-shadow: inset rgba(0, 0, 0, 0.25) 0 1px 2px 0;
   box-shadow: inset rgba(0, 0, 0, 0.25) 0 1px 2px 0;
   border-color: #999999 #bbbbbb #dddddd;
@@ -185,21 +183,19 @@ input[type="text"],
 input[type="time"],
 input[type="url"],
 input[type="week"] {
-  -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box;
-  -moz-background-clip: padding;
   -webkit-background-clip: padding;
-  -o-background-clip: padding-box;
+  -moz-background-clip: padding;
   -ms-background-clip: padding-box;
-  -khtml-background-clip: padding-box;
+  -o-background-clip: padding-box;
   background-clip: padding-box;
-  -moz-border-radius: 0;
   -webkit-border-radius: 0;
-  -o-border-radius: 0;
+  -moz-border-radius: 0;
   -ms-border-radius: 0;
-  -khtml-border-radius: 0;
+  -o-border-radius: 0;
   border-radius: 0;
   -webkit-appearance: none;
   background-color: white;
@@ -240,8 +236,8 @@ select[disabled],
 select[disabled] option,
 select[disabled] optgroup,
 textarea[disabled] {
-  -moz-box-shadow: none;
   -webkit-box-shadow: none;
+  -moz-box-shadow: none;
   -o-box-shadow: none;
   box-shadow: none;
   -moz-user-select: -moz-none;
@@ -267,8 +263,8 @@ textarea.placeholder_text {
 }
 
 :invalid {
-  -moz-box-shadow: none;
   -webkit-box-shadow: none;
+  -moz-box-shadow: none;
   -o-box-shadow: none;
   box-shadow: none;
 }
@@ -280,17 +276,20 @@ select[multiple] {
 }
 
 @media (-webkit-min-device-pixel-ratio: 0) {
-  select {
-    background-image: url('../images/select_arrow.gif');
-    background-repeat: no-repeat;
-    background-position: right center;
-    padding-right: 20px;
-  }
-
   select[size],
   select[multiple] {
     background-image: none;
-    padding: 0;
+    padding-right: 3px;
+  }
+
+  select,
+  select[size="0"],
+  select[size="1"] {
+    background-image: url('../images/select_arrow.gif?1298351050');
+    background-repeat: no-repeat;
+    background-position: right center;
+    padding-right: 20px;
+    height: 1.8em;
   }
 
   ::-webkit-validation-bubble-message {
@@ -331,7 +330,7 @@ optgroup {
 
 .ie6_button,
 * html button {
-  background: #dddddd url('../images/button.png') repeat-x;
+  background: #dddddd url('../images/button.png?1298351022') repeat-x;
   border: 1px solid;
   border-color: #dddddd #bbbbbb #999999;
   cursor: pointer;

@@ -217,15 +217,18 @@ select[multiple]
 
 // Tweaks for Safari + Chrome.
 @media (-webkit-min-device-pixel-ratio: 0)
-  select
+  select[size],
+  select[multiple]
+    background-image: none
+    padding-right: 3px
+  select,
+  select[size="0"],
+  select[size="1"]
     background-image: image-url('select_arrow.gif')
     background-repeat: no-repeat
     background-position: right center
     padding-right: 20px
-  select[size],
-  select[multiple]
-    background-image: none
-    padding: 0
+    height: 1.8em
   ::-webkit-validation-bubble-message
     -webkit-box-shadow: rgba(#000, 0.5) 0 0 5px 0
     box-shadow: rgba(#000, 0.5) 0 0 5px 0
