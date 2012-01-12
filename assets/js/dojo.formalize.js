@@ -1,5 +1,5 @@
 /*
-  Formalize - version 1.1
+  Formalize - version 1.2
 
   Note: This file depends on the Dojo library.
 */
@@ -17,8 +17,10 @@ var FORMALIZE = (function(window, document, undefined) {
   return {
     // FORMALIZE.go
     go: function() {
-      for (var i in FORMALIZE.init) {
-        FORMALIZE.init[i]();
+      var i, j = FORMALIZE.init;
+
+      for (i in j) {
+        j.hasOwnProperty(i) && j[i]();
       }
     },
     // FORMALIZE.init

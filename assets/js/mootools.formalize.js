@@ -1,5 +1,5 @@
 /*
-  Formalize - version 1.1
+  Formalize - version 1.2
 
   Note: This file depends on the MooTools library.
 */
@@ -7,18 +7,27 @@
 // Module pattern:
 // http://yuiblog.com/blog/2007/06/12/module-pattern
 var FORMALIZE = (function(window, document, undefined) {
+  // Internet Explorer detection.
+  function IE(version) {
+    var b = document.createElement('b');
+    b.innerHTML = '<!--[if IE ' + version + ']><br><![endif]-->';
+    return !!b.getElementsByTagName('br').length;
+  }
+
   // Private constants.
   var PLACEHOLDER_SUPPORTED = 'placeholder' in document.createElement('input');
   var AUTOFOCUS_SUPPORTED = 'autofocus' in document.createElement('input');
-  var IE6 = Browser.ie6;
-  var IE7 = Browser.ie7;
+  var IE6 = IE(6);
+  var IE7 = IE(7);
 
   // Expose innards of FORMALIZE.
   return {
     // FORMALIZE.go
     go: function() {
-      for (var i in FORMALIZE.init) {
-        FORMALIZE.init[i]();
+      var i, j = this.init;
+
+      for (i in j) {
+        j.hasOwnProperty(i) && j[i]();
       }
     },
     // FORMALIZE.init
