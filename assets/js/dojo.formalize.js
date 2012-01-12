@@ -7,11 +7,18 @@
 // Module pattern:
 // http://yuiblog.com/blog/2007/06/12/module-pattern
 var FORMALIZE = (function(window, document, undefined) {
+  // Internet Explorer detection.
+  function IE(version) {
+    var b = document.createElement('b');
+    b.innerHTML = '<!--[if IE ' + version + ']><br><![endif]-->';
+    return !!b.getElementsByTagName('br').length;
+  }
+
   // Private constants.
   var PLACEHOLDER_SUPPORTED = 'placeholder' in document.createElement('input');
   var AUTOFOCUS_SUPPORTED = 'autofocus' in document.createElement('input');
-  var IE6 = parseInt(dojo.isIE, 10) === 6;
-  var IE7 = parseInt(dojo.isIE, 10) === 7;
+  var IE6 = IE(6);
+  var IE7 = IE(7);
 
   // Expose innards of FORMALIZE.
   return {
