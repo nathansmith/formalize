@@ -275,6 +275,12 @@ select[multiple] {
   height: auto;
 }
 
+select[size="0"],
+select[size="1"] {
+  height: 1.8em;
+  *height: auto;
+}
+
 @media (-webkit-min-device-pixel-ratio: 0) {
   select[size],
   select[multiple] {
@@ -289,7 +295,6 @@ select[multiple] {
     background-repeat: no-repeat;
     background-position: right center;
     padding-right: 20px;
-    height: 1.8em;
   }
 
   ::-webkit-validation-bubble-message {
@@ -326,7 +331,7 @@ optgroup {
   color: black;
   font-style: normal;
   font-weight: normal;
-  font-family: Arial, 'Liberation Sans', FreeSans, sans-serif;
+  font-family: Arial, "Liberation Sans", FreeSans, sans-serif;
 }
 
 .ie6_button,
