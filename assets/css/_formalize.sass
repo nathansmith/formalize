@@ -52,7 +52,6 @@ input[type="search"]::-webkit-search-decoration
 input[type="radio"],
 input[type="checkbox"]
   position: relative
-  vertical-align: top
   top: 3px
   // IE8, IE9, IE10
   top: 0\0
@@ -85,7 +84,7 @@ button,
 select,
 textarea
   margin: 0
-  vertical-align: middle
+  vertical-align: top
 
 button:focus,
 input:focus,
@@ -226,7 +225,8 @@ select[size="1"]
 // Tweaks for Safari + Chrome.
 @media (-webkit-min-device-pixel-ratio: 0)
   select[size],
-  select[multiple]
+  select[multiple],
+  select[multiple][size]
     background-image: none
     padding-right: 3px
 

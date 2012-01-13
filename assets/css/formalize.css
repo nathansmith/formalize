@@ -43,7 +43,6 @@ input[type="search"]::-webkit-search-decoration {
 input[type="radio"],
 input[type="checkbox"] {
   position: relative;
-  vertical-align: top;
   top: 3px;
   top: 0 \0;
   *top: -3px;
@@ -75,7 +74,7 @@ button,
 select,
 textarea {
   margin: 0;
-  vertical-align: middle;
+  vertical-align: top;
 }
 
 button:focus,
@@ -283,7 +282,8 @@ select[size="1"] {
 
 @media (-webkit-min-device-pixel-ratio: 0) {
   select[size],
-  select[multiple] {
+  select[multiple],
+  select[multiple][size] {
     background-image: none;
     padding-right: 3px;
   }
