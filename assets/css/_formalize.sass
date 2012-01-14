@@ -42,10 +42,6 @@
 // `UI Consistency
 //----------------------------------------------------------------------------------------------------
 
-::-moz-focus-inner
-  border: 0
-  padding: 0
-
 input[type="search"]::-webkit-search-decoration
   display: none
 
@@ -96,6 +92,12 @@ input[type="button"]
   // IE7
   *padding-top: 2px
   *padding-bottom: 0
+
+  // Kill phantom spacing and dotted
+  // border that appears in Firefox.
+  &::-moz-focus-inner
+    border: 0
+    padding: 0
 
 button
   // IE7
@@ -159,7 +161,8 @@ textarea[disabled]
 // Separate rule for Firefox.
 // Separate rule for IE, too.
 // Cannot stack with WebKit's.
-::-webkit-input-placeholder
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder
   color: #888
 
 input:-moz-placeholder,
@@ -169,12 +172,6 @@ textarea:-moz-placeholder
 input.placeholder_text,
 textarea.placeholder_text
   color: #888
-
-\:invalid
-  // Suppress red glow that Firefox
-  // adds to form fields by default,
-  // even when user is still typing.
-  +box-shadow(none)
 
 textarea,
 select[size],
@@ -206,8 +203,8 @@ select[size="1"]
     padding-right: 20px
 
   ::-webkit-validation-bubble-message
-    -webkit-box-shadow: rgba(#000, 0.5) 0 0 5px 0
-    box-shadow: rgba(#000, 0.5) 0 0 5px 0
+    -webkit-box-shadow: none
+    box-shadow: none
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #666), color-stop(1, #000))
     border: 1px solid
     border-color: #747474 #5e5e5e #4f4f4f
@@ -238,6 +235,23 @@ optgroup
   font-weight: normal
   // Font family repeated, for Firefox.
   font-family: Arial, 'Liberation Sans', FreeSans, sans-serif
+
+// For Firefox
+input,
+button,
+select,
+textarea
+  // Suppress red glow that Firefox
+  // adds to form fields by default,
+  // even when user is still typing.
+  &:invalid
+    +box-shadow(none)
+
+  // Kill phantom spacing and dotted
+  // border that appears in Firefox.
+  &::-moz-focus-inner
+    border: 0
+    padding: 0
 
 // `IE6
 //----------------------------------------------------------------------------------------------------
