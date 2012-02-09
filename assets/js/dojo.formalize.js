@@ -24,7 +24,7 @@ var FORMALIZE = (function(window, document, undefined) {
   return {
     // FORMALIZE.go
     go: function() {
-      var i, j = FORMALIZE.init;
+      var i, j = this.init;
 
       for (i in j) {
         j.hasOwnProperty(i) && j[i]();
