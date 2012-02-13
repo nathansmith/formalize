@@ -45,13 +45,21 @@
 input[type="search"]::-webkit-search-decoration
   display: none
 
-button:focus,
-input:focus,
-select:focus,
-textarea:focus,
-  +box-shadow(#06f 0 0 7px 0)
-  // for Opera
-  z-index: 1
+// For Firefox
+input,
+button,
+select,
+textarea
+  // Suppress red glow that Firefox
+  // adds to form fields by default.
+  &:invalid
+    +box-shadow(none)
+
+  // Add blue glow.
+  &:focus
+    +box-shadow(#06f 0 0 5px 1px)
+    // for Opera
+    z-index: 1
 
 input[type="file"],
 input[type="radio"],
@@ -235,17 +243,6 @@ optgroup
   font-weight: normal
   // Font family repeated, for Firefox.
   font-family: Arial, 'Liberation Sans', FreeSans, sans-serif
-
-// For Firefox
-input,
-button,
-select,
-textarea
-  // Suppress red glow that Firefox
-  // adds to form fields by default,
-  // even when user is still typing.
-  &:invalid
-    +box-shadow(none)
 
   // Kill phantom spacing and dotted
   // border that appears in Firefox.

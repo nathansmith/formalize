@@ -35,14 +35,23 @@ input[type="search"]::-webkit-search-decoration {
   display: none;
 }
 
-button:focus,
+input:invalid,
+button:invalid,
+select:invalid,
+textarea:invalid {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  -o-box-shadow: none;
+  box-shadow: none;
+}
 input:focus,
+button:focus,
 select:focus,
 textarea:focus {
-  -webkit-box-shadow: #0066ff 0 0 7px 0;
-  -moz-box-shadow: #0066ff 0 0 7px 0;
-  -o-box-shadow: #0066ff 0 0 7px 0;
-  box-shadow: #0066ff 0 0 7px 0;
+  -webkit-box-shadow: #0066ff 0 0 5px 1px;
+  -moz-box-shadow: #0066ff 0 0 5px 1px;
+  -o-box-shadow: #0066ff 0 0 5px 1px;
+  box-shadow: #0066ff 0 0 5px 1px;
   z-index: 1;
 }
 
@@ -296,20 +305,7 @@ optgroup {
   font-weight: normal;
   font-family: Arial, "Liberation Sans", FreeSans, sans-serif;
 }
-
-input:invalid,
-button:invalid,
-select:invalid,
-textarea:invalid {
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  -o-box-shadow: none;
-  box-shadow: none;
-}
-input::-moz-focus-inner,
-button::-moz-focus-inner,
-select::-moz-focus-inner,
-textarea::-moz-focus-inner {
+optgroup::-moz-focus-inner {
   border: 0;
   padding: 0;
 }
