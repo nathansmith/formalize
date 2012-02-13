@@ -1,18 +1,19 @@
 CREDITS
 
 ExtJS port by Mike Wille:
-http://github.com/digerata
+- https://github.com/digerata
 
 MooTools port by Ryan Florence:
-http://github.com/rpflorence
+- https://github.com/rpflorence
 
 =====
 
 Helpful bug reports filed by:
-http://github.com/wadewinningham
-http://github.com/tingletech
-http://stuartcharlton.com
-http://github.com/garrettdimon
+- https://github.com/wadewinningham
+- https://github.com/tingletech
+- https://stuartcharlton.com
+- https://github.com/garrettdimon
+- https://github.com/kdonald
 
 =====
 
