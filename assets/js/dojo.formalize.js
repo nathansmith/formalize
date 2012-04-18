@@ -24,14 +24,14 @@ var FORMALIZE = (function(window, document, undefined) {
   var dojoConnect;
   var dojoDomClass;
 
-  require( [ "dojo/query", "dojo/on", "dojo/dom-class", "dojo/dom-class" ],
+  require( [ "dojo/query", "dojo/on", "dojo/dom-class", "dojo/domReady!" ],
 	  function( query, 
 		    on,
 		    domClass )
 	  {
 		  dojoQuery = query;
 		  dojoConnect = on;
-		  dojoDomClass = domClass
+		  dojoDomClass = domClass;
 	  }
 	 );
 
@@ -82,20 +82,20 @@ var FORMALIZE = (function(window, document, undefined) {
         dojoQuery('input').forEach(function(el) {
           // Is it a button?
           if (el.getAttribute('type').match(button_regex)) {
-            dojoDomClass.addClass(el, 'ie6_button');
+            dojoDomClass.add(el, 'ie6_button');
 
             /* Is it disabled? */
             if (el.disabled) {
-              dojoDomClass.addClass(el, 'ie6_button_disabled');
+              dojoDomClass.add(el, 'ie6_button_disabled');
             }
           }
           // Or is it a textual input?
           else if (el.getAttribute('type').match(type_regex)) {
-            dojoDomClass.addClass(el, 'ie6_input');
+            dojoDomClass.add(el, 'ie6_input');
 
             /* Is it disabled? */
             if (el.disabled) {
-              dojoDomClass.addClass(el, 'ie6_input_disabled');
+              dojoDomClass.add(el, 'ie6_input_disabled');
             }
           }
         });
@@ -103,7 +103,7 @@ var FORMALIZE = (function(window, document, undefined) {
         dojoQuery('textarea, select').forEach(function(el) {
           /* Is it disabled? */
           if (el.disabled) {
-            dojoDomClass.addClass(el, 'ie6_input_disabled');
+            dojoDomClass.add(el, 'ie6_input_disabled');
           }
         });
       },
@@ -137,7 +137,7 @@ var FORMALIZE = (function(window, document, undefined) {
 
             if (el.value === text) {
               el.value = '';
-              dojoDomClass.removeClass(el, 'placeholder_text');
+              dojoDomClass.remove(el, 'placeholder_text');
             }
           });
 
@@ -155,7 +155,7 @@ var FORMALIZE = (function(window, document, undefined) {
 
               if (el.value === text) {
                 el.value = '';
-                dojoDomClass.removeClass(el, 'placeholder_text');
+                dojoDomClass.remove(el, 'placeholder_text');
               }
             });
           });
@@ -187,7 +187,7 @@ var FORMALIZE = (function(window, document, undefined) {
 
           if (!el.value || el.value === text) {
             el.value = text;
-            dojoDomClass.addClass(el, 'placeholder_text');
+            dojoDomClass.add(el, 'placeholder_text');
           }
         });
       }
