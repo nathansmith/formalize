@@ -41,7 +41,6 @@ select:invalid,
 textarea:invalid {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
-  -o-box-shadow: none;
   box-shadow: none;
 }
 input:focus,
@@ -50,7 +49,6 @@ select:focus,
 textarea:focus {
   -webkit-box-shadow: #0066ff 0 0 5px 0;
   -moz-box-shadow: #0066ff 0 0 5px 0;
-  -o-box-shadow: #0066ff 0 0 5px 0;
   box-shadow: #0066ff 0 0 5px 0;
   z-index: 1;
 }
@@ -62,7 +60,6 @@ input[type="checkbox"]:focus,
 input[type="checkbox"]:active {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
-  -o-box-shadow: none;
   box-shadow: none;
 }
 
@@ -78,8 +75,6 @@ input[type="button"] {
   border-radius: 4px;
   -webkit-background-clip: padding;
   -moz-background-clip: padding;
-  -ms-background-clip: padding-box;
-  -o-background-clip: padding-box;
   background-clip: padding-box;
   background: #dddddd url('../images/button.png?1298351022') repeat-x;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(100%, #dddddd));
@@ -126,7 +121,6 @@ input[type="button"]:active {
   background-image: linear-gradient(#ffffff, #dddddd 1px, #eeeeee);
   -webkit-box-shadow: inset rgba(0, 0, 0, 0.25) 0 1px 2px 0;
   -moz-box-shadow: inset rgba(0, 0, 0, 0.25) 0 1px 2px 0;
-  -o-box-shadow: inset rgba(0, 0, 0, 0.25) 0 1px 2px 0;
   box-shadow: inset rgba(0, 0, 0, 0.25) 0 1px 2px 0;
   border-color: #999999 #bbbbbb #dddddd;
 }
@@ -160,12 +154,9 @@ input[type="url"],
 input[type="week"] {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
   box-sizing: border-box;
   -webkit-background-clip: padding;
   -moz-background-clip: padding;
-  -ms-background-clip: padding-box;
-  -o-background-clip: padding-box;
   background-clip: padding-box;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
@@ -215,7 +206,6 @@ select[disabled] optgroup,
 textarea[disabled] {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
-  -o-box-shadow: none;
   box-shadow: none;
   -moz-user-select: -moz-none;
   -webkit-user-select: none;
@@ -263,7 +253,7 @@ select[size="1"] {
   select,
   select[size="0"],
   select[size="1"] {
-    background-image: url('../images/select_arrow.gif?1298351050');
+    background-image: url(data:image/png;base64,R0lGODlhDQAEAIAAAAAAAP8A/yH5BAEHAAEALAAAAAANAAQAAAILhA+hG5jMDpxvhgIAOw==);
     background-repeat: no-repeat;
     background-position: right center;
     padding-right: 20px;
