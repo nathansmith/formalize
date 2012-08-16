@@ -37,7 +37,7 @@ input[type="search"]::-webkit-search-decoration {
 
 input:invalid,
 button:invalid,
-.button:invalid,
+a.button:invalid,
 select:invalid,
 textarea:invalid {
   -webkit-box-shadow: none;
@@ -46,7 +46,7 @@ textarea:invalid {
 }
 input:focus,
 button:focus,
-.button:focus,
+a.button:focus,
 select:focus,
 textarea:focus {
   -webkit-box-shadow: #0066ff 0 0 5px 0;
