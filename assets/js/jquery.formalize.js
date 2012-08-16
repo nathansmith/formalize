@@ -32,6 +32,12 @@ var FORMALIZE = (function($, window, document, undefined) {
     },
     // FORMALIZE.init
     init: {
+      // FORMALIZE.init.disable_link_button
+      disable_link_button: function() {
+        $(document.documentElement).on('click', 'a.button_disabled', function() {
+          return false;
+        });
+      },
       // FORMALIZE.init.full_input_size
       full_input_size: function() {
         if (!IE7 || !$('textarea, input.input_full').length) {
@@ -93,7 +99,11 @@ var FORMALIZE = (function($, window, document, undefined) {
           return;
         }
 
-        $(':input[autofocus]:visible:first').focus();
+        var el = $('[autofocus]')[0];
+
+        if (!el.disabled) {
+          el.focus();
+        }
       },
       // FORMALIZE.init.placeholder
       placeholder: function() {
@@ -129,7 +139,7 @@ var FORMALIZE = (function($, window, document, undefined) {
             if (el.val() === text) {
               el.val('').removeClass('placeholder_text');
             }
-          }).bind('reset', function() {
+          }).on('reset', function() {
             setTimeout(FORMALIZE.misc.add_placeholder, 50);
           });
         });

@@ -32,6 +32,17 @@ var FORMALIZE = (function(window, document, undefined) {
     },
     // FORMALIZE.init
     init: {
+      // FORMALIZE.init.disable_link_button
+      disable_link_button: function() {
+        dojo.connect(document.documentElement, 'click', function(ev) {
+          var el = ev.target;
+          var is_disabled = el.tagName.toLowerCase() === 'a' && el.className.match('button_disabled');
+
+          if (is_disabled) {
+            ev.preventDefault();
+          }
+        });
+      },
       // FORMALIZE.init.full_input_size
       full_input_size: function() {
         if (!IE7 || !dojo.query('textarea, input.input_full').length) {
@@ -98,7 +109,11 @@ var FORMALIZE = (function(window, document, undefined) {
           return;
         }
 
-        dojo.query('[autofocus]')[0].focus();
+        var el = dojo.query('[autofocus]')[0];
+
+        if (!el.disabled) {
+          el.focus();
+        }
       },
       // FORMALIZE.init.placeholder
       placeholder: function() {

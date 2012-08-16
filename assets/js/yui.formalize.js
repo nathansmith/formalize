@@ -30,6 +30,12 @@ YUI.add('formalize', function(Y) {
     },
     // Y.formalize.init
     init: {
+      // Y.formalize.init.disable_link_button
+      disable_link_button: function() {
+        Y.one(document.documentElement).on('click', function(ev) {
+          ev.preventDefault();
+        }, 'a.button_disabled');
+      },
       // Y.formalize.init.full_input_size
       full_input_size: function() {
         if (!IE7 || !Y.all('textarea, input.input_full')) {
@@ -92,7 +98,11 @@ YUI.add('formalize', function(Y) {
           return;
         }
 
-        Y.one('[autofocus]').focus();
+        var el = Y.Node.getDOMNode(Y.one('[autofocus]'));
+
+        if (!el.disabled) {
+          el.focus();
+        }
       },
       // Y.formalize.init.placeholder
       placeholder: function() {
