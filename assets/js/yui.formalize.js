@@ -32,7 +32,7 @@ YUI.add('formalize', function(Y) {
     init: {
       // Y.formalize.init.disable_link_button
       disable_link_button: function() {
-        Y.one(document.documentElement).on('click', function(ev) {
+        Y.one(document.documentElement).delegate('click', function(ev) {
           ev.preventDefault();
         }, 'a.button_disabled');
       },
