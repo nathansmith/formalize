@@ -92,8 +92,9 @@ input[type="button"]
   width: auto
   &:hover
     +background-image(linear-gradient(#fff, #eee 1px, #ccc))
+    text-decoration: none
   &:active
-    +background-image(linear-gradient(#fff, #ddd 1px, #eee))
+    +background-image(linear-gradient(#ddd, #eee))
     +box-shadow(inset rgba(#000, 0.25) 0 1px 2px 0)
     border-color: #999 #bbb #ddd
   // IE7
@@ -219,14 +220,13 @@ select[size="1"]
     -webkit-box-shadow: none
     box-shadow: none
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #666), color-stop(1, #000))
-    border: 1px solid
-    border-color: #747474 #5e5e5e #4f4f4f
+    border: 0
     color: #fff
     font: 13px/17px 'Lucida Grande', Arial, 'Liberation Sans', FreeSans, sans-serif
     overflow: hidden
     padding: 15px 15px 17px
     text-shadow: #000 0 0 1px
-    height: 16px
+    min-height: 16px
 
   ::-webkit-validation-bubble-arrow,
   ::-webkit-validation-bubble-top-outer-arrow,
@@ -234,7 +234,7 @@ select[size="1"]
     -webkit-box-shadow: none
     box-shadow: none
     background: #666
-    border: 0
+    border-color: #666
 
 textarea
   min-height: 40px
