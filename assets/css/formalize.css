@@ -319,7 +319,7 @@ optgroup::-moz-focus-inner {
   cursor: pointer;
   color: #333333;
   font: bold 12px/1.2 Arial, sans-serif;
-  padding: 2px 10px 0px;
+  padding: 2px 10px 0;
   text-decoration: none;
   overflow: visible;
   vertical-align: top;
