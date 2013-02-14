@@ -1,11 +1,20 @@
 <!DOCTYPE html>
+<!--
+
+  This version of Formalize, "jquery.formalize.legacy.js"
+  is intended for use with jQuery version 1.4, and exists
+  because Drupal 7 ships with jQuery 1.4.4. When you are
+  starting a new project with a current version of jQuery,
+  you should simply use the "jquery.formalize.js" instead.
+
+-->
 <html lang="en">
 <head>
 <meta charset="utf-8" />
 <title>Formalize CSS</title>
 <link rel="stylesheet" href="assets/css/demo.css" />
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script src="assets/js/jquery.formalize.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+<script src="assets/js/jquery.formalize.legacy.js"></script>
 </head>
 <body>
 <div id="wrapper">
@@ -15,46 +24,46 @@
   <form action="#" method="post" enctype="multipart/form-data" onsubmit="return false">
     <p>
       <input type="checkbox" id="test_checkbox_1" name="test_checkbox_1" />
-      <label class="error" for="test_checkbox_1">
+      <label for="test_checkbox_1">
         Test checkbox 1
       </label>
       &nbsp;
       &nbsp;
       <input type="checkbox" id="test_checkbox_2" name="test_checkbox_2" />
-      <label class="error" for="test_checkbox_2">
+      <label for="test_checkbox_2">
         Test checkbox 2
       </label>
       &nbsp;
       &nbsp;
       <input type="checkbox" id="test_checkbox_3" name="test_checkbox_3" />
-      <label class="error" for="test_checkbox_3">
+      <label for="test_checkbox_3">
         Test checkbox 3
       </label>
     </p>
     <p>
       <input type="radio" id="test_radio_1" name="test_radio_group" />
-      <label class="error" for="test_radio_1">
+      <label for="test_radio_1">
         Test radio 1
       </label>
       &nbsp;
       &nbsp;
       <input type="radio" id="test_radio_2" name="test_radio_group" />
-      <label class="error" for="test_radio_2">
+      <label for="test_radio_2">
         Test radio 2
       </label>
       &nbsp;
       &nbsp;
       <input type="radio" id="test_radio_3" name="test_radio_group" />
-      <label class="error" for="test_radio_3">
+      <label for="test_radio_3">
         Test radio 3
       </label>
     </p>
     <p>
-      <label class="error" for="select_dd">
+      <label for="select_dd">
         Select drop-down
       </label>
       <br />
-      <select class="error" id="select_dd" name="select_dd">
+      <select id="select_dd" name="select_dd">
         <optgroup label="Group 1">
           <option value="1">Some text goes here</option>
           <option value="2">Another choice could be here</option>
@@ -71,17 +80,17 @@
           <option value="9">Yet another item to be chosen</option>
         </optgroup>
       </select>
-      <input class="error" type="text" id="text_inline" name="text_inline" />
+      <input type="text" id="text_inline" name="text_inline" />
       <input type="button" value="Input Button" />
       <button>Button Tag</button>
       <a href="#" class="button">Link Button</a>
     </p>
     <p>
-      <label class="error" for="select_multi">
+      <label for="select_multi">
         Select multiple
       </label>
       <br />
-      <select class="error" id="select_multi" name="select_multi" multiple="multiple" size="10">
+      <select id="select_multi" name="select_multi" multiple="multiple" size="10">
         <optgroup label="Group 1">
           <option value="1">Some text goes here</option>
           <option value="2">Another choice could be here</option>
@@ -100,103 +109,103 @@
       </select>
     </p>
     <p>
-      <label class="error" for="textarea">
+      <label for="textarea">
         Textarea
       </label>
       <br />
-      <textarea class="error" id="textarea" name="textarea" rows="5" placeholder="This is an example of HTML5 placeholder text."></textarea>
+      <textarea id="textarea" name="textarea" rows="5" placeholder="This is an example of HTML5 placeholder text."></textarea>
     </p>
     <table class="horiz">
       <tr>
         <td>
-          <label class="error" for="url">
+          <label for="url">
             URL + Autofocus
           </label>
           <br />
-          <input class="error" type="url" id="url" name="url" value="http://" autofocus="autofocus" />
+          <input type="url" id="url" name="url" value="http://" autofocus="autofocus" />
         </td>
         <td>
-          <label class="error" for="email">
+          <label for="email">
             Email
           </label>
           <br />
-          <input class="error" type="email" id="email" name="email" placeholder="name@example.com" />
+          <input type="email" id="email" name="email" placeholder="name@example.com" />
         </td>
         <td>
-          <label class="error" for="password">
+          <label for="password">
             Password
           </label>
           <br />
-          <input class="error" type="password" id="password" name="password" placeholder="Alphanumeric123!" />
+          <input type="password" id="password" name="password" placeholder="Alphanumeric123!" />
         </td>
       </tr>
       <tr>
         <td>
-          <label class="error" for="datetime-local">
+          <label for="datetime-local">
             Datetime local
           </label>
           <br />
-          <input class="error" type="datetime-local" id="datetime-local" name="datetime-local" />
+          <input type="datetime-local" id="datetime-local" name="datetime-local" />
         </td>
         <td>
-          <label class="error" for="number">
+          <label for="number">
             Number
           </label>
           <br />
-          <input class="error" type="number" id="number" name="number" min="0" max="999" step="1" />
+          <input type="number" id="number" name="number" min="0" max="999" step="1" />
         </td>
         <td>
-          <label class="error" for="tel">
+          <label for="tel">
             Tel (phone)
           </label>
           <br />
-          <input class="error" type="tel" id="tel" name="tel" />
+          <input type="tel" id="tel" name="tel" />
         </td>
       </tr>
       <tr>
         <td>
-          <label class="error" for="datetime">
+          <label for="datetime">
             Datetime
           </label>
           <br />
-          <input class="error" type="datetime" id="datetime" name="datetime" />
+          <input type="datetime" id="datetime" name="datetime" />
         </td>
         <td>
-          <label class="error" for="date">
+          <label for="date">
             Date
           </label>
           <br />
-          <input class="error" type="date" id="date" name="date" />
+          <input type="date" id="date" name="date" />
         </td>
         <td>
-          <label class="error" for="month">
+          <label for="month">
             Month
           </label>
           <br />
-          <input class="error" type="month" id="month" name="month" />
+          <input type="month" id="month" name="month" />
         </td>
       </tr>
       <tr>
         <td>
-          <label class="error" for="search">
+          <label for="search">
             Search
           </label>
           <br />
-          <input class="error" type="search" id="search" name="search" />
+          <input type="search" id="search" name="search" />
         </td>
         <td>
-          <label class="error" for="range">
+          <label for="range">
             Range
           </label>
           <br />
-          <input class="error" type="range" id="range" name="range" />
+          <input type="range" id="range" name="range" />
         </td>
         <td>
-          <label class="error" for="file">
+          <label for="file">
             File upload
           </label>
           <br />
-          <input class="error" type="file" id="file" name="file" />
+          <input type="file" id="file" name="file" />
         </td>
       </tr>
     </table>
