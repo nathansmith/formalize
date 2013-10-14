@@ -35,13 +35,13 @@
   .input_full {
     width: 100%;
   }
-  // Added via JS to <textarea> and class="input-full".
-  // Applies only to IE7. Other browsers don't need it.
-}
 
-.input_full_wrap {
-  display: block;
-  padding-right: 8px;
+  // Added via JS to <textarea> and class="input_full".
+  // Applies only to IE7. Other browsers don't need it.
+  .input_full_wrap {
+    display: block;
+    padding-right: 8px;
+  }
 }
 
 // `UI Consistency
@@ -61,9 +61,10 @@ textarea {
   &:invalid {
     @include box-shadow(none);
   }
+
   // Add blue glow.
   &:focus {
-    @include box-shadow(#0066ff 0 0 5px 0);
+    @include box-shadow(#06f 0 0 5px 0);
     // for Opera
     z-index: 1;
   }
@@ -86,20 +87,12 @@ input[type="button"] {
   -webkit-appearance: none;
   @include border-radius(4px);
   @include background-clip(padding-box);
-  // Base64 encoded "../images/button.png' with IE7 fallback
-  background: #dddddd url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAAAAADhgtq/AAAAHElEQVQoz2P8z4ADsOCW+UeGnsFs2nDzz5AMHQA+JRlAyyOraAAAAABJRU5ErkJggg==) repeat-x;
-  @if $legacy-support-for-ie7 {
-    background: #dddddd image-url("button.png") repeat-x;
-  }
-  @include background-image(linear-gradient(white, #dddddd));
+  @include background-image(linear-gradient(white, #ddd));
   border: 1px solid;
-  border-color: #dddddd #bbbbbb #999999;
+  border-color: #ddd #bbb #999;
   cursor: pointer;
-  color: #333333;
+  color: #333;
   display: inline-block;
-  // Helvetica Neue present, because it works better
-  // for line-height on buttons than Arial, on OS X.
-  font: bold 12px / 1.3 "Helvetica Neue", Arial, "Liberation Sans", FreeSans, sans-serif;
   outline: 0;
   overflow: visible;
   margin: 0;
@@ -108,20 +101,35 @@ input[type="button"] {
   text-decoration: none;
   vertical-align: top;
   width: auto;
+
+  // Helvetica Neue present, because it works better
+  // for line-height on buttons than Arial, on OS X.
+  font: bold 12px/1.3 "Helvetica Neue", Arial, "Liberation Sans", FreeSans, sans-serif;
+
+  // Base64 encoded "../images/button.png' with IE7 fallback
+  background: #ddd url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAAAAADhgtq/AAAAHElEQVQoz2P8z4ADsOCW+UeGnsFs2nDzz5AMHQA+JRlAyyOraAAAAABJRU5ErkJggg==) repeat-x;
+
+  @if $legacy-support-for-ie7 {
+    background: #ddd image-url("button.png") repeat-x;
+  }
+
   &:hover {
-    @include background-image(linear-gradient(white, #eeeeee 1px, #cccccc));
+    @include background-image(linear-gradient(white, #eee 1px, #ccc));
     text-decoration: none;
   }
+
   &:active {
-    @include background-image(linear-gradient(#dddddd, #eeeeee));
+    @include background-image(linear-gradient(#ddd, #eee));
     @include box-shadow(inset rgba(black, 0.25) 0 1px 2px 0);
-    border-color: #999999 #bbbbbb #dddddd;
+    border-color: #999 #bbb #ddd;
   }
+
   @if $legacy-support-for-ie7 {
     // IE7
     *padding-top: 2px;
     *padding-bottom: 0;
   }
+
   // Kill phantom spacing and dotted
   // border that appears in Firefox.
   &::-moz-focus-inner {
@@ -135,6 +143,7 @@ input[type="button"] {
     // IE7
     *padding-bottom: 3px;
   }
+
   button {
     // IE7
     *padding-top: 1px;
@@ -170,19 +179,22 @@ input[type="week"] {
   padding: 2px 3px;
   text-align: left;
   font-size: 13px;
+  height: 1.8em;
+  vertical-align: top;
+
   // Leaving out Helvetica Neue, to not throw off size="..."
   // on inputs. Arial is more reliable, on Windows and OS X.
   font-family: Arial, "Liberation Sans", FreeSans, sans-serif;
-  height: 1.8em;
-  vertical-align: top;
+
   @if $legacy-support-for-ie7 {
     // IE7
     *padding-top: 2px;
     *padding-bottom: 1px;
     *height: auto;
   }
+
   &[disabled] {
-    background-color: #eeeeee;
+    background-color: #eee;
   }
 }
 
@@ -198,7 +210,7 @@ a.button_disabled {
   -webkit-user-select: none;
   -khtml-user-select: none;
   user-select: none;
-  color: #888888;
+  color: #888;
   cursor: default;
 }
 
@@ -207,17 +219,17 @@ a.button_disabled {
 // Cannot stack with WebKit's.
 input::-webkit-input-placeholder,
 textarea::-webkit-input-placeholder {
-  color: #888888;
+  color: #888;
 }
 
 input:-moz-placeholder,
 textarea:-moz-placeholder {
-  color: #888888;
+  color: #888;
 }
 
 input.placeholder_text,
 textarea.placeholder_text {
-  color: #888888;
+  color: #888;
 }
 
 textarea,
@@ -231,6 +243,7 @@ select[multiple] {
 select[size="0"],
 select[size="1"] {
   height: 1.8em;
+
   @if $legacy-support-for-ie7 {
     // IE7
     *height: auto;
@@ -245,6 +258,7 @@ select[size="1"] {
     background-image: none;
     padding-right: 3px;
   }
+
   select,
   select[size="0"],
   select[size="1"] {
@@ -254,25 +268,27 @@ select[size="1"] {
     background-position: right center;
     padding-right: 20px;
   }
+
   ::-webkit-validation-bubble-message {
     -webkit-box-shadow: none;
     box-shadow: none;
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #666666), color-stop(1, black));
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #666), color-stop(1, black));
     border: 0;
     color: white;
-    font: 13px / 17px "Lucida Grande", Arial, "Liberation Sans", FreeSans, sans-serif;
+    font: 13px/17px "Lucida Grande", Arial, "Liberation Sans", FreeSans, sans-serif;
     overflow: hidden;
     padding: 15px 15px 17px;
     text-shadow: black 0 0 1px;
     min-height: 16px;
   }
+
   ::-webkit-validation-bubble-arrow,
   ::-webkit-validation-bubble-top-outer-arrow,
   ::-webkit-validation-bubble-top-inner-arrow {
     -webkit-box-shadow: none;
     box-shadow: none;
-    background: #666666;
-    border-color: #666666;
+    background: #666;
+    border-color: #666;
   }
 }
 
@@ -287,8 +303,10 @@ optgroup {
   color: black;
   font-style: normal;
   font-weight: normal;
+
   // Font family repeated, for Firefox.
   font-family: Arial, "Liberation Sans", FreeSans, sans-serif;
+
   // Kill phantom spacing and dotted
   // border that appears in Firefox.
   &::-moz-focus-inner {
@@ -299,46 +317,55 @@ optgroup {
 
 @if $legacy-support-for-ie6 {
   // `IE6
-  // //----------------------------------------------------------------------------------------------------
+  //----------------------------------------------------------------------------------------------------
+
   // Everything below this line is for IE6.
   // Delete it if you don't support it! :)
+
   // Classes are added dynamically via JS,
   // because IE6 doesn't support attribute
   // selectors: .ie6_button, .ie6_input, etc.
+
   // Note: These style rules are somewhat
   // duplicated because IE6 bombs out when
   // it sees attribute selectors. Example:
+
   //   .ie6_button {
   //     This works in IE6.
   //   }
+
   //   .ie6_button,
   //   input[type=submit] {
   //     This doesn't work.
   //   }
+
   .ie6_button,
   * html button,
   * html a.button {
-    background: #dddddd image-url("button.png") repeat-x;
+    background: #ddd image-url("button.png") repeat-x;
     border: 1px solid;
-    border-color: #dddddd #bbbbbb #999999;
+    border-color: #ddd #bbb #999;
     cursor: pointer;
-    color: #333333;
-    font: bold 12px / 1.2 Arial, sans-serif;
+    color: #333;
+    font: bold 12px/1.2 Arial, sans-serif;
     padding: 2px 10px 0;
     text-decoration: none;
     overflow: visible;
     vertical-align: top;
     width: auto;
   }
+
   * html a.button {
     position: relative;
     top: 3px;
     padding-bottom: 2px;
   }
+
   * html button {
     padding-top: 1px;
     padding-bottom: 1px;
   }
+
   .ie6_input,
   * html textarea,
   * html select {
@@ -351,15 +378,18 @@ optgroup {
     font-family: Arial, sans-serif;
     vertical-align: top;
   }
+
   * html select {
     margin-top: 1px;
   }
+
   .placeholder_text,
   .ie6_input_disabled,
   .ie6_button_disabled {
-    color: #888888;
+    color: #888;
   }
+
   .ie6_input_disabled {
-    background: #eeeeee;
+    background: #eee;
   }
 }

@@ -29,12 +29,11 @@
   .input_full
     width: 100%
 
-  // Added via JS to <textarea> and class="input-full".
-  // Applies only to IE7. Other browsers don't need it. 
-
-.input_full_wrap
-  display: block
-  padding-right: 8px
+  // Added via JS to <textarea> and class="input_full".
+  // Applies only to IE7. Other browsers don't need it.
+  .input_full_wrap
+    display: block
+    padding-right: 8px
 
 // `UI Consistency
 //----------------------------------------------------------------------------------------------------
@@ -73,10 +72,6 @@ input[type="button"]
   -webkit-appearance: none
   +border-radius(4px)
   +background-clip(padding-box)
-  // Base64 encoded "../images/button.png' with IE7 fallback
-  background: #ddd  url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAAAAADhgtq/AAAAHElEQVQoz2P8z4ADsOCW+UeGnsFs2nDzz5AMHQA+JRlAyyOraAAAAABJRU5ErkJggg==) repeat-x
-  @if $legacy-support-for-ie7
-    background: #ddd image-url('button.png') repeat-x
   +background-image(linear-gradient(#fff, #ddd))
   border: 1px solid
   border-color: #ddd #bbb #999
@@ -85,7 +80,7 @@ input[type="button"]
   display: inline-block
   // Helvetica Neue present, because it works better
   // for line-height on buttons than Arial, on OS X.
-  font: bold 12px/1.3 'Helvetica Neue', Arial, 'Liberation Sans', FreeSans, sans-serif
+  font: bold 12px/1.3 "Helvetica Neue", Arial, "Liberation Sans", FreeSans, sans-serif
   outline: 0
   overflow: visible
   margin: 0
@@ -94,13 +89,22 @@ input[type="button"]
   text-decoration: none
   vertical-align: top
   width: auto
+
+    // Base64 encoded "../images/button.png" with IE7 fallback
+  background: #ddd url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAAAAADhgtq/AAAAHElEQVQoz2P8z4ADsOCW+UeGnsFs2nDzz5AMHQA+JRlAyyOraAAAAABJRU5ErkJggg==) repeat-x
+
+  @if $legacy-support-for-ie7
+    background: #ddd image-url("button.png") repeat-x
+
   &:hover
     +background-image(linear-gradient(#fff, #eee 1px, #ccc))
     text-decoration: none
+
   &:active
     +background-image(linear-gradient(#ddd, #eee))
     +box-shadow(inset rgba(#000, 0.25) 0 1px 2px 0)
     border-color: #999 #bbb #ddd
+
   @if $legacy-support-for-ie7
     // IE7
     *padding-top: 2px
@@ -120,7 +124,7 @@ input[type="button"]
   button
     // IE7
     *padding-top: 1px
-    *padding-bottom: 1px  
+    *padding-bottom: 1px
 
 textarea,
 select,
@@ -150,18 +154,21 @@ input[type="week"]
   padding: 2px 3px
   text-align: left
   font-size: 13px
-  // Leaving out Helvetica Neue, to not throw off size="..."
-  // on inputs. Arial is more reliable, on Windows and OS X.
-  font-family: Arial, 'Liberation Sans', FreeSans, sans-serif
   height: 1.8em
   vertical-align: top
+
+  // Leaving out Helvetica Neue, to not throw off size="..."
+  // on inputs. Arial is more reliable, on Windows and OS X.
+  font-family: Arial, "Liberation Sans", FreeSans, sans-serif
+
+  &[disabled]
+    background-color: #eee
+
   @if $legacy-support-for-ie7
     // IE7
     *padding-top: 2px
     *padding-bottom: 1px
     *height: auto
-  &[disabled]
-    background-color: #eee  
 
 button[disabled],
 input[disabled],
@@ -203,9 +210,10 @@ select[multiple]
 select[size="0"],
 select[size="1"]
   height: 1.8em
+
   @if $legacy-support-for-ie7
     // IE7
-    *height: auto  
+    *height: auto
 
 // Tweaks for Safari + Chrome.
 @media (-webkit-min-device-pixel-ratio: 0)
@@ -230,7 +238,7 @@ select[size="1"]
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #666), color-stop(1, #000))
     border: 0
     color: #fff
-    font: 13px/17px 'Lucida Grande', Arial, 'Liberation Sans', FreeSans, sans-serif
+    font: 13px/17px "Lucida Grande", Arial, "Liberation Sans", FreeSans, sans-serif
     overflow: hidden
     padding: 15px 15px 17px
     text-shadow: #000 0 0 1px
@@ -254,8 +262,9 @@ optgroup
   color: #000
   font-style: normal
   font-weight: normal
+
   // Font family repeated, for Firefox.
-  font-family: Arial, 'Liberation Sans', FreeSans, sans-serif
+  font-family: Arial, "Liberation Sans", FreeSans, sans-serif
 
   // Kill phantom spacing and dotted
   // border that appears in Firefox.
@@ -265,7 +274,7 @@ optgroup
 
 @if $legacy-support-for-ie6
   // `IE6
-    //----------------------------------------------------------------------------------------------------
+  //----------------------------------------------------------------------------------------------------
 
   // Everything below this line is for IE6.
   // Delete it if you don't support it! :)
@@ -290,7 +299,7 @@ optgroup
   .ie6_button,
   * html button,
   * html a.button
-    background: #ddd image-url('button.png') repeat-x
+    background: #ddd image-url("button.png") repeat-x
     border: 1px solid
     border-color: #ddd #bbb #999
     cursor: pointer
